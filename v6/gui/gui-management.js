@@ -323,7 +323,7 @@ const managementPointElementHandler = {
 				if (gui.management.sorting.sortOften) gui.management.update(true)
 				gui.management.dvHover.classList.toggle("bought", !!x.bought)
 				gui.management.dvHover.classList.toggle("available", !!x.available)
-				gui.management.hoverFunction = () => x.building.name + "\n" + x.building.desc + "\n" + (this.point?this.point.buildings[x.id]?x.building.info(this.point):"Gold: "+displayNumber(this.point.costs[x.id]) + ETAString(this.point.costs[x.id],"gold",true):"?")
+				gui.management.hoverFunction = () => x.building.name + "\n" + x.building.desc + "\n" + (this.point?this.point.buildings[x.id]?x.building.info(this.point):"黄金: "+displayNumber(this.point.costs[x.id]) + ETAString(this.point.costs[x.id],"gold",true):"?")
 				gui.management.dvHover.innerText = gui.management.hoverFunction()
 //				gui.management.dvHover.innerText = x.building.name + "\n" + x.building.desc + "\n" + (this.point?this.point.buildings[x.id]?x.building.info(this.point):"Gold: "+displayNumber(this.point.costs[x.id]):"?")
 			}
@@ -331,7 +331,7 @@ const managementPointElementHandler = {
 				gui.management.dvHover.classList.toggle("hidden", false)
 				gui.management.dvHover.classList.toggle("bought", !!x.bought)
 				gui.management.dvHover.classList.toggle("available", !!x.available)
-				gui.management.hoverFunction = () => x.building.name + "\n" + x.building.desc + "\n" + (this.point?this.point.buildings[x.id]?x.building.info(this.point):"Gold: "+displayNumber(this.point.costs[x.id]) + ETAString(this.point.costs[x.id],"gold",true):"?")
+				gui.management.hoverFunction = () => x.building.name + "\n" + x.building.desc + "\n" + (this.point?this.point.buildings[x.id]?x.building.info(this.point):"黄金: "+displayNumber(this.point.costs[x.id]) + ETAString(this.point.costs[x.id],"gold",true):"?")
 				gui.management.dvHover.innerText = gui.management.hoverFunction()
 //				gui.management.dvHover.innerText = x.building.name + "\n" + x.building.desc + "\n" +  (this.point?this.point.buildings[x.id]?x.building.info(this.point):"Gold: "+displayNumber(this.point.costs[x.id]):"?")
 			}

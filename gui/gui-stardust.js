@@ -300,7 +300,7 @@ const StardustTab = Template({
 				this.newMapLevelSlider.dvRight.innerText = game.realMap.level
 				this.newMapLevelSlider.update()
 				this.selector.update(true)
-				this.dvVirtualCreateCost.innerText = "Cost: " + displayNumber(virtualMapCost(this.newMapLevel),0) + " stardust"
+				this.dvVirtualCreateCost.innerText = "成本: " + displayNumber(virtualMapCost(this.newMapLevel),0) + " stardust"
 				
 				while (this.dvVirtualMaps.firstChild)
 					this.dvVirtualMaps.firstChild.remove()
@@ -332,7 +332,7 @@ const StardustTab = Template({
 				const stars = map.points.filter(x => x.exit && x.owned).length
 				const progress = map.points.filter(x => x.owned).length / map.points.length * 100
 				const exits = map.exitsCount
-				currentMap.dvLevel.innerText = "Level "+map.level+", "+Math.floor(progress)+(map.name == "main"?"%\nStars: ":"%\nStardust: ")+stars+"/"+((map.level == game.realMap.level && progress < 100)?"???":exits)
+				currentMap.dvLevel.innerText = "等级 "+map.level+", "+Math.floor(progress)+(map.name == "main"?"%\n星星: ":"%\n星尘: ")+stars+"/"+((map.level == game.realMap.level && progress < 100)?"???":exits)
 				if (currentMap.dvEvolve)
 					currentMap.dvEvolve.classList.toggle("enabled", progress == 100 && (map.level > 30 && !map.evolved || map.evolved < 3))
 			}
@@ -366,7 +366,7 @@ const mapDisplayHandler = {
 		const stars = map.points.filter(x => x.exit && x.owned).length
 		const progress = map.points.filter(x => x.owned).length / map.points.length * 100
 		const exits = map.exitsCount
-		this.dvLevel = createElement("div", "virtual-map-level", this.dvDisplay, "Level "+map.level+", "+Math.floor(progress)+(this.name == "main"?"%\nStars: ":"%\nStardust: ")+stars+"/"+((map.level == game.realMap.level && progress < 100)?"???":exits))
+		this.dvLevel = createElement("div", "virtual-map-level", this.dvDisplay, "等级 "+map.level+", "+Math.floor(progress)+(this.name == "main"?"%\nStars: ":"%\nStardust: ")+stars+"/"+((map.level == game.realMap.level && progress < 100)?"???":exits))
 		const focus = map.focus?POINT_TYPES[map.focus]:0
 		this.dvFocus = createElement("div", "virtual-map-focus"+(focus?" bg-"+focus:""), this.dvDisplay, (focus?focus.capitalizeFirst():""))
 		this.dvCharge = createElement("div", "virtual-map-charge", this.dvDisplay)

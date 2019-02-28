@@ -620,8 +620,8 @@ const sliderHandler = {
 			this.dvColor.style.fontSize = (350 / this.target.specialTextSize) + "px"
 		}
 									
-		this.dvInfo.innerText = (!point.index?"Gold:" + displayNumber(this.real.attackTarget):"Attack: " + displayNumber(this.real.attackTarget)) + "/s\n" +
-								(this.clone == 2?"Click to unsummon":(point.boss || this.clone || game.skills.power)?"":("Spirit: " + displayNumber(this.real.attackSpirit) + "\n"))
+		this.dvInfo.innerText = (!point.index?"黄金:" + displayNumber(this.real.attackTarget):"攻击: " + displayNumber(this.real.attackTarget)) + "/s\n" +
+								(this.clone == 2?"Click to unsummon":(point.boss || this.clone || game.skills.power)?"":("精神: " + displayNumber(this.real.attackSpirit) + "\n"))
 
 		this.dvTarget.classList.toggle("weak", !game.skills.power && !point.boss && !this.clone && point.real.localPower > this.real.attackSpirit)
 		if (game.skills.charge)
@@ -637,7 +637,7 @@ const sliderHandler = {
 		if (this.real)
 			this.imbuements.attributes.slice(3).map(x => {
 				x.dvDisplay.classList.toggle("alert", game.resources.mana / this.real.imbuementCosts[x.name] < 10)
-				x.dvDisplay.title = x.name.capitalizeFirst() + ": " + displayNumber(this.real.imbuementCosts[x.name]) + " mana/s"
+				x.dvDisplay.title = x.name.capitalizeFirst() + ": " + displayNumber(this.real.imbuementCosts[x.name]) + " 法力/秒"
 			})
 		this.dvTargetPoint.innerText = this.target?(this.target.specialText||""):""
 		if (this.target) {
