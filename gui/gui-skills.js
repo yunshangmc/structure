@@ -43,13 +43,13 @@ const SkillsTab = Template({
 			if (skill.unknown && skill.science <= game.resources.science) {
 				skill.unknown = false
 				skill.dvDesc.innerText = skill.desc
-				skill.dvCost.innerText = game.skills[skill.id]?"Unlocked":"EXP: " + displayNumber(skill.exp * game.skillCostMult, 0) + " / x" + (skill.mult || 1)
+				skill.dvCost.innerText = game.skills[skill.id]?"已解锁":"经验: " + displayNumber(skill.exp * game.skillCostMult, 0) + " / x" + (skill.mult || 1)
 			}
 			if (available) {
 				total++
 			}
 		})
-		gui.tabs.setTitle("skills", total?"Skills ("+total+")":"Skills")
+		gui.tabs.setTitle("skills", total?"技能 ("+total+")":"技能")
 	},
 	
 	updateSkills() {
@@ -72,10 +72,10 @@ const SkillsTab = Template({
 					this.expSkills.push(skill)
 				
 				skill.dvDesc.innerText = skill.unknown?"???":skill.desc
-				skill.dvCost.innerText = game.skills[skill.id]?"Unlocked":skill.unknown?"Science: "+displayNumber(skill.science):"EXP: " + displayNumber(skill.exp * game.skillCostMult, 0) + " / x" + (skill.mult || 1)
+				skill.dvCost.innerText = game.skills[skill.id]?"已解锁":skill.unknown?"科学: "+displayNumber(skill.science):"经验: " + displayNumber(skill.exp * game.skillCostMult, 0) + " / x" + (skill.mult || 1)
 			}
 		})
-		gui.dvExpMult.innerText = "Cost multiplier: x" + displayNumber(game.skillCostMult)
+		gui.dvExpMult.innerText = "成本倍数: x" + displayNumber(game.skillCostMult)
 	},
 	
 	update(forced) {
@@ -85,11 +85,11 @@ const SkillsTab = Template({
 				fullUpdate = true
 			}
 			if (game.real)
-				skill.dvCost.innerText = "Science: "+displayNumber(skill.science) + " (" + shortTimeString((skill.science - game.resources.science) / game.real.production.science) + ")"
+				skill.dvCost.innerText = "科学: "+displayNumber(skill.science) + " (" + shortTimeString((skill.science - game.resources.science) / game.real.production.science) + ")"
 		})
 		this.expSkills.map(skill => {
 			if (game.real)
-				skill.dvCost.innerText = "EXP: " + displayNumber(skill.exp * game.skillCostMult, 0) + ETAString(skill.exp * game.skillCostMult, "exp", true) +" / x" + (skill.mult || 1)
+				skill.dvCost.innerText = "经验: " + displayNumber(skill.exp * game.skillCostMult, 0) + ETAString(skill.exp * game.skillCostMult, "exp", true) +" / x" + (skill.mult || 1)
 		})
 		if (fullUpdate) this.updateSkills()
 	}

@@ -5,7 +5,7 @@ var cnItems = {
     'Power': '力量',
     'Spirit': '精神',
     'Unknown': '未知',
-    '': '',
+    'None': '无',
     '': '',
     '': '',
     '': '',
