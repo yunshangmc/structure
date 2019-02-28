@@ -501,12 +501,12 @@ const game = {
 			let progress = game.realMap.level > 20 && game.map.points.filter(x => x.boss && x.boss > game.map.boss).length
 			if (!progress && !this.map.virtual) {
 				let txt = ""
-				if (!game.map.complete) txt += "The map is not completed.\n"
-				if (game.map.points.some(x => x.exit && !x.owned)) txt += "There are stars you are leaving behind.\n"
-				if (game.skills.book_enchantments1 && game.map.points.some(x => x.index && !x.enchanted && !x.boss && (x.manaCosts.enchantDoom || x.manaCosts.enchantGold || x.manaCosts.enchantMana || x.manaCosts.enchantGrowth))) txt += "There are nodes you can enchant.\n"
-				if (game.skills.imprint && game.map.points.some(x => x.canImprint && !x.harvested && !x.harvestTime)) txt += "There are nodes you can imprint.\n"
-				if (game.map.points.some(x => x.harvesting)) txt += "There are unfinished imprints that will be lost.\n"
-				if (!confirm(txt + "Ascend to the next map?"))
+				if (!game.map.complete) txt += "地图还没有完成。\n"
+				if (game.map.points.some(x => x.exit && !x.owned)) txt += "你留下了许多星星。\n"
+				if (game.skills.book_enchantments1 && game.map.points.some(x => x.index && !x.enchanted && !x.boss && (x.manaCosts.enchantDoom || x.manaCosts.enchantGold || x.manaCosts.enchantMana || x.manaCosts.enchantGrowth))) txt += "有些节点你可以使其附魔。\n"
+				if (game.skills.imprint && game.map.points.some(x => x.canImprint && !x.harvested && !x.harvestTime)) txt += "有些节点是可以标记的。\n"
+				if (game.map.points.some(x => x.harvesting)) txt += "有些未完成的印记将会丢失。\n"
+				if (!confirm(txt + "转生到下一个地图?"))
 					return
 			}
 			
