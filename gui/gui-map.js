@@ -174,7 +174,7 @@ const MapTab = Template({
 				visibles++
 				const value = game.resources[x.name]
 				const production = x.name == "stardust"?game.real.stardustChange:game.real.production[x.name]
-				const newValue = displayNumber(value) + (production?" ("+(production>0?(x.name == "science" && game.researching?"Researching ":"+"):"")+displayNumber(production)+"/s)":"")
+				const newValue = displayNumber(value) + (production?" ("+(production>0?(x.name == "science" && game.researching?"研究 ":"+"):"")+displayNumber(production)+"/秒)":"")
 				if (newValue != x.oldValue)
 					x.dvValue.innerText = x.oldValue = newValue
 			}
