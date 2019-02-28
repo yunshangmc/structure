@@ -8,8 +8,8 @@ const LETTER_PAIRS = Array(26*26).fill(0).map((x,n) => LETTERS[n/26|0]+LETTERS[n
 
 const ARTIFACTS = {
 	pickaxe: {
-		name: "Radiant pickaxe",
-		desc: "Slider digs a lot more efficiently",
+		name: "闪光的镐子",
+		desc: "滑块挖掘速度更快",
 		codeLength : 5,
 		codeCost : 3e7,
 		depth : 2.341e4,
@@ -21,8 +21,8 @@ const ARTIFACTS = {
 		}
 	},
 	doublePickaxe: {
-		name : "Double work pickaxe",
-		desc : "Slider mines less efficiently but counts as two workers",
+		name : "加倍工作镐",
+		desc : "滑块采集效率下降，但记为两名工人",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 5,
 		codeCost : 1e15,
@@ -36,8 +36,8 @@ const ARTIFACTS = {
 		iconTextColor: "var(--bg-power)",		
 	},
 	alwaysPickaxe: {
-		name : "Automatic pickaxe",
-		desc : "Slider counts as a worker even when not mining",
+		name : "自动镐",
+		desc : "即使不挖掘，也会有一名工人的产出",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 5,
 		codeCost : 1e15,
@@ -51,8 +51,8 @@ const ARTIFACTS = {
 		iconTextColor: "var(--bg-spirit)",		
 	},
 	expOrb: {
-		name : "Orb of experience",
-		desc : "Triples equipped slider's gained experience",
+		name : "经验珠",
+		desc : "装备的滑块获得三倍经验值",
 		codeLength : 5,
 		codeCost : 1e7,
 		depth : 1.43e2,
@@ -64,8 +64,8 @@ const ARTIFACTS = {
 		glyph : "none-emptyorb",
 	},
 	channelOrb: {
-		name : "Channeller's orb",
-		desc : "Channelling does not prevent growth",
+		name : "通灵球",
+		desc : "通灵不再影响成长",
 		codeLength : 12,
 		codeCost : 2e9,
 		depth : 7.777e16,
@@ -77,8 +77,8 @@ const ARTIFACTS = {
 		glyph : "none-orb",
 	},
 	summonOrb: {
-		name : "Summonner's orb",
-		desc : "Channelling is doubled and does not prevent growth, but only affects summons",
+		name : "召唤珠",
+		desc : "通灵效果翻倍并不影响成长, 但只对召唤有效",
 		codeLength : 29,
 		codeCost : 75e12,
 		depth : 2.456e39,
@@ -90,8 +90,8 @@ const ARTIFACTS = {
 		glyph : "mana-emptyorb",
 	},
 	growthOrb: {
-		name : "Orb of growth",
-		desc : "Triples equipped slider's actual growth",
+		name : "成长珠",
+		desc : "装备的滑块获得三倍成长",
 		codeLength : 13,
 		codeCost : 32e9,
 		depth : 2.627e21,
@@ -103,8 +103,8 @@ const ARTIFACTS = {
 		glyph : "storm-emptyorb",
 	},
 	powerOrb: {
-		name : "Orb of power",
-		desc : "All the slider's growth is focused in power",
+		name : "能量珠",
+		desc : "滑块的所有成长转化为能量",
 		codeLength : 6,
 		codeCost : 1e8,
 		depth : 3.141e6,
@@ -116,8 +116,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-power)"
 	},
 	bloodOrb: {
-		name : "Orb of blood",
-		desc : "All the slider's elemental growth is focused in blood",
+		name : "血液珠",
+		desc : "滑块的所有元素成长转换为血液成长",
 		codeLength : 8,
 		codeCost : 3e8,
 		depth : 6.264e12,
@@ -129,8 +129,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-blood)"
 	},
 	fireOrb: {
-		name : "Orb of fire",
-		desc : "All the slider's elemental growth is focused in fire",
+		name : "火焰珠",
+		desc : "滑块的所有元素成长转换为火焰成长",
 		codeLength : 9,
 		codeCost : 4e8,
 		depth : 4.91e17,
@@ -142,8 +142,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-fire)"
 	},
 	iceOrb: {
-		name : "Orb of ice",
-		desc : "All the slider's elemental growth is focused in ice",
+		name : "冰珠",
+		desc : "滑块的所有元素成长转换为冰成长",
 		codeLength : 9,
 		codeCost : 5e8,
 		depth : 9.326e14,
@@ -155,8 +155,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-ice)"
 	},
 	metalOrb: {
-		name : "Orb of metal",
-		desc : "All the slider's elemental growth is focused in metal",
+		name : "金属珠",
+		desc : "滑块的所有元素成长转换为金属成长",
 		codeLength : 9,
 		codeCost : 6e8,
 		depth : 1.61e18,
@@ -168,8 +168,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-metal)"
 	},
 	greatOrb: {
-		name : "Great orb of elements",
-		desc : "Redistributes power growth among elements",
+		name : "大元素珠",
+		desc : "重新分配元素成长",
 		codeLength : 21,
 		codeCost : 5e12,
 		depth : 7.634e35,
@@ -181,8 +181,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--foreground)"
 	},	
 	targetOrb: {
-		name : "Orb of draining",
-		desc : "When targetting an elemental node, target element growth is boosted on this slider",
+		name : "吸取珠",
+		desc : "目标为元素节点时，基于目标元素成长增强滑块元素成长",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 5,
 		codeCost : 1e15,
@@ -196,8 +196,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-spirit)"
 	},
 	superTargetOrb: {
-		name : "Supreme orb of draining",
-		desc : "When targetting an elemental node, target element growth is boosted on every slider",
+		name : "至高吸取珠",
+		desc : "目标为元素节点时, 所有滑块基于目标元素成长都获得元素成长增强",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 6,
 		codeCost : 2e16,
@@ -211,8 +211,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-spirit)"
 	},
 	masterOrb: {
-		name : "Orb of domination",
-		desc : "When targetting an elemental node, element target is weak to growth is boosted on this slider",
+		name : "主宰珠",
+		desc : "目标为元素节点时, 滑块元素成长增强相当于目标的成长削弱",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 7,
 		codeCost : 7e15,
@@ -226,8 +226,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--shade8)"
 	},
 	superMasterOrb: {
-		name : "Supreme orb of domination",
-		desc : "When targetting an elemental node, element target is weak to growth is boosted on every slider",
+		name : "至高主宰球",
+		desc : "目标为元素节点时, 所有滑块元素成长增强相当于目标的成长削弱",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 7,
 		codeCost : 2e16,
@@ -241,8 +241,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--shade8)"
 	},
 	bloodRod: {
-		name : "Rod of blood",
-		desc : "Deals unblockable 5% of slider's blood damage",
+		name : "血液之杖",
+		desc : "造成相当于血液伤害 5% 的穿透伤害",
 		codeLength : 9,
 		codeCost : 5e8,
 		depth : 5.251e15,
@@ -254,8 +254,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-blood)"
 	},
 	fireRod: {
-		name : "Rod of fire",
-		desc : "Deals unblockable 5% of slider's fire damage",
+		name : "火焰之杖",
+		desc : "造成相当于火焰伤害 5% 的穿透伤害",
 		codeLength : 8,
 		codeCost : 3e8,
 		depth : 8.326e11,
@@ -267,8 +267,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-fire)"
 	},
 	iceRod: {
-		name : "Rod of ice",
-		desc : "Deals unblockable 5% of slider's ice damage",
+		name : "冰之杖",
+		desc : "造成相当于冰伤害 5% 的穿透伤害",
 		codeLength : 6,
 		codeCost : 3e8,
 		depth : 8.231e8,
@@ -280,8 +280,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-ice)"
 	},
 	metalRod: {
-		name : "Rod of metal",
-		desc : "Deals unblockable 5% of slider's metal damage",
+		name : "金属之杖",
+		desc : "造成相当于金属伤害 5% 的穿透伤害",
 		codeLength : 9,
 		codeCost : 4e8,
 		depth : 7.272e13,
@@ -293,8 +293,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-metal)"
 	},
 	pierceRod: {
-		name : "Rod of elements",
-		desc : "Deals unblockable 2% of slider's elemental damage",
+		name : "元素之杖",
+		desc : "造成相当于元素伤害 2% 的穿透伤害",
 		codeLength : 14,
 		codeCost : 3e9,
 		depth : 1.234e23,
@@ -306,8 +306,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--foreground)"
 	},
 	nullRod: {
-		name : "Staff of suppression",
-		desc : "Target node's attribute is zeroed on slider while attacking",
+		name : "镇压人员",
+		desc : "攻击时目标节点的滑块属性归零",
 		codeLength : 20,
 		codeCost : 1e11,
 		depth : 1.51e27,
@@ -319,8 +319,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--shade13)"
 	},
 	bloodStaff: {
-		name : "Staff of wounds",
-		desc : "Deals unblockable blood damage",
+		name : "杀戮人员",
+		desc : "造成血液的穿透伤害",
 		codeLength : 23,
 		codeCost : 15e12,
 		depth : 1.743e45,
@@ -332,8 +332,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-blood)"
 	},
 	fireStaff: {
-		name : "Staff of burns",
-		desc : "Deals unblockable fire damage",
+		name : "纵火人员",
+		desc : "造成火焰的穿透伤害",
 		codeLength : 23,
 		codeCost : 15e12,
 		depth : 3.764e37,
@@ -345,8 +345,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-fire)"
 	},
 	iceStaff: {
-		name : "Staff of chilblains",
-		desc : "Deals unblockable ice damage",
+		name : "冷冻人员",
+		desc : "造成冰的穿透伤害",
 		codeLength : 23,
 		codeCost : 15e12,
 		depth : 4.335e42,
@@ -358,8 +358,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-ice)"
 	},
 	metalStaff: {
-		name : "Staff of cuts",
-		desc : "Deals unblockable metal damage",
+		name : "切割人员",
+		desc : "造成金属的穿透伤害",
 		codeLength : 23,
 		codeCost : 15e12,
 		depth : 9.985e39,
@@ -371,8 +371,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-metal)"
 	},
 	stormStaff: {
-		name : "Staff of storms",
-		desc : "Sliders elemental power boosts every Mean machine on the shortest path from core to target",
+		name : "风暴人员",
+		desc : "获得基于离滑块最近的节点上的均衡机器数量的元素加成",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 4,
 		codeCost : 2e16,
@@ -386,8 +386,8 @@ const ARTIFACTS = {
 		iconTextColor : "#5588DD"
 	},
 	channelReceiver: {
-		name: "Student's amulet",
-		desc: "Slider receives double bonus from channelling",
+		name: "学生的护身符",
+		desc: "滑块通灵获得两倍效果",
 		codeLength : 7,
 		codeCost : 5e8,
 		depth : 2.515e10,
@@ -399,8 +399,8 @@ const ARTIFACTS = {
 		iconTextColor: "var(--foreground)"
 	},
 	warAmulet: {
-		name : "Amulet of endless battles",
-		desc : "Slider accumulates bonus damage while attacking same point",
+		name : "无尽战斗护身符",
+		desc : "持续攻击同一个节点时滑块获得攻击加成",
 		codeLength : 12,
 		codeCost : 1e10,
 		depth : 3.126e28,
@@ -412,8 +412,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-power)"
 	},
 	victoryAmulet: {
-		name : "Amulet of victory",
-		desc : "Slider deals bonus damage after capturing a point for a minute per map level",
+		name : "胜利护身符",
+		desc : "滑块获得攻击加成基于夺取一个节点一分钟每地图",
 		codeLength : 11,
 		codeCost : 12e9,
 		depth : 6.654e28,
@@ -425,8 +425,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-blood)"
 	},
 	summonAmulet: {
-		name : "Apprentice's amulet",
-		desc : "Slider has a chance to summon power clone for free if there are no summons attacking same target",
+		name : "学徒护身符",
+		desc : "如果没有召唤物在攻击目标节点，滑块在攻击目标节点时有概率免费召唤一个能量节点",
 		codeLength : 24,
 		codeCost : 1e11,
 		depth : 1.220e30,
@@ -438,8 +438,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-spirit)"
 	},
 	masterSummonAmulet: {
-		name : "Master's amulet",
-		desc : "Slider has a chance to summon elemental clone for free if there are no summons attacking same target",
+		name : "大师护身符",
+		desc : "如果没有召唤物在攻击目标节点，滑块在攻击目标节点时有概率免费召唤一个元素节点",
 		codeLength : 28,
 		codeCost : 3e11,
 		depth : 8.131e30,
@@ -451,8 +451,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-fire)"
 	},
 	legendarySummonAmulet: {
-		name : "Grandmaster's amulet",
-		desc : "Slider has a chance to summon strong elemental",
+		name : "特级大师护身符",
+		desc : "滑块有几率召唤强大的元素",
 		codeLength : 30,
 		codeCost : 5e13,
 		depth : 1.481e43,
@@ -464,8 +464,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-ice)"
 	},
 	emeraldSword: {
-		name : "Emerald sword",
-		desc : "Deals extra spirit and fear based damage that ignores all kinds of resistance",
+		name : "翡翠剑",
+		desc : "造成无视所有抵抗的精神和恐惧伤害",
 		codeLength : 11,
 		codeCost : 23e9,
 		depth : 6.666e19,
@@ -477,8 +477,8 @@ const ARTIFACTS = {
 		glyph : "spirit-sword"
 	},
 	loneSword: {
-		name : "Sword of the stranger",
-		desc : "Slider deals additional unblockable elemental damage if attacking alone.",
+		name : "陌生人的剑",
+		desc : "如果滑块独自攻击节点，额外造成元素的穿透伤害.",
 		codeLength : 20,
 		codeCost : 5e10,
 		depth : 3.654e29,
@@ -490,8 +490,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--	foreground)"
 	},
 	channelSword: {
-		name : "Conductive sword",
-		desc : "When attacking a node with anti-channel shield, deals reduced damage but lets 10% of channelling through",
+		name : "导电剑",
+		desc : "当攻击一个具有反通灵防御的节点时, 伤害减少但是允许10%的通灵",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 4,
 		codeCost : 6e15,
@@ -505,8 +505,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-power)"
 	},
 	stormSword: {
-		name : "Sword of holy thunderforce",
-		desc : "Sliders elemental power boosts nearby Mean machine",
+		name : "神圣闪电之剑",
+		desc : "滑块的元素伤害受附近的均衡机器影响",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 4,
 		codeCost : 2e15,
@@ -520,8 +520,8 @@ const ARTIFACTS = {
 		iconTextColor : "#5588DD"
 	},
 	channelCrown: {
-		name : "Leader's crown",
-		desc : "Sliders attacking same point as this slider get additional channelling bonus from this slider",
+		name : "领导者头冠",
+		desc : "和这个滑块进攻同一个目标的滑块获得基于这个滑块的通灵加成",
 		codeLength : 10,
 		codeCost : 25e9,
 		depth : 7.651e25,
@@ -533,8 +533,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--foreground)"
 	},
 	selflessCrown: {
-		name : "Crown of the selfless",
-		desc : "If not attacking alone, deals reduced damage but doubles damage of others",
+		name : "无私头冠",
+		desc : "如果不是独自进攻, 降低自身伤害但提高翻倍其它滑块伤害",
 		codeLength : 17,
 		codeCost : 42e10,
 		depth : 9.364e33,
@@ -546,8 +546,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-blood)"
 	},	
 	puppetCrown: {
-		name : "Crown of the puppeteer",
-		desc : "If attacking alongside summons, deals reduced damage but quadruples damage of summons",
+		name : "木偶头冠",
+		desc : "如果和召唤物一起攻击, 降低伤害并提升召唤物四倍伤害",
 		codeLength : 19,
 		codeCost : 50e10,
 		depth : 2.46e34,
@@ -559,8 +559,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-fire)"
 	},	
 	soloCrown: {
-		name : "Crown of the egoist",
-		desc : "If not attacking alone, reduces damage of others but deals doubled damage",
+		name : "自私头冠",
+		desc : "如果不是独自攻击, 降低其它滑块伤害并将自身伤害翻倍",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 5,
 		codeCost : 5e15,
@@ -574,8 +574,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--shade8)"
 	},
 	shareCrown: {
-		name : "Conductive crown",
-		desc : "If not attacking alone, receives and sends no channel bonus but others get doubled channel bonus",
+		name : "导电头冠",
+		desc : "如果不是独自攻击, 不再获得或发送任何通灵，但其它滑块通灵翻倍",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 7,
 		codeCost : 3e15,
@@ -589,8 +589,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-power)"
 	},
 	bloodRing: {
-		name : "Bleeding ring",
-		desc : "Imbuing slider with blood costs nothing",
+		name : "出血戒指",
+		desc : "滑块可以免费补充血液",
 		codeLength : 18,
 		codeCost : 5e10,
 		depth : 2.197e32,
@@ -602,8 +602,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-blood)"
 	},
 	fireRing: {
-		name : "Burning ring",
-		desc : "Imbuing slider with fire costs nothing",
+		name : "燃烧戒指",
+		desc : "滑块可以免费补充火焰",
 		codeLength : 18,
 		codeCost : 5e10,
 		depth : 4.623e30,
@@ -615,8 +615,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-fire)"
 	},
 	iceRing: {
-		name : "Frozen ring",
-		desc : "Imbuing slider with ice costs nothing",
+		name : "冰冻戒指",
+		desc : "滑块可以免费补充冰",
 		codeLength : 18,
 		codeCost : 5e10,
 		depth : 2.316e31,
@@ -628,8 +628,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-ice)"
 	},
 	metalRing: {
-		name : "Darksteel ring",
-		desc : "Imbuing slider with metal costs nothing",
+		name : "暗钢戒指",
+		desc : "滑块可以免费补充金属",
 		codeLength : 18,
 		codeCost : 5e10,
 		depth : 8.147e32,
@@ -641,8 +641,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-metal)"
 	},
 	imbueRing: {
-		name : "Ring of magic power",
-		desc : "Slider retains its power while imbuement is active",
+		name : "魔法戒指",
+		desc : "滑块在充能时仍然保持活跃",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 5,
 		codeCost : 2e16,
@@ -656,8 +656,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-power)"
 	},
 	goldShield: {
-		name : "Shield of gold",
-		desc : "Points captured with the slider get enchanted for gold",
+		name : "黄金盾",
+		desc : "被滑块占领的节点为黄金着迷",
 		codeLength : 12,
 		codeCost : 5e9,
 		depth : 5.015e27,
@@ -669,8 +669,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--enchantgold)"
 	},
 	manaShield: {
-		name : "Shield of mana",
-		desc : "Points captured with the slider get enchanted for mana",
+		name : "法力盾",
+		desc : "被滑块占领的节点为法力着迷",
 		codeLength : 12,
 		codeCost : 5e9,
 		depth : 1.724e28,
@@ -682,8 +682,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--enchantmana)"
 	},	
 	physicalShield: {
-		name : "Shield of fears",
-		desc : "Unprotected points captured with the slider gain a physical shield",
+		name : "恐惧盾",
+		desc : "被滑块占领的未保护的节点获得一个物理防护",
 		codeLength : 17,
 		codeCost : 1e10,
 		depth : 1.313e29,
@@ -695,8 +695,8 @@ const ARTIFACTS = {
 		iconTextColor : "#DD88DD"
 	},
 	magicalShield: {
-		name : "Shield of clouds",
-		desc : "Unprotected points captured with the slider gain a magical shield",
+		name : "云之盾",
+		desc : "被滑块占领的未保护的节点获得一个魔法防护",
 		codeLength : 16,
 		codeCost : 12e9,
 		depth : 7.663e29,
@@ -708,8 +708,8 @@ const ARTIFACTS = {
 		iconTextColor : "#DD55DD"
 	},
 	doomShield: {
-		name : "Shield of doom",
-		desc : "Whenever slider captures a point, random uncaptured point connected to it gets doomed",
+		name : "毁灭之盾",
+		desc : "当滑块占领一个节点, 与之连接的随机一个未占领节点被毁灭",
 		codeLength : 15,
 		codeCost : 4e13,
 		depth : 6.498e37,
