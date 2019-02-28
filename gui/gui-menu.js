@@ -9,11 +9,11 @@ const MenuTab = Template({
 			name : "menu",
 		})
 
-		this.about = this.tabs.addTab("about", "About Structure", AboutTab)
-		this.saves = this.tabs.addTab("saves", "Save game management", SavesTab)
-		this.settings = this.tabs.addTab("settings", "Settings", SettingsTab)
-		this.statistics = this.tabs.addTab("statistics", "Statistics", StatisticsTab)
-		this.achievements = this.tabs.addTab("achievements", "Achievements", AchievementsTab)
+		this.about = this.tabs.addTab("about", "关于游戏", AboutTab)
+		this.saves = this.tabs.addTab("saves", "游戏存档管理", SavesTab)
+		this.settings = this.tabs.addTab("settings", "设置", SettingsTab)
+		this.statistics = this.tabs.addTab("statistics", "统计", StatisticsTab)
+		this.achievements = this.tabs.addTab("achievements", "成就", AchievementsTab)
 
 		this.tabs.setTab("saves")
 	},
