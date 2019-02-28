@@ -480,7 +480,7 @@ const pointInfoDisplayHandler = {
 		this.dvInfo1.innerText = this.point.index?(
 									"类型: " + cnItem(knownType) + "\n" + 
 									"能力: " + ((this.point.locked == 1)?"Unknown":displayNumber(this.point.power)) + "\n" +
-									(this.point.owned && this.point.enchanted?"Enchanted: "+["None", "Gold", "Growth", "Mana", "Doom"][this.point.enchanted]:this.point.real.loss > 0 && settings.eta && !this.point.owned?"Rough ETA: " + shortTimeString(this.point.real.defence / this.point.real.loss):"")
+									(this.point.owned && this.point.enchanted?"Enchanted: "+["None", "Gold", "Growth", "Mana", "Doom"][this.point.enchanted]:this.point.real.loss > 0 && settings.eta && !this.point.owned?"粗略估计: " + shortTimeString(this.point.real.defence / this.point.real.loss):"")
 								):!game.skills.mining?"起始点":"金矿\n" +
 									"深度: " + displayNumber(this.point.mineDepth || 0) + "\n"
 		if (this.point.index && this.point.away && this.point.locked != 1) {

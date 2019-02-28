@@ -249,7 +249,7 @@ const sliderHandler = {
 		this.displayStats = Object.keys(this.growth).map(x => {
 			let stat = {name : x}
 			stat.dvDisplay = createElement("div", "slider-stat", this.dvStats)
-			stat.dvName = createElement("div", "slider-name", stat.dvDisplay, x.capitalizeFirst()+ ": ")
+			stat.dvName = createElement("div", "slider-name", stat.dvDisplay, cnItem(x.capitalizeFirst())+ ": ")
 			stat.dvValue = createElement("div", "slider-value", stat.dvDisplay)
 			stat.dvName.onclick = stat.dvValue.onclick = (event) => {
 				this.displayStatName = this.displayStatName == x?"":x
@@ -260,7 +260,7 @@ const sliderHandler = {
 			return stat
 		})
 		
-		this.dvAutoTarget = createElement("div", "autotarget", this.dvDisplay, "Look for a new target when...")
+		this.dvAutoTarget = createElement("div", "autotarget", this.dvDisplay, "寻找一个新的目标时...")
 		
 		this.dvATSwitches = createElement("div", "autotarget-switches", this.dvAutoTarget)
 		
@@ -392,7 +392,7 @@ const sliderHandler = {
 			this.selector.expanded = false
 		}
 
-		this.dvATApply = createElement("div", "apply button", this.dvDisplay, "Autotarget now")
+		this.dvATApply = createElement("div", "apply button", this.dvDisplay, "自动目标")
 		this.dvATApply.onclick = (event) => {
 			this.assignTarget(null)
 			this.autoTarget(true)

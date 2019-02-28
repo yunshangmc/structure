@@ -232,12 +232,12 @@ const resourceDataHandler = {
 	
 	update() {
 		if (!this.visible) return
-		let newValue = this.resource == "exp"?"Experience":this.resource.capitalizeFirst()
-		newValue += "\nAvailable: " + displayNumber(game.resources[this.resource])
+		let newValue = this.resource == "exp"?"经验":this.resource.capitalizeFirst()
+		newValue += "\n可用: " + displayNumber(game.resources[this.resource])
 
 		const production = game.real?this.resource=="stardust"?game.real.stardustChange:game.real.production[this.resource]:game.production[this.resource]
 		if (production)
-			newValue += "\nTotal production: " + displayNumber(production) + "/s"
+			newValue += "\n总产量: " + displayNumber(production) + "/秒"
 
 		delete this.source
 		
@@ -252,7 +252,7 @@ const resourceDataHandler = {
 		
 		const mapProductions = Object.entries(game.maps).map(([name, map]) => {
 			const mapData = {
-				name : name == "main"?game.skills.virtualMaps?"Real":"This map":name.capitalizeFirst(),
+				name : name == "main"?game.skills.virtualMaps?"真实":"这个地图":name.capitalizeFirst(),
 				value : this.source?map.points.reduce((v,x) => x.buildings && x.buildings[this.source]?v+BUILDINGS[this.source].production(x):v, 0):0
 			}
 			
@@ -267,25 +267,25 @@ const resourceDataHandler = {
 		
 		if (imported) {
 			if (this.source && game.statistics["built_"+this.source])
-				newValue += "\n\nBuilding: " + BUILDINGS[this.source].name
+				newValue += "\n\n建筑: " + BUILDINGS[this.source].name
 			newValue += "\n"
 			if (inherited)
-				newValue += "\nOld maps: " + displayNumber(inherited) + "/s"
+				newValue += "\n老地图: " + displayNumber(inherited) + "/秒"
 			mapProductions.filter(x => x.value).map(x => {
-				newValue += "\n" + x.name + ": " + displayNumber(x.value) + "/s"
+				newValue += "\n" + x.name + ": " + displayNumber(x.value) + "/秒"
 			})
 		} else if (inherited) {
-			newValue += "\n\nAccumulated income: " + displayNumber(inherited) + "/s"
+			newValue += "\n\n累计收入: " + displayNumber(inherited) + "/秒"
 		}
 		
 		if (this.resource == "mana" && game.skills.magic)
-			newValue += "\n\nMagic circle: " + displayNumber((game.map.manaBase) * (game.map.ownedRadius ** 2)) + "/s"
+			newValue += "\n\n魔法圈: " + displayNumber((game.map.manaBase) * (game.map.ownedRadius ** 2)) + "/秒"
 		
 		if (this.resource != "gold" && game.world.stats[this.resource+"Speed"] && game.world.stats[this.resource+"Speed"] !== 1)
-			newValue += "\n\nWorld boost: x" + displayNumber(game.world.stats[this.resource+"Speed"])
+			newValue += "\n\n世界提升: x" + displayNumber(game.world.stats[this.resource+"Speed"])
 
 		if (this.resource == "gold" && (game.world.stats["goldSpeed"] !== 1))
-			newValue += "\n\nWorld mining power boost: x" + displayNumber(game.world.stats["goldSpeed"])
+			newValue += "\n\n世界矿业力量提升: x" + displayNumber(game.world.stats["goldSpeed"])
 
 		const sliderProduction = game.sliders.reduce((v,x) => !x.clone?v + ((x.real && x.real.production)?x.real.production[this.resource]:0) + (this.resource == "gold" && x.target && !x.target.index?x.real.attack:0):v, 0)
 		const cloneProduction = game.sliders.reduce((v,x) => (x.clone == 1)?v + ((x.real && x.real.production)?x.real.production[this.resource]:0) + (this.resource == "gold" && x.target && !x.target.index?x.real.attack:0):v, 0)
@@ -294,13 +294,13 @@ const resourceDataHandler = {
 		if (sliderProduction || cloneProduction || summonProduction) newValue += "\n"
 		
 		if (sliderProduction) {
-			newValue += "\nSliders: " + displayNumber(sliderProduction) + "/s"
+			newValue += "\n士兵: " + displayNumber(sliderProduction) + "/秒"
 		}
 		if (cloneProduction) {
-			newValue += "\nClones: " + displayNumber(cloneProduction) + "/s"
+			newValue += "\n克隆: " + displayNumber(cloneProduction) + "/秒"
 		}
 		if (summonProduction) {
-			newValue += "\nSummons: " + displayNumber(summonProduction) + "/s"
+			newValue += "\n召唤: " + displayNumber(summonProduction) + "/秒"
 		}
 
 		if (newValue != this.oldValue)

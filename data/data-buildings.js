@@ -12,7 +12,7 @@ const BUILDINGS = {//function context == point
 			return point.depth * 68400
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point)) + "/s"
+			return "产出: " + displayNumber(this.production(point)) + "/秒"
 		},
 		build(point) {
 			game.production.gold += this.production(point)
