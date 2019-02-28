@@ -597,7 +597,7 @@ const guideHandler = {
 	show(id) {
 		const guide = GUIDE[id]
 		if (!guide) return
-		this.dvTitle.innerText = guide.title || "Guide"
+		this.dvTitle.innerText = cnItem(guide.title) || "指南"
 		this.dvHolder.classList.toggle("hidden", false)
 		while (this.dvContent.firstChild) this.dvContent.firstChild.remove()
 		let lastDiv
@@ -605,7 +605,7 @@ const guideHandler = {
 			if (x.condition && !x.condition()) return
 			if (x.subtitle) {
 				lastDiv = null
-				createElement("div", "guide-subtitle", this.dvContent, x.subtitle)
+				createElement("div", "guide-subtitle", this.dvContent, cnItem(x.subtitle))
 			}
 			if (!lastDiv || x.newBlock) lastDiv = createElement("div", "guide-text", this.dvContent)
 			lastDiv.innerText = lastDiv.innerText?lastDiv.innerText+" "+x.text:x.text
