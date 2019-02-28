@@ -29,18 +29,18 @@ const gui = {
 		
 //		this.dvTabs = createElement("div", "tabs", document.body)
 		
-		this.map = this.tabs.addTab("map", "Map", MapTab)
-		this.sliders = this.tabs.addTab("sliders", "Sliders", SlidersTab)
-		this.skills = this.tabs.addTab("skills", "Skills", SkillsTab)
-		this.management = this.tabs.addTab("management", "Management", ManagementTab)	
+		this.map = this.tabs.addTab("map", "地图", MapTab)
+		this.sliders = this.tabs.addTab("sliders", "滑块", SlidersTab)
+		this.skills = this.tabs.addTab("skills", "技能", SkillsTab)
+		this.management = this.tabs.addTab("management", "管理", ManagementTab)	
 		
-		this.stardust = this.tabs.addTab("stardust", "Stardust", StardustTab)
-		this.artifacts = this.tabs.addTab("artifacts", "Artifacts", ArtifactsTab)
-		this.world = this.tabs.addTab("world", "World", WorldTab)
+		this.stardust = this.tabs.addTab("stardust", "星尘", StardustTab)
+		this.artifacts = this.tabs.addTab("artifacts", "工艺品", ArtifactsTab)
+		this.world = this.tabs.addTab("world", "世界", WorldTab)
 		this.tabs.addFiller()
 
-		this.story = this.tabs.addTab("story", "Story", StoryTab)
-		this.menu = this.tabs.addTab("menu", "Menu", MenuTab)
+		this.story = this.tabs.addTab("story", "故事", StoryTab)
+		this.menu = this.tabs.addTab("menu", "菜单", MenuTab)
 		
 			this.tabs.toggleDisplay("story", false)
 		
