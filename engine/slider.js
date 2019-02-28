@@ -665,7 +665,7 @@ const sliderHandler = {
 				this.real.attackSpirit = real.spirit
 			}
 		}
-		this.dvInfo.innerText = (!point.index?"Gold: " + displayNumber(this.real.attackTarget):"攻击: " + displayNumber(this.real.attackTarget)) + "/秒\n" +
+		this.dvInfo.innerText = (!point.index?"黄金: " + displayNumber(this.real.attackTarget):"攻击: " + displayNumber(this.real.attackTarget)) + "/秒\n" +
 								(this.clone == 2?"按此取消召唤":(point.boss || this.clone || game.skills.power)?"":("精神: " + displayNumber(this.real.attackSpirit) + "\n"))
 
 		this.dvTarget.classList.toggle("weak", !game.skills.power && !point.boss && !this.clone && point.real.localPower > this.real.attackSpirit)
@@ -676,13 +676,13 @@ const sliderHandler = {
 	updateFullInfo() {
 		this.displayStats.map((x,n) => {
 			x.dvValue.innerText = displayNumber(this.stats[x.name] - (game.activeMap == "main"?0:this.start[game.activeMap] && this.start[game.activeMap][x.name] || 0)) + 
-								  (this.clone?"":" ("+(this.real.multi[x.name]!=1?"x"+displayNumber(this.real.multi[x.name],0)+" => ":"")+"+" + displayNumber(this.real.growth[x.name]) + "/s)") + 
+								  (this.clone?"":" ("+(this.real.multi[x.name]!=1?"x"+displayNumber(this.real.multi[x.name],0)+" => ":"")+"+" + displayNumber(this.real.growth[x.name]) + "/秒)") + 
 								  ((this.real && (this.real[x.name] != this.stats[x.name] - (game.activeMap == "main"?0:this.start[game.activeMap] && this.start[game.activeMap][x.name] || 0)))?" => " + displayNumber(this.real[x.name]):"")
 		})
 		if (this.real)
 			this.imbuements.attributes.slice(3).map(x => {
 				x.dvDisplay.classList.toggle("alert", game.resources.mana / this.real.imbuementCosts[x.name] < 10)
-				x.dvDisplay.title = x.name.capitalizeFirst() + ": " + displayNumber(this.real.imbuementCosts[x.name]) + " mana/s"
+				x.dvDisplay.title = x.name.capitalizeFirst() + ": " + displayNumber(this.real.imbuementCosts[x.name]) + " 法力/秒"
 			})
 		this.dvTargetPoint.innerText = this.target?(this.target.specialText||""):""
 		if (this.target) {
