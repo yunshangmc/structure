@@ -508,7 +508,7 @@ const PointInfoDisplay = Template(guiPointElementHandler, pointInfoDisplayHandle
 const listPickerHandler = {
 	_init() {
 		this.dvDisplay = createElement("div", "list-picker " + (this.className || "") , this.parent)
-		this.dvName = createElement("div", "title", this.dvDisplay, this.name + ":")
+		this.dvName = createElement("div", "title", this.dvDisplay, cnItem(this.name) + ":")
 		this.dvChoices = createElement("div", "choices", this.dvDisplay)
 		if (!this.values) {
 			if (!this.choices) return
@@ -523,7 +523,7 @@ const listPickerHandler = {
 				value : x,
 			}
 			button.dvDisplay = createElement("div", "choice", this.dvChoices)
-			button.dvDisplay.innerText = button.name
+			button.dvDisplay.innerText = cnItem(button.name)
 			button.dvDisplay.onclick = (event) => {
 				this.set(x)
 			}
