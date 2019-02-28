@@ -478,21 +478,21 @@ const pointInfoDisplayHandler = {
 		this.dvDisplay.classList.toggle("locked", !!(this.point && this.point.locked))
 
 		this.dvInfo1.innerText = this.point.index?(
-									"Type: " + knownType + "\n" + 
-									"Power: " + ((this.point.locked == 1)?"Unknown":displayNumber(this.point.power)) + "\n" +
+									"类型: " + cnItem(knownType) + "\n" + 
+									"能力: " + ((this.point.locked == 1)?"Unknown":displayNumber(this.point.power)) + "\n" +
 									(this.point.owned && this.point.enchanted?"Enchanted: "+["None", "Gold", "Growth", "Mana", "Doom"][this.point.enchanted]:this.point.real.loss > 0 && settings.eta && !this.point.owned?"Rough ETA: " + shortTimeString(this.point.real.defence / this.point.real.loss):"")
-								):!game.skills.mining?"The starting point":"Golden mine\n" +
-									"Depth: " + displayNumber(this.point.mineDepth || 0) + "\n"
+								):!game.skills.mining?"起始点":"金矿\n" +
+									"深度: " + displayNumber(this.point.mineDepth || 0) + "\n"
 		if (this.point.index && this.point.away && this.point.locked != 1) {
 			let width = this.dvInfo2.offsetWidth
 			this.dvInfo2.style.backgroundPosition = "0 0, "+Math.round((width * ((this.point.progress || 0) - 1) / 2)) +"px 0"
-			this.dvInfo2.innerText = "Barrier: " + displayNumber(this.point.real.defence) + "\n" +
-									(game.skills.power || this.point.boss?this.point.real && this.point.real.passiveDamage?"Passive damage: "+displayNumber(this.point.real.passiveDamage)+"/s":"":"Barrier power: " + displayNumber(this.point.real.localPower)) + "\n" + 
-									"Progress: " + (this.point.progress * 100 || 0).toFixed(3) + "%"
+			this.dvInfo2.innerText = "屏障: " + displayNumber(this.point.real.defence) + "\n" +
+									(game.skills.power || this.point.boss?this.point.real && this.point.real.passiveDamage?"被动伤害: "+displayNumber(this.point.real.passiveDamage)+"/秒":"":"屏障力量: " + displayNumber(this.point.real.localPower)) + "\n" + 
+									"进度: " + (this.point.progress * 100 || 0).toFixed(3) + "%"
 		} else if (this.point.locked == 1) {
 			let width = this.dvInfo2.offsetWidth
 			this.dvInfo2.style.backgroundPosition = "0 0, " + Math.round(-width/2) + "px 0"
-			this.dvInfo2.innerText = this.point.keyData.keyPoint.away == 1 ? "Click to see the key point" : "Key point not found yet"
+			this.dvInfo2.innerText = this.point.keyData.keyPoint.away == 1 ? "点击查看关键点" : "关键点还没有找到"
 		} else {
 			let width = this.dvInfo2.offsetWidth
 			this.dvInfo2.style.backgroundPosition = "0 0, " + Math.round(width/2) + "px 0"
