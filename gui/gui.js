@@ -73,12 +73,12 @@ const gui = {
 				this.dvSliders = createElement("div", "sliders", this.dvButtons)
 				this.dvSliders.onclick = (event) => event.target == this.dvSliders?this.reset():0
 				
-				this.dvHint = createElement("div", "target-hint", this.dvSliders, "Click to assign/free:")
-				this.dvAll = createElement("div", "target-all", this.dvHint, "All")
+				this.dvHint = createElement("div", "target-hint", this.dvSliders, "点击分配/释放:")
+				this.dvAll = createElement("div", "target-all", this.dvHint, "全部")
 				this.dvAll.onclick = (event) => this.targetAll(game.sliders)
-				this.dvReal = createElement("div", "target-all", this.dvHint, "Real")
+				this.dvReal = createElement("div", "target-all", this.dvHint, "真实")
 				this.dvReal.onclick = (event) => this.targetAll(game.sliders.filter(x => !x.clone))
-				this.dvClones = createElement("div", "target-all", this.dvHint, "Clones")
+				this.dvClones = createElement("div", "target-all", this.dvHint, "克隆")
 				this.dvClones.onclick = (event) => this.targetAll(game.sliders.filter(x => x.clone))
 				this.dvUpgrades = createElement("div", "upgrades", this.dvButtons)
 				this.dvUpgrades.onclick = (event) => event.target == this.dvUpgrades?this.reset():0

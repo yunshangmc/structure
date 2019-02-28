@@ -665,8 +665,8 @@ const sliderHandler = {
 				this.real.attackSpirit = real.spirit
 			}
 		}
-		this.dvInfo.innerText = (!point.index?"Gold: " + displayNumber(this.real.attackTarget):"Attack: " + displayNumber(this.real.attackTarget)) + "/s\n" +
-								(this.clone == 2?"Click to unsummon":(point.boss || this.clone || game.skills.power)?"":("Spirit: " + displayNumber(this.real.attackSpirit) + "\n"))
+		this.dvInfo.innerText = (!point.index?"Gold: " + displayNumber(this.real.attackTarget):"攻击: " + displayNumber(this.real.attackTarget)) + "/秒\n" +
+								(this.clone == 2?"按此取消召唤":(point.boss || this.clone || game.skills.power)?"":("精神: " + displayNumber(this.real.attackSpirit) + "\n"))
 
 		this.dvTarget.classList.toggle("weak", !game.skills.power && !point.boss && !this.clone && point.real.localPower > this.real.attackSpirit)
 		if (game.skills.charge)
