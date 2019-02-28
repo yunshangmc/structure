@@ -65,7 +65,7 @@ const WorldTab = Template({
 //			this.dvCoreHolder.classList.toggle("hidden", false)
 		}
 
-		this.dvApproveButton = createElement("div", "approve-button", this.dvDisplay, "Buy all")
+		this.dvApproveButton = createElement("div", "approve-button", this.dvDisplay, "购买全部")
 		this.dvApproveButton.onclick = (event) => {
 			game.world.finalizeProject()
 			this.update(true)
@@ -73,7 +73,7 @@ const WorldTab = Template({
 //			this.dvCancelButton.classList.toggle("hidden", true)
 		}
 
-		this.dvCancelButton = createElement("div", "cancel-button", this.dvDisplay, "Cancel")
+		this.dvCancelButton = createElement("div", "cancel-button", this.dvDisplay, "取消")
 		this.dvCancelButton.onclick = (event) => {
 			game.world.cancelProject()
 			this.dvApproveButton.classList.toggle("hidden", true)
@@ -89,12 +89,12 @@ const WorldTab = Template({
 		}
 		
 		this.dvFeats = createElement("div", "dialog", this.dvFeatsHolder)
-		this.dvFeatsTitle = createElement("div", "dialog-title", this.dvFeats, "Feats")
+		this.dvFeatsTitle = createElement("div", "dialog-title", this.dvFeats, "成绩")
 		this.dvFeatsList = createElement("div", "feats", this.dvFeats)
 		
 		this.feats = Object.values(FEATS).map(x => {
 			const display = {id : x.id, feat : x}
-			display.dvDisplay = createElement("div", "feat", this.dvFeatsList, x.desc + (x.minMap?"\nMinimum map level: "+x.minMap:""))
+			display.dvDisplay = createElement("div", "feat", this.dvFeatsList, x.desc + (x.minMap?"\n最低地图等级: "+x.minMap:""))
 			return display
 		})
 		

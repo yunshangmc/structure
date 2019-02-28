@@ -150,7 +150,7 @@ const cloud = {
 					if (!data.success) {
 						console.log("Cloud login error: " + data.error)
 						gui.menu.saves.dvLoginStatus.innerText = data.error
-						gui.menu.saves.dvCloudUpdate.innerText = "Failed to login to cloud"
+						gui.menu.saves.dvCloudUpdate.innerText = "登录云端失败"
 						return
 					}
 					this.local.username = data.username
@@ -171,14 +171,14 @@ const cloud = {
 
 					gui.menu.saves.dvLoginHolder.classList.toggle("hidden", true)
 
-					gui.menu.saves.dvCloudStatus.innerText = "Currently connected as"
+					gui.menu.saves.dvCloudStatus.innerText = "目前连接为"
 					gui.menu.saves.dvCloudName.innerText = this.local.username
-					gui.menu.saves.dvCloudLogin.innerText = "Disconnect"
+					gui.menu.saves.dvCloudLogin.innerText = "断开连接"
 				})
 				.catch(x => {
 					gui.menu.saves.loggingin = false
-					gui.menu.saves.dvLoginStatus.innerText = "Error occured. Try again later."
-					gui.menu.saves.dvCloudUpdate.innerText = "Failed to login to cloud"
+					gui.menu.saves.dvLoginStatus.innerText = "发生错误。稍后再试。"
+					gui.menu.saves.dvCloudUpdate.innerText = "登录到云失败"
 					console.log(x)
 				})					
 	},
@@ -218,11 +218,11 @@ const cloud = {
 						return
 					}
 					this.local.lastLocalSave = data.lastsave
-					gui.menu.saves.dvCloudUpdate.innerText = "Successfully updated cloud ("+(new Date((+this.local.lastLocalSave + (new Date().getTimezoneOffset())) * 1000).toString().split(" ").slice(1,5).join(" "))+")"
+					gui.menu.saves.dvCloudUpdate.innerText = "成功更新云端 ("+(new Date((+this.local.lastLocalSave + (new Date().getTimezoneOffset())) * 1000).toString().split(" ").slice(1,5).join(" "))+")"
 					this.saveLocal()
 				})
 				.catch(x => {
-					gui.menu.saves.dvCloudUpdate.innerText = "Failed to update to cloud"
+					gui.menu.saves.dvCloudUpdate.innerText = "上传到云端失败"
 					console.log(x)
 				})
 	},
@@ -250,7 +250,7 @@ const cloud = {
 					this.saveLocal()
 				})
 				.catch(x => {
-					gui.menu.saves.dvCloudUpdate.innerText = "Failed to load from cloud"
+					gui.menu.saves.dvCloudUpdate.innerText = "从云存储加载存档失败"
 					console.log(x)
 				})
 	},
@@ -259,9 +259,9 @@ const cloud = {
 		delete this.local.token
 		delete this.local.username
 		this.saveLocal()
-		gui.menu.saves.dvCloudStatus.innerText = "Currently not connected to the cloud"
+		gui.menu.saves.dvCloudStatus.innerText = "当前未连接到云存储"
 		gui.menu.saves.dvCloudName.innerText = ""
-		gui.menu.saves.dvCloudLogin.innerText = "Connect"
+		gui.menu.saves.dvCloudLogin.innerText = "连接"
 	},
 	
 	shareSave(slot = "_Autosave") {
