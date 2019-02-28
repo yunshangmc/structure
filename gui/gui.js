@@ -608,7 +608,7 @@ const guideHandler = {
 				createElement("div", "guide-subtitle", this.dvContent, cnItem(x.subtitle))
 			}
 			if (!lastDiv || x.newBlock) lastDiv = createElement("div", "guide-text", this.dvContent)
-			lastDiv.innerText = lastDiv.innerText?lastDiv.innerText+" "+x.text:x.text
+			lastDiv.innerText = lastDiv.innerText?lastDiv.innerText+" "+cnItem(x.text):cnItem(x.text)
 		})
 	},
 }

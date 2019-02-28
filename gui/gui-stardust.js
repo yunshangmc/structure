@@ -221,7 +221,7 @@ const StardustTab = Template({
 		this.dvStatsProduction.innerText = "生产:\n\n"+Object.keys(stats.production).filter(x => x[0] != "_").map(x => x.capitalizeFirst()+": "+stats.production[x]).join("\n")
 		this.dvStatsMulti.innerText = "倍数:\n\n"+Object.keys(stats.multi).filter(x => x[0] != "_").map(x => x.capitalizeFirst()+": "+stats.multi[x]).join("\n")
 		this.dvDiscoveredTypes.innerText = "点数类型:\n"+stats.nodeType.map((x,n) => x?"\n"+POINT_TYPES[n].capitalizeFirst()+": "+x:"").join("")
-		this.dvDiscoveredSpecials.innerText = "特殊:\n"+stats.nodeSpecial.map((x,n) => x?"\n"+SPECIAL_NAMES[n]+": "+x:"").join("")
+		this.dvDiscoveredSpecials.innerText = "特点:\n"+stats.nodeSpecial.map((x,n) => x?"\n"+SPECIAL_NAMES[n]+": "+x:"").join("")
 		this.dvDiscoveredInfo.innerText = "Other:\n"+
 											"\n得到的点数: "+stats.totalNodes+
 											"\n解锁数量: "+stats.locksOpen+
