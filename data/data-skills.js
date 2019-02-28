@@ -25,7 +25,7 @@ const SKILLS = {
 	autoTargetFilter: {
 		name: "Destination set to nowhere",
 		desc: "允许设定自动搜索的基础优先级",
-		req : ["自动搜索"],
+		req : ["autoTarget"],
 		map : 3,
 		mult : 1.5,
 		exp : 2500
@@ -48,7 +48,7 @@ const SKILLS = {
 		name: "灵魂的旅途",
 		desc: "允许设定自动搜索的高级优先级",
 		map : 5,
-		req : ['自动搜索'],
+		req : ['autoTargetFilter'],
 		mult: 1.5,
 		exp : 10000
 	},
@@ -56,50 +56,50 @@ const SKILLS = {
 		name: "指引我如何活着",
 		desc: "允许把相当于成长加成的三倍的经验值转换为成长",
 		sliders : 2,
-		req : ['投资'],
+		req : ['invest'],
 		mult: 3,
 		exp : 55555.55556
 	},
 	upgradePoints: {
 		name: "魔域交响曲",
-		desc: "允许升级 captured points",
+		desc: "允许升级占领点数",
 		map : 7,
 		mult: 2,
 		exp : 92592.592593
 	},
 	fire: {
-		name: "Through the fire and flames",
-		desc: "Fire damage ignores spirit penalty",
+		name: "穿越火焰",
+		desc: "火焰伤害不再受到精神惩罚",
 		map : 8,
 		mult: 3,
 		exp : 200000
 	},
 	build1: {
-		name: "Megatropolis",
-		desc: "Ability to build at level 1 points",
+		name: "超大城市",
+		desc: "获得1点建筑能力",
 		map : 9,
 		req : ['upgradePoints'],
 		mult: 2,
 		exp : 3086419.75308644
 	},
 	autoTargetElements: {
-		name: "Elements, pt.1",
-		desc: "Add elements to autotargetting priorities",
+		name: "元素, pt.1",
+		desc: "允许在自动搜索中设定元素优先级",
 		map : 11,
 		req : ['autoTargetFilter'],
 		mult: 1.5,
 		exp : 15432098.7654323
 	},
 	channel: {
-		name: "Battle hymns",
-		desc: "Ability to channel attributes to other sliders instead of growing",
+		name: "战歌",
+		desc: "允许将属性直接通灵到其它滑块，代替成长",
 		mult: 2,
 		exp : 257201646.09053498,
 		sliders : 3
 	},
 	management: {
-		name: "Kingmaker",
-		desc: "Manage captured points all in one place",
+		name: "创建王国",
+		desc: "允许在一个地方一次性管理所有点",
 		req : ['upgradePoints'],
 		res : ['science'],
 		map : 9,
@@ -108,23 +108,23 @@ const SKILLS = {
 		science : 100000
 	},
 	ice : {
-		name: "Iced earth",
-		desc: "Ice damage ignores spirit penalty",
+		name: "冰之大地",
+		desc: "冰冻伤害不再受到精神惩罚",
 		map : 12,
 		mult: 2.5, 
 		exp : 1286008230.452675
 	},
 	build2 : {
-		name: "Megatropolis 2.0",
-		desc: "Unlock level 2 buildings",
+		name: "超大城市 2.0",
+		desc: "解锁 2 级建筑",
 		map : 12,
 		mult: 5, 
 		exp : 1286008230.452675,
 		req : ['upgradePoints'],
 	},
 	greed : {
-		name: "Power gold",
-		desc: "Gold factories produce more gold",
+		name: "黄金强化",
+		desc: "黄金工厂生产更多黄金",
 		map : 13,
 		mult: 1.3, 
 		exp : 1286008230.452675,
@@ -132,8 +132,8 @@ const SKILLS = {
 		onGet: () => game.production.gold *= game.realMap.level ** 2 / 16.9,
 	},
 	fear : {
-		name : "Reign of fear",
-		desc : "Spirit multiplied by fear is added to sliders power",
+		name : "恐怖统治",
+		desc : "滑块的恐惧效果受到滑块的力量加成",
 		map : 14,
 		mult : 2.4,
 		exp : 98923710034.82115 / 3,
@@ -141,8 +141,8 @@ const SKILLS = {
 		res : ['fears'],
 	},
 	automation: {
-		name : "The grand design",
-		desc : "Unlock point levelup automation",
+		name : "宏伟的设计",
+		desc : "解锁自动点数提升",
 		map : 9,
 		mult : 3,
 		exp : 12860082304.52675,
@@ -151,8 +151,8 @@ const SKILLS = {
 		science : 1e6
 	},
 	stardust: {
-		name: "Ride the sky",
-		desc: "Use stardust to grow elements 100% faster for each cloud",
+		name: "掌控天空",
+		desc: "星云中每个云会加成100%元素产出",
 		map : 15,
 		mult : 5,
 		req : ['build2'],
@@ -160,24 +160,24 @@ const SKILLS = {
 		exp : 98923710034.82115 / 3,
 	},
 	magic: {
-		name: "Heroes of mighty magic",
-		desc: "Unlocks the whole new world of magic",
+		name: "强大的魔法英雄",
+		desc: "解锁整个魔法世界",
 		map : 16,
 		mult : 2,
 		sliders : 4,
 		exp : 98923710034.82115,
 	},
 	magicBoost1: {
-		name: "Magic kingdom",
-		desc: "Level 1 buildings production boosted within magic circle",
+		name: "神奇王国",
+		desc: "魔圈内1级建筑产出提升",
 		map : 16,
 		mult : 3,
 		req : ["magic"],
 		exp : 2e10,
 	},
 	smartHome: {
-		name: "Home at last",
-		desc: "Sliders unable to find a target go to mine automatically",
+		name: "到家了",
+		desc: "滑块无法找到目标时自动回到初始点挖矿",
 		req : ["autoTarget"],
 		res : ['science'],
 		map : 9,
@@ -186,7 +186,7 @@ const SKILLS = {
 		science : 1.75e6,
 	},
 	smartMine: {
-		name: "Little look back",
+		name: "回首往事",
 		desc: "Mining and attacking sliders can keep checking for better targets",
 		req : ["smartHome"],
 		res : ['science'],
