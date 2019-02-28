@@ -434,7 +434,7 @@ const game = {
 		gui.mapMouse.closest = null		
 //		this.map.restoreState()
 		this.update()
-		gui.tabs.setTitle("map", (this.map.virtual?"Virtual map":"Map")+" (Level " + this.map.level + ")")
+		gui.tabs.setTitle("map", (this.map.virtual?"虚拟地图":"地图")+" (等级 " + this.map.level + ")")
 		gui.skills.updateSkills()
 		this.unlockStory((this.map.virtual?"v":"m")+this.map.level.digits(3)+"")
 		gui.mainViewport.init(this.map.bounds)

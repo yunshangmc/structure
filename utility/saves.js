@@ -53,7 +53,7 @@ function loadState(slot = "_Autosave", hibernated = false, nobackup = false) {
 		game.badSave = true
 		console.log(e)
 		localStorage[SAVE_PREFIX+"__Possibly corrupted save"] = localStorage[SAVE_PREFIX+slot]
-		alert("Invalid save data.\nTry refreshing with CTRL+F5.\nIf error persists, contact developer.")
+		alert("无效的存档数据。\n尝试使用CTRL+F5刷新。\n如果错误持续，请联系开发人员。")
 		game.reset()
 //		console.log(saveData)
 		return false
@@ -108,7 +108,7 @@ function importState(saveData) {
 	} catch(e) {
 		game.badSave = true
 		console.log(e)
-		alert("Invalid save data.\nTry refreshing with CTRL+F5.\nIf error persists, contact developer.")
+		alert("无效的存档数据。\n尝试使用CTRL+F5刷新。\n如果错误持续，请联系开发人员。")
 		game.reset()
 //		console.log(saveData)
 	}

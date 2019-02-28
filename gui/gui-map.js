@@ -48,7 +48,7 @@ const MapTab = Template({
 
 		this.dvGrowth = createElement("div", "growth",  this.dvDisplay)
 		this.dvGrowthTitle = createElement("div", "growth-title", this.dvGrowth)
-		this.dvGrowthSubtitle = createElement ("div", "growth-subtitle", this.dvGrowthTitle, "Growth: ")
+		this.dvGrowthSubtitle = createElement ("div", "growth-subtitle", this.dvGrowthTitle, "成长: ")
 		this.dvGrowthHelp = createElement ("div", "help-button", this.dvGrowthTitle, "?")
 		this.dvGrowthHelp.onclick = (event) => gui.guide.show("growth")
 		

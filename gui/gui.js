@@ -133,7 +133,7 @@ const gui = {
 						iconText: x.iconText,
 						iconColor: x.iconColor,
 						desc : x.desc,
-						text: () => x.name + "\n" + (this.point?this.point.buildings[x.id]?x.info(this.point):"Gold: "+displayNumber(this.point.costs[x.id]):"?")
+						text: () => x.name + "\n" + (this.point?this.point.buildings[x.id]?x.info(this.point):"黄金: "+displayNumber(this.point.costs[x.id]):"?")
 					})
 				})
 
@@ -159,7 +159,7 @@ const gui = {
 						imageContainer : gui.images.spells,
 						id : x.id,
 						desc : x.desc,
-						text: () => this.point?x.name + "\n" + "Mana: "+displayNumber(this.point.manaCosts[x.id]):""
+						text: () => this.point?x.name + "\n" + "法力: "+displayNumber(this.point.manaCosts[x.id]):""
 					})
 				})
 
@@ -341,13 +341,13 @@ const gui = {
 	updateTabs() {
 		let distress = game.map.markers && game.map.markers.length
 		//let progress = game.realMap.level > 20 && game.map.points.filter(x => x.boss && x.boss > game.map.boss).length
-		this.map.dvAscend.innerText = game.map.virtual?"Evolve":distress?"Ascend(📡\uFE0E"+game.map.markers.length+")":/*progress?"Advance(⚔\uFE0E)":*/game.map.boss?"Ascend(⚔\uFE0E)":"Ascend (🌟\uFE0E" + game.map.ascendCost + ")"
+		this.map.dvAscend.innerText = game.map.virtual?"进化":distress?"转生(📡\uFE0E"+game.map.markers.length+")":/*progress?"Advance(⚔\uFE0E)":*/game.map.boss?"Ascend(⚔\uFE0E)":"转生 (🌟\uFE0E" + game.map.ascendCost + ")"
 		this.map.dvAscend.classList.toggle("disabled", !!(!game.map.virtual && (distress || game.resources.stars < game.map.ascendCost && !game.map.boss || game.map.boss && game.map.points.filter(x => !x.owned && x.boss == game.map.boss).length) || game.map.virtual && !game.map.complete))
 		this.map.dvAscend.classList.toggle("hidden", !!(!game.map.virtual && !game.statistics.stars || game.map.virtual && (game.map.level < 31 || (game.map.evolved && game.map.evolved >= 3) || !game.skills.evolveVirtual)))
 		this.map.dvDisplay.classList.toggle("dark", !!game.map.boss)
 		this.map.dvDisplay.classList.toggle("complete", !!game.map.complete)
 		this.map.dvDisplay.classList.toggle("starfield", !!game.map.starfield)
-		this.tabs.setTitle("sliders", game.sliders.length > 1?game.sliders.length+" "+"Sliders":"Slider")
+		this.tabs.setTitle("sliders", game.sliders.length > 1?game.sliders.length+" "+"滑块":"滑块")
 		this.tabs.toggleDisplay("skills", game.realMap.level)
 		this.tabs.toggleDisplay("management", game.skills.management)
 		this.tabs.toggleDisplay("stardust", game.skills.stardust)
@@ -355,7 +355,7 @@ const gui = {
 		this.tabs.toggleDisplay("world", game.skills.world)
 		if (game.skills.stardust) {
 			const freeDust = game.resources.stardust - Object.values(game.stardust).reduce((v,x) => v+x, 0)
-			gui.tabs.setTitle("stardust", (game.skills.virtualMaps?"Maps / ":"") + (freeDust?"Stardust ("+displayNumber(freeDust, 0)+")":"Stardust"))
+			gui.tabs.setTitle("stardust", (game.skills.virtualMaps?"地图 / ":"") + (freeDust?"星尘 ("+displayNumber(freeDust, 0)+")":"星尘"))
 		}
 //		this.tabs.toggleDisplay("magic", game.skills.magic)
 	},

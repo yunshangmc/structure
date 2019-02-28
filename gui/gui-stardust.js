@@ -123,7 +123,7 @@ const StardustTab = Template({
 			shortStep : 1,
 			digits : 0,
 			onSet : () => {
-				this.dvVirtualCreateCost.innerText = "Cost: " + displayNumber(virtualMapCost(this.newMapLevel),0) + " stardust"
+				this.dvVirtualCreateCost.innerText = "成本: " + displayNumber(virtualMapCost(this.newMapLevel),0) + " stardust"
 			}
 		})
 		
@@ -214,18 +214,18 @@ const StardustTab = Template({
 		const stats = map.getStats()
 		this.dvStatsTitle.innerText = "Level "+map.level+(map.virtual?" virtual":"")+(map.focus?" "+POINT_TYPES[map.focus]:"")+(map.starfield?" starfield":" map") + (map.evolved?" evolved "+pluralize(map.evolved, ["time", "times"]):"")
 		this.dvStatsTime.innerText = "Created: "+stats.created + 
-											"\nCompleted: "+stats.completed + 
-											"\nTime spent: "+stats.took +
-											"\nMap time spent: "+stats.tookLocal
-		this.dvStatsGrowth.innerText = "Growth:\n\n"+Object.keys(stats.growth).map(x => x.capitalizeFirst()+": "+stats.growth[x]).join("\n")
-		this.dvStatsProduction.innerText = "Production:\n\n"+Object.keys(stats.production).filter(x => x[0] != "_").map(x => x.capitalizeFirst()+": "+stats.production[x]).join("\n")
-		this.dvStatsMulti.innerText = "Multipliers:\n\n"+Object.keys(stats.multi).filter(x => x[0] != "_").map(x => x.capitalizeFirst()+": "+stats.multi[x]).join("\n")
-		this.dvDiscoveredTypes.innerText = "Point types:\n"+stats.nodeType.map((x,n) => x?"\n"+POINT_TYPES[n].capitalizeFirst()+": "+x:"").join("")
-		this.dvDiscoveredSpecials.innerText = "Specials:\n"+stats.nodeSpecial.map((x,n) => x?"\n"+SPECIAL_NAMES[n]+": "+x:"").join("")
+											"\n完成: "+stats.completed + 
+											"\n花费时间: "+stats.took +
+											"\n地图时间花费: "+stats.tookLocal
+		this.dvStatsGrowth.innerText = "成长:\n\n"+Object.keys(stats.growth).map(x => x.capitalizeFirst()+": "+stats.growth[x]).join("\n")
+		this.dvStatsProduction.innerText = "生产:\n\n"+Object.keys(stats.production).filter(x => x[0] != "_").map(x => x.capitalizeFirst()+": "+stats.production[x]).join("\n")
+		this.dvStatsMulti.innerText = "倍数:\n\n"+Object.keys(stats.multi).filter(x => x[0] != "_").map(x => x.capitalizeFirst()+": "+stats.multi[x]).join("\n")
+		this.dvDiscoveredTypes.innerText = "点数类型:\n"+stats.nodeType.map((x,n) => x?"\n"+POINT_TYPES[n].capitalizeFirst()+": "+x:"").join("")
+		this.dvDiscoveredSpecials.innerText = "特殊:\n"+stats.nodeSpecial.map((x,n) => x?"\n"+SPECIAL_NAMES[n]+": "+x:"").join("")
 		this.dvDiscoveredInfo.innerText = "Other:\n"+
-											"\nPoints found: "+stats.totalNodes+
-											"\nLocks opened: "+stats.locksOpen+
-											"\nMax depth seen: "+stats.maxDepth
+											"\n得到的点数: "+stats.totalNodes+
+											"\n解锁数量: "+stats.locksOpen+
+											"\n达到的最大深度: "+stats.maxDepth
 											
 		this.lastUpdate = performance.now()
 	},
@@ -267,8 +267,8 @@ const StardustTab = Template({
 			this.equalStardust()
 		}
 		const freeDust = game.resources.stardust - Object.values(game.stardust).reduce((v,x) => v+x, 0)
-		this.dvGrowthTitle.innerText = "Growth boost (Stardust: " + displayNumber(game.resources.stardust - freeDust) + "/" + displayNumber(game.resources.stardust) + ")"
-		gui.tabs.setTitle("stardust", (game.skills.virtualMaps?"Maps / ":"") + (freeDust?"Stardust ("+displayNumber(freeDust, 0)+")":"Stardust"))
+		this.dvGrowthTitle.innerText = "促进增长(星尘: " + displayNumber(game.resources.stardust - freeDust) + "/" + displayNumber(game.resources.stardust) + ")"
+		gui.tabs.setTitle("stardust", (game.skills.virtualMaps?"地图 / ":"") + (freeDust?"星尘 ("+displayNumber(freeDust, 0)+")":"星尘"))
 		this.sliders.map(x => {
 			x.setMax(game.resources.stardust)
 			x.steps = game.resources.stardust
@@ -282,7 +282,7 @@ const StardustTab = Template({
 		if (forced) {
 			const maxMaps = Math.max(0,Math.min(5, game.realMap.level - 20))
 			const freeMaps = Array(maxMaps).fill().map((x,n) => "virtual"+n).filter(x => !game.maps[x]).length
-			this.dvVirtualTitle.innerText = "Virtual maps (" + (maxMaps - freeMaps) + "/" + maxMaps + ")"
+			this.dvVirtualTitle.innerText = "虚拟地图 (" + (maxMaps - freeMaps) + "/" + maxMaps + ")"
 			this.dvVirtual.classList.toggle("hidden", !game.skills.virtualMaps)
 			if (game.skills.virtualMaps) {
 				this.dvVirtualCreateButton.classList.toggle("enabled", !!freeMaps)

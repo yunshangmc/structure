@@ -43,7 +43,7 @@ const SavesTab = Template({
 		
 		this.dvLoginRegister.onclick = (event) => {
 			if (this.loggingin) return
-			this.dvLoginStatus.innerText = "Attempting register..."
+			this.dvLoginStatus.innerText = "尝试注册..."
 			this.loggingin = true
 			cloud.login(this.dvLoginName.value, this.dvLoginPass.value, true)
 		}
@@ -52,13 +52,13 @@ const SavesTab = Template({
 
 		this.dvSaveButtons = createElement("div", "buttons", this.dvDisplay)
 
-		this.dvCreateSave = createElement("div", "button", this.dvSaveButtons, "Add slot")
+		this.dvCreateSave = createElement("div", "button", this.dvSaveButtons, "添加插槽")
 		this.dvCreateSave.onclick = (event) => {
 			let n = 0
 			while (this.saves["Slot "+n]) n++
-			let name = prompt("Choose new slot name:", "Slot " + n)
+			let name = prompt("选择新插槽名:", "插槽 " + n)
 			if (name && this.saves[name]) {
-				alert("Name already taken")
+				alert("名字已经存在了")
 				this.updateSaves(name)
 				return
 			}
@@ -66,33 +66,33 @@ const SavesTab = Template({
 				saveState(name)
 		}
 
-		this.dvSave = createElement("div", "button", this.dvSaveButtons, "Save game")
+		this.dvSave = createElement("div", "button", this.dvSaveButtons, "保存游戏")
 		this.dvSave.onclick = (event) => saveState(this.activeSave.name)
 
-		this.dvLoad = createElement("div", "button", this.dvSaveButtons, "Load game")
+		this.dvLoad = createElement("div", "button", this.dvSaveButtons, "加载游戏")
 		this.dvLoad.onclick = (event) => loadState(this.activeSave.name)
 
-		this.dvLoad2 = createElement("div", "button", this.dvSaveButtons, "Hiberload game")
+		this.dvLoad2 = createElement("div", "button", this.dvSaveButtons, "休眠游戏")
 		this.dvLoad2.onclick = (event) => loadState(this.activeSave.name, 1)
-		this.dvLoad2.title = "Load game without offline progress"
+		this.dvLoad2.title = "加载游戏没有离线进程"
 
-		this.dvDeleteSave = createElement("div", "button", this.dvSaveButtons, "Delete slot")
-		this.dvDeleteSave.onclick = (event) => confirm("Really delete "+this.activeSave.name+"?")?deleteState(this.activeSave.name):0
+		this.dvDeleteSave = createElement("div", "button", this.dvSaveButtons, "删除插槽")
+		this.dvDeleteSave.onclick = (event) => confirm("真的要删除 "+cnItem(this.activeSave.name)+"?")?deleteState(this.activeSave.name):0
 
-		this.dvExport = createElement("div", "button", this.dvSaveButtons, "⇓\uFE0E Export save ⇓\uFE0E")
+		this.dvExport = createElement("div", "button", this.dvSaveButtons, "⇓\uFE0E 导出存档 ⇓\uFE0E")
 		this.dvExport.onclick = (event) => this.dvTextSave.value = exportState(this.activeSave.name, event.shiftKey?1:event.ctrlKey?2:0)
 
-		this.dvShare = createElement("div", "button", this.dvSaveButtons, "☁\uFE0E Share save ☁\uFE0E")
+		this.dvShare = createElement("div", "button", this.dvSaveButtons, "☁\uFE0E 分享存档 ☁\uFE0E")
 		this.dvShare.onclick = (event) => cloud.shareSave(this.activeSave.name)
 
-		this.dvImport = createElement("div", "button", this.dvSaveButtons, "⇑\uFE0E Import save ⇑\uFE0E")
+		this.dvImport = createElement("div", "button", this.dvSaveButtons, "⇑\uFE0E 导入存档 ⇑\uFE0E")
 		this.dvImport.onclick = (event) => importState(this.dvTextSave.value)
 		
-		this.dvReset = createElement("div", "button reset", this.dvSaveButtons, "Reset game")
-		this.dvReset.onclick = (event) => confirm("Really reset? All unsaved progress will be lost!")?game.reset():0
+		this.dvReset = createElement("div", "button reset", this.dvSaveButtons, "重置游戏")
+		this.dvReset.onclick = (event) => confirm("真的重置吗?所有未保存的进度将丢失!")?game.reset():0
 		
-		this.dvTextSave = createElement("textarea", "export", this.dvDisplay, "Paste save here")
-		this.dvTextSave.onclick = (event) => this.dvTextSave.value == "Paste save here"?this.dvTextSave.value = "":0		
+		this.dvTextSave = createElement("textarea", "export", this.dvDisplay, "在这里粘贴你的存档")
+		this.dvTextSave.onclick = (event) => this.dvTextSave.value == "在这里粘贴你的存档"?this.dvTextSave.value = "":0		
 	},
 	
 	onSet() {
@@ -136,8 +136,8 @@ const SavesTab = Template({
 				if (time) {
 					save.dvDate.innerText = new Date(+time).toString().split(" ").slice(1,5).join(" ")
 				}
-				if (level) progress.push("Map level: "+level)
-				if (totalTime) progress.push("Time played: " + timeString(totalTime))
+				if (level) progress.push("地图等级: "+level)
+				if (totalTime) progress.push("累计玩的游戏时间: " + timeString(totalTime))
 				save.dvProgress.innerText = "(" + progress.join(", ") + ")"
 				this.dvSaveList.appendChild(save.dvDisplay)
 			})

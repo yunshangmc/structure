@@ -332,7 +332,7 @@ const gui = {
 		this.dvScience.classList.toggle("hidden", !game.resources.science)
 		this.map.dvDisplay.classList.toggle("dark", !!game.map.boss)
 		this.map.dvDisplay.classList.toggle("complete", !!game.map.complete)
-		this.tabs.setTitle("sliders", game.sliders.length > 1?game.sliders.length+" "+"Sliders":"Slider")
+		this.tabs.setTitle("sliders", game.sliders.length > 1?game.sliders.length+" "+"滑块":"滑块")
 		this.tabs.toggleDisplay("skills", game.realMap.level)
 		this.tabs.toggleDisplay("management", game.skills.management)
 		this.tabs.toggleDisplay("stardust", game.skills.stardust)
@@ -340,7 +340,7 @@ const gui = {
 		this.tabs.toggleDisplay("world", game.skills.world)
 		if (game.skills.stardust) {
 			const freeDust = game.resources.stardust - Object.values(game.stardust).reduce((v,x) => v+x, 0)
-			gui.tabs.setTitle("stardust", (game.skills.virtualMaps?"Maps / ":"") + (freeDust?"Stardust ("+displayNumber(freeDust, 0)+")":"Stardust"))
+			gui.tabs.setTitle("stardust", (game.skills.virtualMaps?"地图 / ":"") + (freeDust?"星尘 ("+displayNumber(freeDust, 0)+")":"星尘"))
 		}
 //		this.tabs.toggleDisplay("magic", game.skills.magic)
 	},
