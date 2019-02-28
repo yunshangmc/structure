@@ -2,67 +2,67 @@
 
 const SKILLS = {
 	autoTarget: {
-		name: "Hunting high and low",
-		desc: "Sliders choose new targets after capturing a point",
+		name: "自动搜索",
+		desc: "完成目标后自动选择新目标",
 		map : 1,
 		mult : 5,
 		exp : 500
 	},
 	sensor: {
-		name: "Over the hills and far away",
-		desc: "Ability to sense surrounding points",
+		name: "翻山越岭",
+		desc: "增强探测周围目标的能力",
 		map : 1,
 		mult : 1.2,
 		exp : 500
 	},
 	charge: {
-		name: "ReLoad",
-		desc: "Ability to charge spirit by resting",
+		name: "装填",
+		desc: "停止的时候也能增强士气",
 		map : 2,
 		mult : 2,
 		exp : 1000
 	},
 	autoTargetFilter: {
 		name: "Destination set to nowhere",
-		desc: "Set basic priorities for autotargetting",
-		req : ["autoTarget"],
+		desc: "允许设定自动搜索的基础优先级",
+		req : ["自动搜索"],
 		map : 3,
 		mult : 1.5,
 		exp : 2500
 	},
 	invest: {
-		name: "No sacrifice, no victory",
-		desc: "Ability to use growth for experience",
+		name: "没有牺牲就没有胜利",
+		desc: "允许把成长转化为经验",
 		map : 3,
 		mult : 10,
 		exp : 7500
 	},
 	mining: {
-		name: "The deep & the dark",
-		desc: "Ability to mine gold at starting point",
+		name: "又深又黑",
+		desc: "允许在起点采集黄金",
 		map : 4,
 		mult: 2,
 		exp : 2500
 	},
 	autoTargetSelector: {
-		name: "Journey of souls",
-		desc: "Add advanced priorities for autotargetting",
+		name: "灵魂的旅途",
+		desc: "允许设定自动搜索的高级优先级",
 		map : 5,
-		req : ['autoTargetFilter'],
+		req : ['自动搜索'],
 		mult: 1.5,
 		exp : 10000
 	},
 	learn: {
-		name: "Show me how to live",
-		desc: "Ability to triple the attribute growth for the growth worth of experience",
+		name: "指引我如何活着",
+		desc: "允许把相当于成长加成的三倍的经验值转换为成长",
 		sliders : 2,
-		req : ['invest'],
+		req : ['投资'],
 		mult: 3,
 		exp : 55555.55556
 	},
 	upgradePoints: {
-		name: "Symphony of enchanted lands",
-		desc: "Ability to upgrade captured points",
+		name: "魔域交响曲",
+		desc: "允许升级 captured points",
 		map : 7,
 		mult: 2,
 		exp : 92592.592593

@@ -3,8 +3,8 @@
 const STORY = {
 	m000: {
 		forced : 1,
-		title: "Chapter 1: I want out",
-		text: `This can't go on any longer. I've been stranded on this small fragment of what used to be my world for too long. That... wall, the barrier, the only source of light I have... it feels weaker every time I touch it. I could already push my hand through for a bit yesterday. Maybe today is the day to take a look at what's out there.`,
+		title: "第一章: 我要离开",
+		text: `不能再继续下去了. 我被困在这块曾经属于我的世界的碎片上太久了. 那面... 墙, 屏障, 是我唯一的光源... 每次我触碰它，都感觉它变得更虚弱. 昨天我已经可以把一只手伸出去了. 也许今天我可以看看屏障对面有些什么.`,
 	},
 	type_power: {
 		forced : 2,

@@ -10,43 +10,43 @@ const WORLD_BONUS_ADD_MULT = 3
 
 const WORLD_STATS = {
 	goldSpeed : {
-		name: "Mining speed x",
+		name: "采矿速度 x",
 		default: 1
 	},
 	harvestSpeed : {
-		name: "Imprinting speed x",
+		name: "印刷速度 x",
 		default: 1
 	},
 	scienceSpeed : {
-		name: "Research speed x",
+		name: "研究速度 x",
 		default: 1
 	},
 	bloodBoost : {
-		name: "Workers' blood growth x",
+		name: "工人血液加成 x",
 		default: 1
 	},
 	fireBoost : {
-		name: "Workers' fire growth x",
+		name: "工人火焰加成 x",
 		default: 1
 	},
 	iceBoost : {
-		name: "Workers' ice growth x",
+		name: "工人冰加成 x",
 		default: 1
 	},
 	metalBoost : {
-		name: "Workers' metal growth x",
+		name: "工人金属加成 x",
 		default: 1
 	},
 	manaSpeed : {
-		name: "Mana production x",
+		name: "魔法生成 x",
 		default: 1
 	},
 	maxSummons : {
-		name: "Summon limit: ",
+		name: "召唤上限: ",
 		default: 10
 	},
 	meanBoost : {
-		name: "Mean machine damage x",
+		name: "均衡机器伤害 x",
 		default: 1
 	},
 }
@@ -55,26 +55,26 @@ const BASE_WORLD_STATS = Object.keys(WORLD_STATS).reduce((v,x) => (v[x]=WORLD_ST
 
 const WORLD_ELEMENTS = {
 	entryPoint: {
-		name : "World core",
-		desc : "Holds the world together",
+		name : "世界核心",
+		desc : "把世界保存在一起",
 		type : WORLD_POINT_CORE,
-		family : "core",
+		family : "核心",
 		radius : 5,
 		deadZone : 10,
 		reach : 15,
 		iconText : "🏠\uFE0E",
 	},
 	goldMine: {
-		name : "Gold mine",
-		desc : "Multiplies mining speed",
+		name : "金矿",
+		desc : "增强采矿速度",
 		type : WORLD_POINT_PASSIVE,
-		family : "resource",
+		family : "资源",
 		radius : 5,
 		deadZone : 10,
 		reach : 20,
 		effect : WORLD_BONUS_MUL,
 		value : (depth) => 1 + 2 ** (0.5 - depth / 2),
-		stat : "goldSpeed",
+		stat : "采金速度",
 		cost : {
 			_1 : 3,
 			_2 : 3,
@@ -82,16 +82,16 @@ const WORLD_ELEMENTS = {
 		iconText : "⛏\uFE0E"
 	},
 	imprinter: {
-		name : "Memory pool",
-		desc : "Multiplies imprinting speed",
+		name : "内存池",
+		desc : "增强印刷速度",
 		type : WORLD_POINT_PASSIVE,
-		family : "imprint",
+		family : "印刷",
 		radius : 5,
 		reach : 25,
 		deadZone : 15,
 		effect : WORLD_BONUS_MUL,
 		value : (depth) => 1 + 2 ** (0.5 - depth / 2),
-		stat : "harvestSpeed",
+		stat : "收获速度",
 		cost : {
 			_1 : 5,
 			_2 : 5,
@@ -103,17 +103,17 @@ const WORLD_ELEMENTS = {
 		iconText : "M",
 	},
 	library : {
-		name : "Library",
-		desc : "Boosts research speed",
+		name : "图书馆",
+		desc : "增强研究速度",
 		type : WORLD_POINT_PASSIVE,
-		family : "resource",
-		blueprint : "science1",
+		family : "资源",
+		blueprint : "科学1",
 		radius : 7,
 		deadZone : 20, 
 		reach : 25,
 		iconText : "🔍\uFE0E",
 		effect : WORLD_BONUS_ADD_MULT,
-		stat : "scienceSpeed",
+		stat : "研究速度",
 		value : (depth) => 1,
 		cost : {
 			_1 : 5,
@@ -125,86 +125,86 @@ const WORLD_ELEMENTS = {
 		}
 	},
 	bloodSelf: {
-		name : "Battlefield",
-		desc : "Boosts workers' blood growth",
+		name : "战场",
+		desc : "加强工人血液加成",
 		type : WORLD_POINT_ACTIVE,
-		family : "blood",
-		blueprint : "blood1",
+		family : "血液",
+		blueprint : "血液1",
 		radius : 10,
 		deadZone : 25,
 		reach : 30,
 		iconText : "B",
 		effect : WORLD_BONUS_ADD_MULT,
 		value : (depth) => 1,
-		stat : "bloodBoost",
+		stat : "血液加成",
 		cost : {
 			_3 : 15
 		}	
 	},
 	fireSelf: {
-		name : "Volcano",
-		desc : "Boosts workers' fire growth",
+		name : "火山",
+		desc : "加强工人火焰加成",
 		type : WORLD_POINT_ACTIVE,
-		family : "fire",
-		blueprint : "fire1",
+		family : "火焰",
+		blueprint : "火焰1",
 		radius : 10,
 		deadZone : 25,
 		reach : 30,
 		iconText : "F",
 		effect : WORLD_BONUS_ADD_MULT,
 		value : (depth) => 1,
-		stat : "fireBoost",
+		stat : "火焰加成",
 		cost : {
 			_4 : 15
 		}	
 	},
 	iceSelf: {
-		name : "Glacier",
-		desc : "Boosts workers' ice growth",
+		name : "冰川",
+		desc : "加强工人冰加成",
 		type : WORLD_POINT_ACTIVE,
-		family : "ice",
-		blueprint : "ice1",
+		family : "冰",
+		blueprint : "冰1",
 		radius : 10,
 		deadZone : 25,
 		reach : 30,
 		iconText : "I",
 		effect : WORLD_BONUS_ADD_MULT,
 		value : (depth) => 1,
-		stat : "iceBoost",
+		stat : "冰加成",
 		cost : {
 			_5 : 15
 		}	
 	},
 	metalSelf: {
-		name : "Scrapyard",
-		desc : "Boosts workers' metal growth",
+		name : "垃圾场",
+		desc : "加强工人金属加成",
 		type : WORLD_POINT_ACTIVE,
-		family : "metal",
-		blueprint : "metal1",
+		family : "金属",
+		blueprint : "金属1",
 		radius : 10,
 		deadZone : 25,
 		reach : 30,
 		iconText : "M",
 		effect : WORLD_BONUS_ADD_MULT,
 		value : (depth) => 1,
-		stat : "metalBoost",
+		stat : "金属加成",
 		cost : {
 			_6 : 15
 		}	
 	},
 	manaPool: {
-		name : "Mana pool",
-		desc : "Multiplies mana production",
+		name : "魔法池",
+		desc : "加强魔法生成",
 		type : WORLD_POINT_ACTIVE,
-		family : "imprint",
-		blueprint : "mana1",
+		family : "印刷",
+		blueprint : "魔法1",
 		radius : 15,
 		deadZone : 25,
 		reach : 45,
 		iconText : "✨\uFE0E",
 		effect : WORLD_BONUS_MUL,
 		value : (depth) => 1 + 2 ** (0.5 - depth / 2),
-		stat : "manaSpeed",
+		stat : "魔法生成",
 		cost : {
 			_3 : 4,
 			_4 : 4,
@@ -213,18 +213,18 @@ const WORLD_ELEMENTS = {
 		}
 	},
 	stabilizer: {
-		name : "Stabilizer",
-		desc : "Supports one extra summon",
+		name : "稳定器",
+		desc : "增加额外召唤上限",
 		type : WORLD_POINT_ACTIVE,
-		family : "summon",
-		blueprint : "summon1",
+		family : "召唤",
+		blueprint : "召唤1",
 		radius : 10,
 		deadZone : 20,
 		reach : 25,
 		iconText : "S",
 		effect : WORLD_BONUS_ADD,
 		value : (depth) => 1,
-		stat : "maxSummons",
+		stat : "召唤上限",
 		cost : {
 			_1 : 4,
 			_2 : 4,
@@ -235,11 +235,11 @@ const WORLD_ELEMENTS = {
 		}
 	},
 	charger: {
-		name : "Thunder station",
-		desc : "Multiplies thunderstone power",
+		name : "闪电站",
+		desc : "增强雷石能力",
 		type : WORLD_POINT_ACTIVE,
-		family : "summon",
-		blueprint : "mean1",
+		family : "召唤",
+		blueprint : "均衡1",
 		radius : 5,
 		deadZone : 35,
 		reach : 40,
@@ -247,7 +247,7 @@ const WORLD_ELEMENTS = {
 		effect : WORLD_BONUS_MUL,
 //		value : (depth) => 1 + 2 ** (0.5 - (depth ** 1.5) * 0.15),
 		value : (depth) => 1 + 2 ** (0.5 - depth * 0.3),
-		stat : "meanBoost",
+		stat : "均衡加成",
 		legacyCost : {
 			_1 : 5,
 			_2 : 5,
@@ -266,11 +266,11 @@ const WORLD_ELEMENTS = {
 		}
 	},
 	powerLift: {
-		name : "Void",
-		desc : "Does nothing",
+		name : "虚空",
+		desc : "什么也没有",
 		type : WORLD_POINT_ACTIVE,
-		family : "core",
-		blueprint : "power1_disabled",
+		family : "核心",
+		blueprint : "能量1_缺失",
 		radius : 5,
 		deadZone : 15,
 		reach : 0,
@@ -283,11 +283,11 @@ const WORLD_ELEMENTS = {
 		}
 	},
 	minorConnector : {
-		name : "Plains",
-		desc : "Utility connector node",
+		name : "平原",
+		desc : "用于连接网点",
 		type : WORLD_POINT_ACTIVE,
-		family : "core",
-		blueprint : "connect1",
+		family : "核心",
+		blueprint : "连接1",
 		radius : 5,
 		deadZone : 10,
 		reach : 75,
@@ -302,11 +302,11 @@ const WORLD_ELEMENTS = {
 		}
 	},
 	minusConnector : {
-		name : "Island",
-		desc : "Utility connector node, does not increase depth",
+		name : "岛屿",
+		desc : "用于连接核心, 不增加深度",
 		type : WORLD_POINT_ACTIVE,
-		family : "core",
-		blueprint : "connect2",
+		family : "核心",
+		blueprint : "连接2",
 		radius : 5,
 		deadZone : 10,
 		reach : 25,
@@ -322,11 +322,11 @@ const WORLD_ELEMENTS = {
 		}
 	},
 	bigMinusConnector : {
-		name : "Mountain",
-		desc : "Utility connector node, does not increase depth",
+		name : "山",
+		desc : "用于连接核心, 不增加深度",
 		type : WORLD_POINT_ACTIVE,
-		family : "core",
-		blueprint : "connect3",
+		family : "核心",
+		blueprint : "连接3",
 		radius : 5,
 		deadZone : 55,
 		reach : 50,
