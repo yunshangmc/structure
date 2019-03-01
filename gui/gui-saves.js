@@ -6,8 +6,8 @@ const SavesTab = Template({
 		this.dvDisplay = createElement("div", "saves "+(this.className || ""), this.parent)
 		
 		this.dvCloud = createElement("div", "cloud", this.dvDisplay)
-		this.dvCloudLogin = createElement("div", "cloud-login button", this.dvCloud, "Connect")
-		this.dvCloudStatus = createElement("div", "cloud-status", this.dvCloud, "Currently not connected to the cloud")
+		this.dvCloudLogin = createElement("div", "cloud-login button", this.dvCloud, "连接")
+		this.dvCloudStatus = createElement("div", "cloud-status", this.dvCloud, "当前未连接到云端")
 		this.dvCloudName = createElement("div", "cloud-username", this.dvCloud)
 		this.dvCloudUpdate = createElement("div", "cloud-update", this.dvCloud)
 		this.dvCloudLogin.onclick = (event) => {
@@ -24,19 +24,19 @@ const SavesTab = Template({
 				this.dvLoginHolder.classList.toggle("hidden", true)				
 		}
 		this.dvLoginForm = createElement("div", "login-form", this.dvLoginHolder)
-		this.dvLoginNameTitle = createElement("div", "login-caption", this.dvLoginForm, "Login")
+		this.dvLoginNameTitle = createElement("div", "login-caption", this.dvLoginForm, "用户名")
 		this.dvLoginName = createElement("input", "login-input", this.dvLoginForm)
-		this.dvLoginPassTitle = createElement("div", "login-caption", this.dvLoginForm, "Password")
+		this.dvLoginPassTitle = createElement("div", "login-caption", this.dvLoginForm, "密码")
 		this.dvLoginPass = createElement("input", "login-input", this.dvLoginForm)
 		this.dvLoginPass.type = "password"
 		this.dvLoginStatus = createElement("div", "login-status", this.dvLoginForm)
 		this.dvLoginButtons = createElement("div", "login-buttons", this.dvLoginForm)
-		this.dvLoginLogin = createElement("div", "button", this.dvLoginButtons, "Log in")
-		this.dvLoginRegister = createElement("div", "button", this.dvLoginButtons, "Register")
+		this.dvLoginLogin = createElement("div", "button", this.dvLoginButtons, "登录")
+		this.dvLoginRegister = createElement("div", "button", this.dvLoginButtons, "注册")
 		
 		this.dvLoginLogin.onclick = (event) => {
 			if (this.loggingin) return
-			this.dvLoginStatus.innerText = "Attempting login..."
+			this.dvLoginStatus.innerText = "尝试登录中..."
 			this.loggingin = true
 			cloud.login(this.dvLoginName.value, this.dvLoginPass.value)
 		}
