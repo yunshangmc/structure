@@ -2,78 +2,78 @@
 
 const FEATS = {
 	science1: {
-		desc : "Complete 35 researches.",
+		desc : "完成35项研究.",
 		map : 31
 	},
 	mana1: {
-		desc: "10000000000000. Okay, reading that number correctly is a feat already, but you also need that much mana.",
+		desc: "10000000000000. 很好, 正确地读出这一串数字已经很厉害了, 但你还需要这么多法力.",
 		map : 31
 	},
 	blood1: {
-		desc : "Complete evolved blood-focused virtual map.",
+		desc : "完成进化后的血液虚拟地图.",
 		minMap : 31,
 		map : 32
 	},
 	fire1: {
-		desc : "Complete evolved fire-focused virtual map.",
+		desc : "完成进化后的火焰虚拟地图.",
 		minMap : 31,
 		map : 32
 	},
 	ice1: {
-		desc : "Complete evolved ice-focused virtual map.",
+		desc : "完成进化后的冰虚拟地图.",
 		minMap : 31,
 		map : 32
 	},
 	metal1: {
-		desc : "Complete evolved metal-focused virtual map.",
+		desc : "完成进化后的金属虚拟地图.",
 		minMap : 31,
 		map : 32
 	},
 	noreal1 : {
-		desc: "Complete evolved virtual map without capturing a single node with real slider.",
+		desc: "不使用任何真实滑块占领任何一个节点来完成一个进化后的虚拟地图.",
 		minMap : 31,
 		map : 33
 	},
 	noabsolute1 : {
-		desc: "Complete evolved virtual map without using mean machines and unblockable damage from artifacts.",
+		desc: "不使用任何均衡机器或来自工艺品的穿透伤害完成一个进化后的虚拟地图.",
 		minMap : 31,
 		map : 33
 	},
 	power1: {
-		desc: "Ever heard of billiards? Well, you need power mutliplier equal to what some people would call a billiard. ",
+		desc: "听说过对撞器吗? 好吧, 你需要一个力量增强器，人们通常称之为对撞器. ",
 		map : 34
 	},
 	summonLevel9 : {
-		desc: "Get a level 9 summon.",
+		desc: "获得一个9级的召唤物.",
 		minMap : 34,
 		map : 34
 	},
 	same0 : {
-		desc: "Complete a virtual map same level as real one.",
+		desc: "完成一个和真实地图同等级的虚拟地图.",
 		minMap : 36,
 		map : 36
 	},
 	same1 : {
-		desc: "Complete an evolved virtual map same level as real one.",
+		desc: "完成一个和真实地图同等级的进化后的虚拟地图.",
 		minMap : 36,
 		map : 36
 	},
 	same2 : {
-		desc: "Complete a virtual map same level as real one evolved twice.",
+		desc: "完成一个和真实地图同等级的经过两次进化的虚拟地图.",
 		minMap : 36,
 		map : 36
 	},
 	same3 : {
-		desc: "Complete a third evolution of a virtual map same level as real one.",
+		desc: "完成一个和真实地图同等级的经过三次进化的虚拟地图.",
 		minMap : 36,
 		map : 36
 	},
 	elemental1 : {
-		desc: "Reach multiplier cap for all elements.",
+		desc: "每种元素都达到最大加成.",
 		map : 37
 	},
 	null1 : {
-		desc: "Beat a spirit-focused virtual map using only a single slider with Staff of suppression equipped to it.",
+		desc: "完成一个强制精神的虚空地图，只使用一个滑块并装备镇压人员.",
 		minMap : 38,
 		map : 38
 	},
@@ -83,16 +83,16 @@ const FEATS = {
 		minMap : 39
 	},
 	stars1 : {
-		desc : "Get stardust production up to 15 / sec",
+		desc : "星尘产量达到 15 / 秒",
 		map : 38,
 		minMap : 38
 	},
 	memories1 : {
-		desc : "Get at least 1000 of each kind of memory",
+		desc : "每种内存至少有 1000 ",
 		map : 39,
 	},
 	speedrun1 : {
-		desc : "Complete a virtual map in under 15 minutes",
+		desc : "15分钟内完成一张虚拟地图",
 		minMap : 39,
 		map : 39,
 	},
