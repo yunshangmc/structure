@@ -6,9 +6,9 @@ const gui = {
 		this.measureDiv = createElement("div", "utility-measure", document.body)
 		
 		this.dvOffline = createElement("div", "offline", document.body)
-		this.dvOfflineTitle = createElement("div", "offline-title", this.dvOffline, "Processing offline progress:")
+		this.dvOfflineTitle = createElement("div", "offline-title", this.dvOffline, "处理离线进度:")
 		this.dvOfflineCountdown = createElement("div", "offline-time", this.dvOffline)
-		this.dvOfflineStop = createElement("div", "offline-stop", this.dvOffline, "Stop")
+		this.dvOfflineStop = createElement("div", "offline-stop", this.dvOffline, "停止")
 		this.dvOfflineStop.onclick = (event) => {
 			game.stopAdvance()
 		}

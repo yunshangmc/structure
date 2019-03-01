@@ -266,7 +266,7 @@ const cloud = {
 	
 	shareSave(slot = "_Autosave") {
 		const data = localStorage[SAVE_PREFIX+slot]
-		gui.menu.saves.dvTextSave.value = "Uploading "+slot
+		gui.menu.saves.dvTextSave.value = "上传 "+slot
 		fetch(this.server+"share.php", {
 				method: "POST",
 				body: JSON.stringify({
@@ -277,13 +277,13 @@ const cloud = {
 				.then((data) => {
 					if (!data.success) {
 						console.log(data.error)
-						gui.menu.saves.dvTextSave.value = "Failed to upload save: " + data.error
+						gui.menu.saves.dvTextSave.value = "上传存档失败: " + data.error
 						return
 					}
-					gui.menu.saves.dvTextSave.value = "structure:"+data.code+ "\n\n\nImport the line above to load shared save\nSave expires in 24 hours"
+					gui.menu.saves.dvTextSave.value = "结构:"+data.code+ "\n\n\n导入上面的行来加载共享的存档\n存档会在24小时内过期"
 				})
 				.catch(x => {
-					gui.menu.saves.dvTextSave.value = "Failed to upload save: " + x
+					gui.menu.saves.dvTextSave.value = "上传存档失败: " + x
 					console.log(x)
 				})
 	},
