@@ -158,8 +158,8 @@ function createGrowthSlider(container, value, parent) {
 const attributePickerHandler = {
 	_init() {
 		this.dvDisplay = createElement("div", "gui-picker "+(this.className||"")+" " +this.value, this.parent || document.body)
-		this.dvDisplay.title = this.hint || ""
-		this.dvTitle = createElement("div", "name", this.dvDisplay, this.title)
+		this.dvDisplay.title = cnItem(this.hint) || ""
+		this.dvTitle = createElement("div", "name", this.dvDisplay, cnItem(this.title))
 		this.dvAttributes = createElement("div", "attributes", this.dvDisplay)
 		this.attributes = POINT_TYPES.map((x,n) => {
 			let attribute = {

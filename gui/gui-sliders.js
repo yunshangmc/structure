@@ -73,7 +73,7 @@ const SlidersTab = Template({
 		})
 		Object.values(this.master.imbuements.attributes).map(x => {
 			const totalCost = game.sliders.reduce((v,slider) => v+(slider.clone || masterSlider.safeImbuement && slider.real.imbuementCosts[x.name] > game.resources.mana / 10?0:slider.real.imbuementCosts[x.name]), 0)
-			x.dvDisplay.title = x.name.capitalizeFirst() + ": " + displayNumber(totalCost) + " mana/s"
+			x.dvDisplay.title = cnItem(x.name.capitalizeFirst()) + ": " + displayNumber(totalCost) + " 法力/秒"
 		})
 		this.hover.update()
 		if (this.levelUp.slider) {
