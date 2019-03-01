@@ -370,7 +370,7 @@ const tabGroupHandler = {
 		tab.dvRadio.name = this.name
 		tab.dvRadio.id = this.name + "-titles" + Object.keys(this.tabs).length
 
-		tab.dvTitle = createElement("label", "title " + (this.titleClass || "") + " " + name, this.dvTitles, title)
+		tab.dvTitle = createElement("label", "title " + (this.titleClass || "") + " " + name, this.dvTitles, cnItem(title))
 		tab.dvTitle.htmlFor = tab.dvRadio.id
 		tab.dvTitle.onclick = (event) => this.setTab(name)
 

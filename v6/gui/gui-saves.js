@@ -133,8 +133,8 @@ const SavesTab = Template({
 				if (time) {
 					save.dvDate.innerText = new Date(+time).toString().split(" ").slice(1,5).join(" ")
 				}
-				if (level) progress.push("Map level: "+level)
-				if (totalTime) progress.push("Time played: " + timeString(totalTime))
+				if (level) progress.push("地图等级: "+level)
+				if (totalTime) progress.push("玩了多久: " + timeString(totalTime))
 				save.dvProgress.innerText = "(" + progress.join(", ") + ")"
 				this.dvSaveList.appendChild(save.dvDisplay)
 			})

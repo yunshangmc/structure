@@ -26,7 +26,7 @@ const StatisticsTab = Template({
 const statDisplayHandler = {
 	_init() {
 		this.dvDisplay = createElement("div", "stat "+this.id, this.parent)
-		this.dvTitle = createElement("div", "name", this.dvDisplay, this.stat.name + ":")
+		this.dvTitle = createElement("div", "name", this.dvDisplay, cnItem(this.stat.name) + ":")
 		this.dvValue = createElement("div", "value", this.dvDisplay)
 		this.update(true)
 	},
@@ -80,7 +80,7 @@ for (let i = 1; i <= POINT_MAX_LEVEL; i++) {
 Object.keys(BUILDINGS).map(x => {
 	const building = BUILDINGS[x]
 	STATISTICS["built_"+x] = {
-		name : "Built " + building.name,
+		name : "建造 " + building.name,
 		display : (x) => pluralize(x, [" time"," times"]),
 		visible : (x) => game.skills["build"+building.level] && x,
 	}
