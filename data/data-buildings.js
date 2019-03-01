@@ -62,7 +62,7 @@ const BUILDINGS = {//function context == point
 	},
 	banner : {
 		name : "刑罚战旗",
-		desc : "增强全局的能量成长产出",
+		desc : "增强全局的力量成长产出",
 		level : 2,
 		cost(point) {
 			return point.depth * 1e9
@@ -150,7 +150,7 @@ const BUILDINGS = {//function context == point
 	},
 	powerTower : {
 		name : "象牙塔",
-		desc : "基于节点的成长给予能量成长",
+		desc : "基于节点的成长给予力量成长",
 		level : 3,
 		cost(point) {
 			return point.children.size?-1:point.power ** 0.5
@@ -162,10 +162,10 @@ const BUILDINGS = {//function context == point
 			return "产出: " + displayNumber(this.production(point))
 		},
 		build(point) {
-			game.growth["能量"] += this.production(point)
+			game.growth["力量"] += this.production(point)
 		},
 		destroy(point) {
-			game.growth["能量"] -= this.production(point)
+			game.growth["力量"] -= this.production(point)
 		},
 		iconText : "P",
 		iconColor : "#888833"
