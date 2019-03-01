@@ -535,7 +535,7 @@ const game = {
 				
 				if (this.map.virtual) {
 					const summons = game.sliders.filter(x => x.clone == 2).length
-					if (summons && !confirm("You have " + pluralize(summons, ["summon", "summons"]) + ". \n Changing map will make "+pluralize(summons, ["it","them"], true)+" disappear. \n Do you really want to go?")) 
+					if (summons && !confirm("你拥有 " + pluralize(summons, ["summon", "summons"]) + ". \n 改变地图将使 "+pluralize(summons, ["it","them"], true)+" 消失。 \n 你真的想去吗?")) 
 						return
 				}
 				

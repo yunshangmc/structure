@@ -374,7 +374,7 @@ const mapDisplayHandler = {
 		if (this.name != game.activeMap) {
 			this.dvGo.onclick = (event) => {
 				const summons = game.sliders.filter(x => x.clone == 2).length
-				if (summons && !confirm("You have " + pluralize(summons, ["summon", "summons"]) + ". \n Changing map will make "+pluralize(summons, ["it","them"], true)+" disappear. \n Do you really want to go?")) 
+				if (summons && !confirm("你拥有 " + pluralize(summons, ["summon", "summons"]) + ". \n 改变地图将使 "+pluralize(summons, ["it","them"], true)+" 消失。 \n 你真的想去吗?")) 
 					return
 				game.setMap(this.name, true)
 				gui.tabs.setTab("map")
@@ -382,14 +382,14 @@ const mapDisplayHandler = {
 		}
 
 		if (game.skills.evolveVirtual) {
-			this.dvEvolve = createElement("div", "button" + ((!map.virtual || map.level < 31 || progress < 100 || map.evolved && map.evolved >= 3)?"":" enabled"), this.dvDisplay, "Evolve")
+			this.dvEvolve = createElement("div", "button" + ((!map.virtual || map.level < 31 || progress < 100 || map.evolved && map.evolved >= 3)?"":" enabled"), this.dvDisplay, "进化")
 			this.dvEvolve.onclick = (event) => {
 				map.evolve()
 				gui.stardust.update(true)
 			}
 		}
 
-		this.dvStats = createElement("div", "button enabled", this.dvDisplay, "Stats")
+		this.dvStats = createElement("div", "button enabled", this.dvDisplay, "统计")
 		this.dvStats.onclick = (event) => {
 			gui.stardust.dvStatsHolder.classList.toggle("hidden", false)
 			gui.stardust.updateMapStats(this.name)

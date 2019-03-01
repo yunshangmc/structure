@@ -692,7 +692,7 @@ const presetMenuHandler = {
 		this.dvSave.onclick = (event) => {
 			let name = this.activePreset
 			if (name == this.newName) {
-				name = prompt("Name a preset:", "Preset "+Object.keys(this.presets).length)
+				name = prompt("设定预设名称:", "预设 "+Object.keys(this.presets).length)
 				if (!name) return
 				name = this.prefix + name
 			}
@@ -711,7 +711,7 @@ const presetMenuHandler = {
 
 		this.dvDelete = createElement("div", "button", this.dvButtons, "Delete")
 		this.dvDelete.onclick = (event) => {
-			if (this.presets[this.activePreset] && confirm("Really delete?")) {
+			if (this.presets[this.activePreset] && confirm("真的要删除吗?")) {
 				delete this.presets[this.activePreset]
 				this.activePreset = this.newName
 				this.update()
@@ -719,7 +719,7 @@ const presetMenuHandler = {
 		}
 
 		if (this.reset) {
-			this.dvReset = createElement("div", "button", this.dvButtons, "Reset")
+			this.dvReset = createElement("div", "button", this.dvButtons, "重置")
 			this.dvReset.onclick = (event) => {
 				if (confirm("Really reset?"))
 					this.reset()

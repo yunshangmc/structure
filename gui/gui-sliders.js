@@ -266,7 +266,7 @@ const sliderLevelUpHandler = {
 		this.dvLevelUpCost = createElement("div", "sliderlv-info", this.dvLevelUp)
 		this.dvLevelUpButton = createElement("div", "button line-end", this.dvLevelUp, "Level up")
 		this.dvLevelUpButton.onclick = (event) => {
-			if (this.slider.canLevelUp() && confirm("Levelling up will reset this slider's stats to zero on all maps. Do you want to continue?"))
+			if (this.slider.canLevelUp() && confirm("升级将重置此滑块在所有地图上的状态为零。你想继续吗?"))
 				this.slider.levelUp()
 		}
 		this.dvMultiCost = createElement("div", "sliderlv-info", this.dvDisplay)

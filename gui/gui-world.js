@@ -183,7 +183,7 @@ const presetImporterHandler = {
 		this.dvFinish.onclick = (event) => {
 			if (!game.payStardust(this.totalCost)) return
 			const imports = this.presets.filter(x => x.chosen)
-			if (!imports.length && !confirm("It's your only chance to import your old presets. \n\nDo you really want to discard them all?")) return
+			if (!imports.length && !confirm("这是您导入旧预设的惟一机会。 \n\n你真的想把它们都扔掉吗?")) return
 			if (imports.length) delete game.worlds[1]
 			
 			imports.map((data,n) => {
@@ -528,7 +528,7 @@ const worldInfoHandler = {
 			}
 		this.dvRename = createElement("div", "button available", this.dvDisplay, "Rename")
 		this.dvRename.onclick = (event) => {
-			const newName = prompt("Enter new name:", this.world.title)
+			const newName = prompt("输入新名称:", this.world.title)
 			if (newName !== null)
 				this.world.title = newName
 			gui.world.worldList.update(true)
@@ -536,7 +536,7 @@ const worldInfoHandler = {
 		this.dvDelete = createElement("div", "button" + ((this.world != game.world && Object.entries(game.worlds).length > 1)?" available":""), this.dvDisplay, "Delete")
 		this.dvDelete.onclick = (event) => {
 			if (Object.entries(game.worlds).length < 2 || this.world == game.world) return
-			if (!confirm("While new map price will drop, you won't get refunded for deleting a world.\n\nDo you want to delete it?")) return
+			if (!confirm("虽然新的地图价格将下降，删除一个世界你也不会得到退款。\n\n你想删除它吗?")) return
 			delete game.worlds[this.world.id]
 			gui.world.worldList.update(true)
 		}
