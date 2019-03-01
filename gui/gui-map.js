@@ -232,7 +232,7 @@ const resourceDataHandler = {
 	
 	update() {
 		if (!this.visible) return
-		let newValue = this.resource == "exp"?"经验":this.resource.capitalizeFirst()
+		let newValue = this.resource == "exp"?"经验":cnItem(this.resource.capitalizeFirst())
 		newValue += "\n可用: " + displayNumber(game.resources[this.resource])
 
 		const production = game.real?this.resource=="stardust"?game.real.stardustChange:game.real.production[this.resource]:game.production[this.resource]
