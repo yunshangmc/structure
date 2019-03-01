@@ -10,8 +10,8 @@ const ENCHANT_DOOM = 4
 
 const SPELLS = {//function context == point
 	destroyResist : {
-		name : "Dispel magical shield",
-		desc : "Removes shield from magically protected point",
+		name : "驱散魔法护罩",
+		desc : "驱散被反魔法防御保护的节点",
 		book : "dispels1",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -25,8 +25,8 @@ const SPELLS = {//function context == point
 		iconColor : "#DD55DD",
 	},
 	destroyBlock : {
-		name : "Dispel physical shield",
-		desc : "Removes shield from physically protected point",
+		name : "驱散物理护罩",
+		desc : "驱散被反物理防御保护的节点",
 		book : "dispels1",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -40,8 +40,8 @@ const SPELLS = {//function context == point
 		iconColor : "#DD55DD",
 	},
 	destroyNoclone : {
-		name : "Dispel summon shield",
-		desc : "Removes shield from summon-protected point",
+		name : "驱散召唤护罩",
+		desc : "驱散被反召唤防御保护的节点",
 		book : "dispels2",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -70,8 +70,8 @@ const SPELLS = {//function context == point
 		iconColor : "#DD55DD",
 	},*/
 	destroyLock : {
-		name : "Rest in keys",
-		desc : "Unlock the nearby locked points",
+		name : "让钥匙休息",
+		desc : "解锁附近被锁住的节点",
 		book : "unlocks1",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -87,8 +87,8 @@ const SPELLS = {//function context == point
 		iconColor : "#DD55DD",
 	},
 	summonPower : {
-		name : "Power elemental",
-		desc : "Summons a clone to attack point node",
+		name : "强大的元素",
+		desc : "召唤一个核心去进攻目标节点",
 		book : "summons1",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -103,8 +103,8 @@ const SPELLS = {//function context == point
 		iconColor : "var(--bg-power)",
 	},
 	summonRandom : {
-		name : "Random elemental",
-		desc : "Summons random elemental clone to attack point node",
+		name : "随机元素",
+		desc : "召唤一个随机元素核心进攻目标节点",
 		book : "summons1",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -119,8 +119,8 @@ const SPELLS = {//function context == point
 		iconColor : "gray",
 	},
 	summonBlood : {
-		name : "Blood elemental",
-		desc : "Summons blood elemental clone to attack point node",
+		name : "血液元素",
+		desc : "召唤一个血液元素核心去进攻目标节点",
 		book : "summons2",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -135,8 +135,8 @@ const SPELLS = {//function context == point
 		iconColor : "var(--bg-blood)",
 	},
 	summonFire : {
-		name : "Fire elemental",
-		desc : "Summons fire elemental clone to attack point node",
+		name : "火焰元素",
+		desc : "召唤一个火焰元素核心去进攻目标节点",
 		book : "summons2",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -151,8 +151,8 @@ const SPELLS = {//function context == point
 		iconColor : "var(--bg-fire)",
 	},
 	summonIce : {
-		name : "Ice elemental",
-		desc : "Summons ice elemental clone to attack point node",
+		name : "冰元素",
+		desc : "召唤一个冰元素核心去进攻目标节点",
 		book : "summons2",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -167,8 +167,8 @@ const SPELLS = {//function context == point
 		iconColor : "var(--bg-ice)",
 	},
 	summonMetal : {
-		name : "Metal elemental",
-		desc : "Summons metal elemental clone to attack point node",
+		name : "金属元素",
+		desc : "召唤一个金属元素核心去进攻目标节点",
 		book : "summons2",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -183,8 +183,8 @@ const SPELLS = {//function context == point
 		iconColor : "var(--bg-metal)",
 	},
 	summonExplosion : {
-		name : "Summon explosion",
-		desc : "Summons attacking this point explode, reducing remaining barrier by 5% + 5% per slider level",
+		name : "召唤爆炸",
+		desc : "召唤一个对目标节点的爆破, 降低剩余屏障的 5% + 5% 每滑块等级",
 		book : "explosive1",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -207,8 +207,8 @@ const SPELLS = {//function context == point
 		iconColor : "var(--bg-fire)",
 	},
 	summonAlignment : {
-		name : "Summon conversion",
-		desc : "Summons attacking this point change element to most efficient one",
+		name : "召唤转换",
+		desc : "把进攻目标节点的召唤物转换为最有效的元素",
 		book : "realign1",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -232,8 +232,8 @@ const SPELLS = {//function context == point
 		iconColor : "#111111",
 	},
 	enchantGold: {
-		name: "Land of gold",
-		desc: "Factory produces more gold",
+		name: "黄金之地",
+		desc: "工厂生产更多黄金",
 		book: "enchantments1",
 		type: SPELL_TYPE_POINT,
 		managed :true,
@@ -248,8 +248,8 @@ const SPELLS = {//function context == point
 		iconColor : "#888866"
 	},
 	enchantMana: {
-		name: "Land of mana",
-		desc: "Obelisk mana production is boosted",
+		name: "魔法之地",
+		desc: "方尖碑法力产出提升",
 		book: "enchantments1",
 		type: SPELL_TYPE_POINT,
 		managed :true,
@@ -264,8 +264,8 @@ const SPELLS = {//function context == point
 		iconColor : "#886688"
 	},
 	enchantGrowth: {
-		name: "Land of growth",
-		desc: "Growth production is boosted",
+		name: "成长之地",
+		desc: "成长产出提升",
 		book: "enchantments2",
 		type: SPELL_TYPE_POINT,
 		managed :true,
@@ -280,8 +280,8 @@ const SPELLS = {//function context == point
 		iconColor : "#668888"
 	},
 	enchantDoom: {
-		name: "Land of doom",
-		desc: "Damage dealt to the point is greatly boosted. Doomed points provide less growth but more science.",
+		name: "毁灭之地",
+		desc: "对目标造成的伤害获得巨大提升. 被毁灭的目标成长产出下降，但科学产出提升.",
 		book: "enchantments2",
 		type: SPELL_TYPE_POINT,
 		managed :true,
