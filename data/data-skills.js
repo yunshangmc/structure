@@ -92,7 +92,7 @@ const SKILLS = {
 	},
 	channel: {
 		name: "战歌",
-		desc: "允许将属性直接通灵到其它滑块，代替成长",
+		desc: "允许将属性直接传递到其它滑块，代替成长",
 		mult: 2,
 		exp : 257201646.09053498,
 		sliders : 3
@@ -187,7 +187,7 @@ const SKILLS = {
 	},
 	smartMine: {
 		name: "回首往事",
-		desc: "Mining and attacking sliders can keep checking for better targets",
+		desc: "正在挖掘和攻击的滑块可以随时寻找更好的目标",
 		req : ["smartHome"],
 		res : ['science'],
 		map : 9,
@@ -196,8 +196,8 @@ const SKILLS = {
 		science : 2e6,
 	},
 	buildAutomation: {
-		name : "Built to last",
-		desc : "Unlock building automation",
+		name : "最终建好了",
+		desc : "解锁自动建筑",
 		map : 9,
 		mult : 3,
 		exp : 2e10,
@@ -206,8 +206,8 @@ const SKILLS = {
 		science : 2.5e6
 	},
 	smartAuto: {
-		name: "Walk away in silence",
-		desc: "Sliders change target when dealing no damage and avoid such strong points when autotargetting",
+		name: "静静地走开",
+		desc: "滑块会在无法造成伤害时自动撤离，并避开这些强大的目标",
 		req : ["autoTarget", "mining"],
 		res : ['science'],
 		map : 9,
@@ -216,8 +216,8 @@ const SKILLS = {
 		science : 1e7,
 	},
 	autoTargetDistance: {
-		name: "Far from the end of the world",
-		desc: "Set distance-based priorities for autotargetting",
+		name: "远离世界末日",
+		desc: "允许设定自动搜索的距离优先级",
 		req : ["smartAuto","autoTargetSelector"],
 		res : ['science'],
 		map : 9,
@@ -226,83 +226,83 @@ const SKILLS = {
 		science : 1e10,
 	},
 	imbuement: {
-		name: "Elements, pt.2",
-		desc: "Use mana to imbue power with element",
+		name: "元素, pt.2",
+		desc: "使用法力给元素注入力量",
 		req : ["magic"],
 		map : 17,
 		mult: 4,
 		exp : 4e12
 	},
 	blood: {
-		name: "Halo of blood",
-		desc: "Blood damage ignores spirit penalty",
+		name: "鲜血光环",
+		desc: "血液伤害不再受到精神惩罚",
 		map : 17,
 		mult : 2,
 		exp : 2e11,
 	},
 	metal: {
-		name: "Metal mass",
-		desc: "Metal damage ignores spirit penalty",
+		name: "大量金属",
+		desc: "金属伤害不再受到精神惩罚",
 		map : 17,
 		mult : 2,
 		exp : 2e11,
 	},
 	magicGrowthBoost: {
-		name: "Magic forest",
-		desc: "Elemental growth bonus boosted within magic circle",
+		name: "魔法森林",
+		desc: "魔圈内元素成长获得加成",
 		map : 18,
 		mult : 3,
 		req : ["magic"],
 		exp : 4e12,
 	},
 	gild: {
-		name: "Golden Dawn",
-		desc: "Sliders produce gold by fighting and spending mana",
+		name: "金色黎明",
+		desc: "滑块在战斗和使用法力的时候获得黄金",
 		map : 18,
 		mult : 1.5,
 		req : ["magic"],
 		exp : 2e12,
 	},
 	build3: {
-		name: "Tomorrowland",
-		desc: "Unlock level 3 buildings",
+		name: "未来大陆",
+		desc: "解锁 3 级建筑",
 		req : ["build2"],
 		map : 19,
 		mult: 2,
 		exp : 1e13
 	},
 	power: {
-		name: "Absolute power",
-		desc: "Physical attack ignores spirit penalty",
+		name: "绝对力量",
+		desc: "物理进攻不再受到精神惩罚",
 		map : 21,
 		mult: 2,
 		exp : 1e17
 	},
 	spellcasting : {
-		name: "Secrets of the Magick Grimoire",
-		desc: "Ability to learn and cast spells",
+		name: "魔法宝典的秘密",
+		desc: "允许学习和使用法术",
 		sliders : 5,
 		mult : 2,
 		exp : 1e18
 	},
 	book_summons1 : {
-		name: "The warrior's spell",
-		desc: "Spellbook - Summon clones to attack chosen point",
+		name: "战士的法术",
+		desc: "法术书 - 召唤核心并攻击目标",
 		req : ["spellcasting"],
 		science : 10e12,
 		exp : 1e19,
 		mult : 1,
 	},
 	virtualMaps: {
-		name : "Virtual empire",
-		desc : "Use stardust to create and explore virtual maps",
+		name : "虚拟帝国",
+		desc : "使用星云来创建和探索虚拟地图",
 		map : 22,
 		mult : 2,
 		exp : 2e20
 	},
 	book_dispels1 : {
-		name: "Breaking the law",
-		desc: "Spellbook - Break protected point shields",
+		name: "打破规则",
+		desc: "法术书 - 破坏被保护的节点的防御",
 		req : ["spellcasting"],
 		map : 23,
 		science : 30e12,
@@ -310,15 +310,15 @@ const SKILLS = {
 		mult : 1,
 	},
 	build4: {
-		name : "Angry machines",
-		desc : "Build at level 4 points",
+		name : "暴走的机器",
+		desc : "建造4级建筑",
 		map : 24,
 		mult : 3,
 		exp : 1e22
 	},
 	book_enchantments1: {
-		name : "Symphony of enchanted lands II",
-		desc : "Spellbook - Use mana to enchant captured points",
+		name : "魔域交响曲 II",
+		desc : "法术书 - 使用法力对占领点数产生影响",
 		map : 25,
 		req : ["spellcasting"],
 		science : 1e14,
@@ -326,8 +326,8 @@ const SKILLS = {
 		mult : 1		
 	},
 	masterSlider : {
-		name : "The art of war",
-		desc : "Add tools to control all sliders at once",
+		name : "战争艺术",
+		desc : "增加可以同时控制所有滑块的工具",
 		req : ["channel", "imbuement", "gild"],
 		sliders : 4,
 		science : 2e14,
@@ -336,23 +336,23 @@ const SKILLS = {
 	},
 	magicManagement : {
 		name : "Wishmaster",
-		desc : "Add magic elements to management",
+		desc : "增加一个管理元素的界面",
 		req : ["book_enchantments1", "management"],
 		science : 4e14,
 		exp : 1e22,
 		mult : 1.5
 	},
 	massEnchant : {
-		name : "Every last thing",
-		desc : "Add mass enchantment to management",
+		name : "最后一件事",
+		desc : "在元素管理界面增加大量魔法",
 		req : ["magicManagement"],
 		science : 6.5e14,
 		exp : 1e22,
 		mult : 1.5
 	},
 	smartSummons : {
-		name : "For those who walk the path forlorn",
-		desc : "Summons choose new target in a more smart way",
+		name : "为了孤独行走的人",
+		desc : "召唤物更加智能地寻找下一个目标",
 		req : ["book_summons1"],
 		science : 3e14,
 		map : 27,
@@ -360,8 +360,8 @@ const SKILLS = {
 		mult : 1.1
 	},
 	controlSummons : {
-		name : "Change direction",
-		desc : "Advanced summon targetting",
+		name : "转向",
+		desc : "升级召唤物的自动搜索",
 		req : ["smartSummons", "masterSlider"],
 		science : 5e17,
 		map : 36,
@@ -369,29 +369,29 @@ const SKILLS = {
 		mult : 1.1
 	},
 	artifacts: {
-		name : "Hidden treasure",
-		desc : "Research artifacts found during mining",
+		name : "隐藏的宝藏",
+		desc : "在挖矿的时候提升工艺品研究",
 		sliders : 6,
 		mult : 2,
 		exp : 5e22
 	},
 	virtualMapFocus: {
-		name : "Heavenseeker",
-		desc : "Create virtual maps focused on specific attribute",
+		name : "天堂搜索者",
+		desc : "创建针对特定属性的虚拟地图",
 		map : 26,
 		mult : 2,
 		exp : 5e22
 	},
 	retainVirtualBonus: {
-		name : "Beyond reality",
-		desc : "Retain virtual map bonuses when deleting them",
+		name : "超越现实",
+		desc : "删除虚拟地图时保留它们的奖励",
 		map : 27,
 		mult : 2,
 		exp : 2e22
 	},
 	book_summons2 : {
-		name: "Master of puppets",
-		desc: "Spellbook - Summon specific elementals to attack chosen point",
+		name: "木偶大师",
+		desc: "法术书 - 召唤特定元素攻击目标",
 		req : ["spellcasting"],
 		map : 27,
 		science : 2e14,
@@ -399,8 +399,8 @@ const SKILLS = {
 		mult : 1,
 	},
 	book_enchantments2: {
-		name : "Into the enchanted chamber",
-		desc : "Spellbook - More enchantments for points",
+		name : "进入魔法室",
+		desc : "法术书 - 根据点数获得更多元素",
 		map : 28,
 		req : ["book_enchantments1","spellcasting"],
 		science : 5e14,
@@ -408,8 +408,8 @@ const SKILLS = {
 		mult : 1.5
 	},
 	book_realign1 : {
-		name: "Welcome to the other side",
-		desc: "Spellbook - Summon conversion",
+		name: "欢迎来到另一边",
+		desc: "法术书 - 召唤转换",
 		req : ["spellcasting", "book_summons2"],
 		map : 28,
 		science : 3e14,
@@ -417,8 +417,8 @@ const SKILLS = {
 		mult : 1.1,
 	},
 	book_dispels2 : {
-		name: "Break the silence",
-		desc: "Spellbook - Break antisummon shields",
+		name: "打破沉默",
+		desc: "法术书 - 打破召唤禁止的防御",
 		req : ["spellcasting"],
 		map : 28,
 		science : 6e14,
@@ -426,8 +426,8 @@ const SKILLS = {
 		mult : 1.5,
 	},
 	book_unlocks1 : {
-		name: "Keeper of the seven keys",
-		desc: "Spellbook - Unlock all the ways from chosen point",
+		name: "七把钥匙的保管者",
+		desc: "法术书 - 解锁所有点数选择",
 		req : ["spellcasting"],
 		map : 28,
 		science : 1e15,
@@ -435,22 +435,22 @@ const SKILLS = {
 		mult : 1.5,
 	},
 	spiritStar : {
-		name : "Stargazer",
-		desc : "Spirit growth is boosted by stars times stardust",
+		name : "占星师",
+		desc : "滑块成长受星云和星星影响",
 		map : 28,
 		exp : 2e28,
 		mult : 2
 	},
 	sliderLevels : {
-		name : "Evolution 4.0",
-		desc : "Invest experience into levelling up sliders",
+		name : "进化 4.0",
+		desc : "允许使用经验升级滑块",
 		map : 29,
 		exp : 1e30,
 		mult : 5.203
 	},
 	smartTablet : {
-		name : "Carved in stone",
-		desc : "Smart input for artifact research",
+		name : "永久刻印",
+		desc : "使工艺品研究输入更加智能",
 		req : ["artifacts"],
 		map : 29,
 		exp : 1e28,
@@ -458,15 +458,15 @@ const SKILLS = {
 		mult : 2
 	},
 	party : {
-		name : "As one",
-		desc : "Assign leader and follower roles to sliders to form teams",
+		name : "融为一体",
+		desc : "允许分配滑块分别称为领导者和跟随者，组成团队",
 		map : 30,
 		exp : 1e30,
 		mult : 2
 	},
 	imprint : {
-		name : "Memories of a time to come",
-		desc : "Imprint nodes information in your memory",
+		name : "未来记忆",
+		desc : "在内存中记录节点信息",
 		req : ["build4"],
 		sliders : 7,
 		science : 7.5e14,
@@ -474,8 +474,8 @@ const SKILLS = {
 		mult : 2
 	},
 	virtualImprint : {
-		name : "Memories of a dream",
-		desc : "Imprint stardust nodes from current-level virtual maps",
+		name : "梦的记忆",
+		desc : "记录最近的虚拟地图的星云节点",
 		req : ["imprint"],
 		science : 8.5e14,
 		map : 33,
@@ -483,8 +483,8 @@ const SKILLS = {
 		mult : 2
 	},
 	world : {
-		name : "Brave new world",
-		desc : "Build a new world based on your memories",
+		name : "美好的新世界",
+		desc : "根据你的记忆创造一个新世界",
 		req : ["imprint"],
 		map : 31,
 		res : ["_1","_2","_3","_4","_5","_6"],
@@ -492,48 +492,48 @@ const SKILLS = {
 		mult : 2
 	},
 	evolveVirtual : {
-		name : "Land beyond the edge",
-		desc : "Evolve completed virtual maps of level 31 and above",
+		name : "在边界外着陆",
+		desc : "31级以上的虚拟地图会进化",
 		req : ["virtualMaps"],
 		map : 32,
 		exp : 1e30,
 		mult : 2
 	},
 	levelSummons : {
-		name : "Rising force",
-		desc : "Summons gain a level and build up strength upon capturing a point",
+		name : "力量提升",
+		desc : "召唤物占领一个目标后会获得等级并提升年能力",
 		req : ["smartSummons"],
 		map : 34,
 		exp : 1e30,
 		mult : 2
 	},
 	starfall : {
-		name : "Starfall",
-		desc : "Completed virtual maps of real map level produce stardust for each evolution until deleted",
+		name : "流星雨",
+		desc : "完成和当前地图等级相同的虚拟地图会获得基于进化次数的星云",
 		req : ["evolveVirtual"],
 		map : 36,
 		exp : 1e40,
 		mult : 2
 	},
 	worldCore : {
-		name : "Kingdom for a heart",
-		desc : "Filter memories for more efficient worlds",
+		name : "心中的王国",
+		desc : "过滤记忆来生成更有效率的世界",
 		req : ["world"],
 		sliders : 8,
 		exp : 1e40,
 		mult : 2
 	},
 	autoStar : {
-		name : "Astronomy",
-		desc : "Automated stardust redistribution",
+		name : "天文学",
+		desc : "自动重新分配星云",
 		req : ["starfall"],
 		map : 37,
 		exp : 1e41,
 		mult : 2
 	},
 	book_explosive1 : {
-		name: "Suicide by my side",
-		desc: "Spellbook - Summon explosions",
+		name: "自杀伴随着我",
+		desc: "法术书 - 召唤爆炸",
 		req : ["spellcasting"],
 		map : 38,
 		science : 1e16,
@@ -541,80 +541,80 @@ const SKILLS = {
 		mult : 1.1,
 	},
 	starfire : {
-		name : "Starfire",
-		desc : "Stars don't crumble to dust on ascension",
+		name : "星火",
+		desc : "星星在转生时不会碎裂",
 		map : 41,
 		exp : 1e45,
 		mult : 2
 	},
 
 	world_blood1 : {
-		name : "Upon haunted battlefields",
-		desc : "Blueprint - Battlefield",
+		name : "闹鬼的战场",
+		desc : "蓝图 - 战场",
 		req : ["world"],
 		feat : "blood1",
 		exp : 0,
 		mult : 2
 	},
 	world_science1 : {
-		name : "Rise of the wise",
-		desc : "Blueprint - Library",
+		name : "智者的崛起",
+		desc : "蓝图 - 图书馆",
 		req : ["world"],
 		feat : "science1",
 		exp : 0,
 		mult : 2
 	},
 	world_fire1 : {
-		name : "Forged in fire",
-		desc : "Blueprint - Volcano",
+		name : "火焰中锻造",
+		desc : "蓝图 - 火山",
 		req : ["world"],
 		feat : "fire1",
 		exp : 0,
 		mult : 2
 	},
 	world_ice1 : {
-		name : "World of ice",
-		desc : "Blueprint - Glacier",
+		name : "冰之世界",
+		desc : "蓝图 - 冰川",
 		req : ["world"],
 		feat : "ice1",
 		exp : 0,
 		mult : 2
 	},
 	world_metal1 : {
-		name : "Metallic tragedy",
-		desc : "Blueprint - Scrapyard",
+		name : "金属的终结",
+		desc : "蓝图 - 垃圾场",
 		req : ["world"],
 		feat : "metal1",
 		exp : 0,
 		mult : 2
 	},
 	world_mana1 : {
-		name : "Magic moments",
-		desc : "Blueprint - Mana pool",
+		name : "魔法时代",
+		desc : "蓝图 - 魔法池",
 		req : ["world"],
 		feat : "mana1",
 		exp : 0,
 		mult : 2
 	},
 	world_summon1 : {
-		name : "Wild beast show",
-		desc : "Blueprint - Stabilizer",
+		name : "野兽秀",
+		desc : "蓝图 - 稳定器",
 		req : ["world"],
 		feat : "noabsolute1",
 		exp : 0,
 		mult : 2
 	},
 	world_mean1 : {
-		name : "A storm to come",
-		desc : "Blueprint - Thunder station",
+		name : "风暴要来了",
+		desc : "蓝图 - 闪电站",
 		req : ["world"],
 		feat : "noreal1",
 		exp : 0,
 		mult : 2
 	},
 	world_power1 : {
-		name : "Maximum overload",
-		desc : "Blueprint - Power station",
+		name : "极限超载",
+		desc : "蓝图 - 能量站",
 		req : ["world"],
 		feat : "power1_disabled",
 		map : 52,
@@ -622,8 +622,8 @@ const SKILLS = {
 		mult : 2
 	},
 	world_connect1 : {
-		name : "Fields of ascension",
-		desc : "Blueprint - Plains",
+		name : "上升力场",
+		desc : "蓝图 - 平原",
 		req : ["world"],
 		feat : "same1",
 		exp : 0,
@@ -631,7 +631,7 @@ const SKILLS = {
 	},
 	world_connect2 : {
 		name : "Old routes - new waters",
-		desc : "Blueprint - Island",
+		desc : "蓝图 - 岛屿",
 		req : ["world"],
 		feat : "same3",
 		exp : 0,

@@ -64,8 +64,8 @@ const ARTIFACTS = {
 		glyph : "none-emptyorb",
 	},
 	channelOrb: {
-		name : "通灵球",
-		desc : "通灵不再影响成长",
+		name : "传递球",
+		desc : "传递不再影响成长",
 		codeLength : 12,
 		codeCost : 2e9,
 		depth : 7.777e16,
@@ -78,7 +78,7 @@ const ARTIFACTS = {
 	},
 	summonOrb: {
 		name : "召唤珠",
-		desc : "通灵效果翻倍并不影响成长, 但只对召唤有效",
+		desc : "传递效果翻倍并不影响成长, 但只对召唤有效",
 		codeLength : 29,
 		codeCost : 75e12,
 		depth : 2.456e39,
@@ -103,8 +103,8 @@ const ARTIFACTS = {
 		glyph : "storm-emptyorb",
 	},
 	powerOrb: {
-		name : "能量珠",
-		desc : "滑块的所有成长转化为能量",
+		name : "力量珠",
+		desc : "滑块的所有成长转化为力量",
 		codeLength : 6,
 		codeCost : 1e8,
 		depth : 3.141e6,
@@ -387,7 +387,7 @@ const ARTIFACTS = {
 	},
 	channelReceiver: {
 		name: "学生的护身符",
-		desc: "滑块通灵获得两倍效果",
+		desc: "滑块传递获得两倍效果",
 		codeLength : 7,
 		codeCost : 5e8,
 		depth : 2.515e10,
@@ -426,7 +426,7 @@ const ARTIFACTS = {
 	},
 	summonAmulet: {
 		name : "学徒护身符",
-		desc : "如果没有召唤物在攻击目标节点，滑块在攻击目标节点时有概率免费召唤一个能量节点",
+		desc : "如果没有召唤物在攻击目标节点，滑块在攻击目标节点时有概率免费召唤一个力量节点",
 		codeLength : 24,
 		codeCost : 1e11,
 		depth : 1.220e30,
@@ -491,7 +491,7 @@ const ARTIFACTS = {
 	},
 	channelSword: {
 		name : "导电剑",
-		desc : "当攻击一个具有反通灵防御的节点时, 伤害减少但是允许10%的通灵",
+		desc : "当攻击一个具有反传递防御的节点时, 伤害减少但是允许10%的传递",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 4,
 		codeCost : 6e15,
@@ -521,7 +521,7 @@ const ARTIFACTS = {
 	},
 	channelCrown: {
 		name : "领导者头冠",
-		desc : "和这个滑块进攻同一个目标的滑块获得基于这个滑块的通灵加成",
+		desc : "和这个滑块进攻同一个目标的滑块获得基于这个滑块的传递加成",
 		codeLength : 10,
 		codeCost : 25e9,
 		depth : 7.651e25,
@@ -575,7 +575,7 @@ const ARTIFACTS = {
 	},
 	shareCrown: {
 		name : "导电头冠",
-		desc : "如果不是独自攻击, 不再获得或发送任何通灵，但其它滑块通灵翻倍",
+		desc : "如果不是独自攻击, 不再进行任何传递出入，但其它滑块传递效果翻倍",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 7,
 		codeCost : 3e15,
