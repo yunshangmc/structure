@@ -701,8 +701,8 @@ const sliderHandler = {
 			const boost = this.learn.includes(n+1) && !channel
 			x.expSlider.dvDisplay.classList.toggle("boost", boost)
 			x.expSlider.dvDisplay.classList.toggle("channel", channel)
-			if (boost) x.expSlider.text("Boost", 1)
-			else if (channel) x.expSlider.text("Channel", 0.5)
+			if (boost) x.expSlider.text("提升", 1)
+			else if (channel) x.expSlider.text("通道", 0.5)
 			else x.expSlider.resetText()
 			x.expSlider.update()
 		})

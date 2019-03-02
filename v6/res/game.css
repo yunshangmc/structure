@@ -173,7 +173,8 @@ html, body {
 }
 
 body.invert {
-	filter : invert(0.8) hue-rotate(180deg);
+	-webkit-filter : invert(0.8) hue-rotate(180deg);
+	        filter : invert(0.8) hue-rotate(180deg);
 	font-weight : bold;
 }
 
@@ -197,6 +198,9 @@ body.invert {
 .bg-home   { background-color : var(--bg-home   );}
 
 .titles.main {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	height : 30px;
 	overflow-y : hidden;
@@ -204,16 +208,27 @@ body.invert {
 }
 
 .titles.main .title{
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	background-color : var(--shade12);
 	height : 28px;
 	padding : 0 20px;
 	margin : 0 0 0 0;
 	border : 1px solid var(--darkframe);
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	white-space : nowrap;
 	cursor : pointer;
+	-webkit-transition : background-color 0.3s;
+	-o-transition : background-color 0.3s;
 	transition : background-color 0.3s;
 }
 
@@ -229,8 +244,14 @@ body.invert {
 }
 
 .titles.main .filler {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-grow : 999;
+	-webkit-box-flex : 999;
+	-webkit-flex-grow : 999;
+	    -ms-flex-positive : 999;
+	        flex-grow : 999;
 	margin : -1px 0 0 0;
 	width : 100%;
 	height : 30px;
@@ -245,6 +266,8 @@ body.invert {
 }
 
 .tab.map {
+	-webkit-transition : background-color 2s, color 2s;
+	-o-transition : background-color 2s, color 2s;
 	transition : background-color 2s, color 2s;
 }
 
@@ -295,8 +318,15 @@ canvas.foreground : {
 .target {
 	position : absolute;
 	z-index : 5;	
+	display : -webkit-box;	
+	display : -webkit-flex;	
+	display : -ms-flexbox;	
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 	font-size : 13.3px;
 	color : var(--foreground);
 }
@@ -307,10 +337,20 @@ canvas.foreground : {
 
 .target .sliders, .upgrades .buildings {
 	margin : 0;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-wrap : wrap;
-	align-items : start;
-	align-content : start;
+	-webkit-flex-wrap : wrap;
+	    -ms-flex-wrap : wrap;
+	        flex-wrap : wrap;
+	-webkit-box-align : start;
+	-webkit-align-items : start;
+	    -ms-flex-align : start;
+	        align-items : start;
+	-webkit-align-content : start;
+	    -ms-flex-line-pack : start;
+	        align-content : start;
 	width : 418px;
 }
 
@@ -320,6 +360,9 @@ canvas.foreground : {
 	background-color : var(--darkframe);
 	color : var(--shade15);
 	width : 416px;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 }
 
@@ -329,12 +372,21 @@ canvas.foreground : {
 	margin-left : auto;
 	border : 2px solid var(--lightframe);
 	cursor : pointer;
+	-webkit-transition : background-color 0.2s;
+	-o-transition : background-color 0.2s;
 	transition : background-color 0.2s;
 }
 
 .target .buttons {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
 	max-width : 624px;
 	min-width : 416px;
 }
@@ -344,8 +396,14 @@ canvas.foreground : {
 }
 
 .target .spells:before {
+	display : -webkit-inline-box;
+	display : -webkit-inline-flex;
+	display : -ms-inline-flexbox;
 	display : inline-flex;
-	align-items : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
 	content : "Click to cast:";
 	background-color : var(--darkframe);
 	color : var(--shade15);
@@ -366,23 +424,38 @@ canvas.foreground : {
 	background-color : var(--button-bg);
 	color : var(--button-text);
 	cursor : pointer;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	white-space: nowrap;
 	overflow : hidden;
+	-webkit-transition : color 0.2s, background-color 0.2s, -webkit-transform 0.2s;
+	transition : color 0.2s, background-color 0.2s, -webkit-transform 0.2s;
+	-o-transition : color 0.2s, background-color 0.2s, transform 0.2s;
 	transition : color 0.2s, background-color 0.2s, transform 0.2s;
+	transition : color 0.2s, background-color 0.2s, transform 0.2s, -webkit-transform 0.2s;
 /*	border-radius : 10px;*/
 	z-index : 1;
-	order : 1
+	-webkit-box-ordinal-group : 2;
+	-webkit-order : 1;
+	    -ms-flex-order : 1;
+	        order : 1
 }
 
 .clone {
-	order : 3 !important;
+	-webkit-box-ordinal-group : 4 !important;
+	-webkit-order : 3 !important;
+	    -ms-flex-order : 3 !important;
+	        order : 3 !important;
 }
 
 .target .slider:hover {
 	background-color : var(--button-hover-bg);
 	color : var(--button-hover-text);
-	transform : scale(1.1);
+	-webkit-transform : scale(1.1);
+	    -ms-transform : scale(1.1);
+	        transform : scale(1.1);
 	z-index : 2;
 }
 
@@ -401,10 +474,19 @@ canvas.foreground : {
 	width : 40px;
 	height : 40px;
 	background-color : maroon;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	color : #FFFFFF;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	font-size : 20px;
 }
 
@@ -418,6 +500,9 @@ canvas.foreground : {
 
 .target .slider .slider-charge {
 	width : 5px;
+	background : -webkit-gradient(linear, left top, left bottom, from(green), to(lime)) no-repeat;
+	background : -webkit-linear-gradient(top, green, lime) no-repeat;
+	background : -o-linear-gradient(top, green, lime) no-repeat;
 	background : linear-gradient(to bottom, green, lime) no-repeat;
 	background-position : 0 40px;
 	margin-left : auto;
@@ -438,13 +523,22 @@ canvas.foreground : {
 	margin : -1px;
 	background-color : var(--button-inactive-bg);
 	color : var(--button-inactive-text);
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	white-space: nowrap;
 	overflow : hidden;
+	-webkit-transition : color 0.2s, background-color 0.2s, -webkit-transform 0.2s;
+	transition : color 0.2s, background-color 0.2s, -webkit-transform 0.2s;
+	-o-transition : color 0.2s, background-color 0.2s, transform 0.2s;
 	transition : color 0.2s, background-color 0.2s, transform 0.2s;
+	transition : color 0.2s, background-color 0.2s, transform 0.2s, -webkit-transform 0.2s;
 	cursor : default;
 	/*border-radius : 10px;*/
-	transform : scale(1);
+	-webkit-transform : scale(1);
+	    -ms-transform : scale(1);
+	        transform : scale(1);
 	z-index : 1;
 }
 
@@ -455,7 +549,9 @@ canvas.foreground : {
 }
 
 .icon-button.available:hover {
-	transform : scale(1.1);
+	-webkit-transform : scale(1.1);
+	    -ms-transform : scale(1.1);
+	        transform : scale(1.1);
 	z-index : 3;
 }
 
@@ -468,10 +564,19 @@ canvas.foreground : {
 	width : 40px;
 	height : 40px;
 	background-color : maroon;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	color : #FFFFFF;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	white-space : nowrap;
 	font-size : 35px;
 }
@@ -487,6 +592,9 @@ canvas.foreground : {
 }
 
 .hover .icons {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 }
 
@@ -495,16 +603,27 @@ canvas.foreground : {
 	height : 40px;
 	border : 2px solid var(--darkframe);
 	font-size : 35px;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	color : #FFFFFF;
 	white-space : nowrap;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	margin : -1px;
 }
 
 .hover .icon.unbought {
-	transform : scale(0.8);
+	-webkit-transform : scale(0.8);
+	    -ms-transform : scale(0.8);
+	        transform : scale(0.8);
 	opacity : 0.5;
 }
 
@@ -512,10 +631,22 @@ canvas.foreground : {
 	margin : -1px;
 	background-color : var(--hover-bg);
 	border : 2px solid var(--darkframe);
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	justify-content : start;
-	flex-grow : 0;
-	align-items : stretch;
+	-webkit-box-pack : start;
+	-webkit-justify-content : start;
+	    -ms-flex-pack : start;
+	        justify-content : start;
+	-webkit-box-flex : 0;
+	-webkit-flex-grow : 0;
+	    -ms-flex-positive : 0;
+	        flex-grow : 0;
+	-webkit-box-align : stretch;
+	-webkit-align-items : stretch;
+	    -ms-flex-align : stretch;
+	        align-items : stretch;
 	color : var(--hover-fg);
 }
 
@@ -526,17 +657,34 @@ canvas.foreground : {
 .point-info .point-type {
 	width : 60px;
 	height : 60px;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	font-size : 25px;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 }
 
 .point-info .info {
 	margin-left : auto;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	align-items : stretch;
-	align-content : stretch;
+	-webkit-box-align : stretch;
+	-webkit-align-items : stretch;
+	    -ms-flex-align : stretch;
+	        align-items : stretch;
+	-webkit-align-content : stretch;
+	    -ms-flex-line-pack : stretch;
+	        align-content : stretch;
 	font-size : 13.3px;
 	padding : 1px 0 1px 5px;
 	width : 126px;
@@ -545,6 +693,12 @@ canvas.foreground : {
 }
 
 .point-info .info.progress {
+	background: -webkit-gradient(linear, left top, right bottom, from(var(--hover-bg)), color-stop(75%, var(--hover-bg)), color-stop(75%, transparent), to(transparent)),
+				-webkit-gradient(linear, left top, right top, from(var(--progress-fg)), color-stop(100%, var(--progress-fg)), to(transparent)) no-repeat;
+	background: -webkit-linear-gradient(top left, var(--hover-bg), var(--hover-bg) 75%, transparent 75%, transparent),
+				-webkit-linear-gradient(left, var(--progress-fg), var(--progress-fg) 100%, transparent 100%) no-repeat;
+	background: -o-linear-gradient(top left, var(--hover-bg), var(--hover-bg) 75%, transparent 75%, transparent),
+				-o-linear-gradient(left, var(--progress-fg), var(--progress-fg) 100%, transparent 100%) no-repeat;
 	background: linear-gradient(to bottom right, var(--hover-bg), var(--hover-bg) 75%, transparent 75%, transparent),
 				linear-gradient(to right, var(--progress-fg), var(--progress-fg) 100%, transparent 100%) no-repeat;	
 	background-color : var(--progress-bg);
@@ -620,6 +774,9 @@ canvas.foreground : {
 }
 
 .map > .sliders {
+	display : -webkit-inline-box;
+	display : -webkit-inline-flex;
+	display : -ms-inline-flexbox;
 	display : inline-flex;
 	position : absolute;
 	z-index : 4;
@@ -629,26 +786,44 @@ canvas.foreground : {
 	position : absolute;
 	background-color : var(--background);
 	z-index : 5;
-	order : 1;
+	-webkit-box-ordinal-group : 2;
+	-webkit-order : 1;
+	    -ms-flex-order : 1;
+	        order : 1;
 }
 
 .map > .sliders .sliders-space {
 	width : 10px;
-	order : 2;
+	-webkit-box-ordinal-group : 3;
+	-webkit-order : 2;
+	    -ms-flex-order : 2;
+	        order : 2;
 }
 
 .map > .sliders .slider-icon {
 	width : 25px;
 	height : 25px;
 	border : 2px solid var(--lightframe);
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	margin : 3px 0 3px 3px;
 	white-space: nowrap;
 	overflow : hidden;
 	color : #FFFFFF;
-	order : 1;
+	-webkit-box-ordinal-group : 2;
+	-webkit-order : 1;
+	    -ms-flex-order : 1;
+	        order : 1;
 }
 
 .map .resources {
@@ -670,17 +845,39 @@ canvas.foreground : {
 	top : 31px;
 	right : 3px;
 	z-index : 4;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
-	align-items : stretch;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
+	-webkit-box-align : stretch;
+	-webkit-align-items : stretch;
+	    -ms-flex-align : stretch;
+	        align-items : stretch;
 	pointer-events : none;
 }
 
 .harvest-line {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
-	justify-content : right;
-	align-self : right;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
+	-webkit-box-pack : right;
+	-webkit-justify-content : right;
+	    -ms-flex-pack : right;
+	        justify-content : right;
+	-webkit-align-self : right;
+	    -ms-flex-item-align : right;
+	        align-self : right;
 	margin : 2px 0 2px auto;
 	text-shadow:
 		-1px -1px 0 var(--background),
@@ -697,9 +894,18 @@ canvas.foreground : {
 }
 
 .map .low-load {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
-	flex-wrap : wrap;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
+	-webkit-flex-wrap : wrap;
+	    -ms-flex-wrap : wrap;
+	        flex-wrap : wrap;
 	overflow-y : auto;
 	z-index : 3;
 }
@@ -709,7 +915,10 @@ canvas.foreground : {
 	margin : 5px 0 0 5px;
 	pointer-events : auto;
 	z-index : 3;
-	order : 1;
+	-webkit-box-ordinal-group : 2;
+	-webkit-order : 1;
+	    -ms-flex-order : 1;
+	        order : 1;
 }
 
 .map > .low-load > .point-info.locked {
@@ -717,7 +926,10 @@ canvas.foreground : {
 	margin : 5px 0 0 5px;
 	pointer-events : auto;
 	z-index : 3;
-	order : 2;
+	-webkit-box-ordinal-group : 3;
+	-webkit-order : 2;
+	    -ms-flex-order : 2;
+	        order : 2;
 }
 
 .map .low-load-checkbox {
@@ -735,32 +947,71 @@ canvas.foreground : {
 }
 
 .tab.sliders, .tab.story, .tab.skills, .tab.management, .tab.artifacts, .tab.map {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 	overflow : hidden;
 }
 
 .tab.story .records, .tab.sliders .sliders, .tab.skills .skills, .tab.stardust .stardusts, .tab.artifacts .artifacts {
 	overflow : auto;
 	overflow-x : hidden;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	align-items : center;
-	justify-content : center;
-	flex-wrap : wrap;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
+	-webkit-flex-wrap : wrap;
+	    -ms-flex-wrap : wrap;
+	        flex-wrap : wrap;
 	padding: 10px 0 10px 0;
-	flex-grow : 999;
+	-webkit-box-flex : 999;
+	-webkit-flex-grow : 999;
+	    -ms-flex-positive : 999;
+	        flex-grow : 999;
 }
 
 .tab.sliders .sliders {
-	align-items : start;
-	flex-direction : row;
+	-webkit-box-align : start;
+	-webkit-align-items : start;
+	    -ms-flex-align : start;
+	        align-items : start;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
 }
 
 .tab.sliders .sliders-clones, .tab.sliders .sliders-real {
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-wrap : wrap;
+	-webkit-flex-wrap : wrap;
+	    -ms-flex-wrap : wrap;
+	        flex-wrap : wrap;
 }
 
 .header {
@@ -780,17 +1031,33 @@ canvas.foreground : {
 }
 
 .skills .skill {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 	width : 290px;
 	height : 150px;
 	border : 2px solid var(--shade12);
 	color : var(--shade8);
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	margin : 10px;
 	cursor : default;
-	order : 1;
+	-webkit-box-ordinal-group : 2;
+	-webkit-order : 1;
+	    -ms-flex-order : 1;
+	        order : 1;
 }
 
 .skill .title {
@@ -801,7 +1068,10 @@ canvas.foreground : {
 
 .skill .desc {
 	padding : 0 10px;
-	flex-grow : 999;
+	-webkit-box-flex : 999;
+	-webkit-flex-grow : 999;
+	    -ms-flex-positive : 999;
+	        flex-grow : 999;
 	text-align : center;
 }
 
@@ -817,14 +1087,20 @@ canvas.foreground : {
 	cursor : pointer;
 	border : 2px solid var(--lightframe);
 	color : var(--foreground);
-	order : 0;
+	-webkit-box-ordinal-group : 1;
+	-webkit-order : 0;
+	    -ms-flex-order : 0;
+	        order : 0;
 }
 
 .skill.owned {
 	background-color : var(--skill-owned);
 	border : 2px solid var(--lightframe);
 	color : var(--skill-owned-text);
-	order : 2;
+	-webkit-box-ordinal-group : 3;
+	-webkit-order : 2;
+	    -ms-flex-order : 2;
+	        order : 2;
 }
 
 .tab.sliders .slider, .tab.map > .sliders .slider {
@@ -832,19 +1108,31 @@ canvas.foreground : {
 	width : 350px;
 	font-size : 13px;
 	text-align : center;
-	align-self : flex-start;
+	-webkit-align-self : flex-start;
+	    -ms-flex-item-align : start;
+	        align-self : flex-start;
 	border : 2px solid var(--lightframe);
 	padding : 10px;
 	margin : 10px;
 	cursor : default;
 	vertical-align : top;
 	overflow : visible;
-	order : 1;
+	-webkit-box-ordinal-group : 2;
+	-webkit-order : 1;
+	    -ms-flex-order : 1;
+	        order : 1;
 }
 
 .tab.sliders .slider .slider-header, .tab.map > .sliders .slider .slider-header {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
 }
 
 .tab.sliders .slider .slider-level, .tab.map > .sliders .slider .slider-level {
@@ -852,12 +1140,23 @@ canvas.foreground : {
 	height : 40px;
 	border : 2px solid var(--darkframe);
 	font-size : 30px;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	color : var(--shade0);
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	margin : -2px 8px -2px -2px;
 	cursor : pointer;
+	-webkit-transition : background-color 0.2s;
+	-o-transition : background-color 0.2s;
 	transition : background-color 0.2s;
 }
 
@@ -871,13 +1170,25 @@ canvas.foreground : {
 
 .tab.sliders .slider .slider-color, .tab.map > .sliders .slider .slider-color {
 	background-color : maroon;
-	flex-grow : 999;
+	-webkit-box-flex : 999;
+	-webkit-flex-grow : 999;
+	    -ms-flex-positive : 999;
+	        flex-grow : 999;
 	height : 40px;
 	margin : 0 10px 10px 0;
 	cursor : pointer;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	font-size : 30px;
 	color : rgba(255,255,255,0.7);
 }
@@ -887,10 +1198,19 @@ canvas.foreground : {
 	height : 40px;
 	border : 2px solid var(--darkframe);
 	font-size : 18px;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	color : var(--shade0);
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	margin : -2px;
 	white-space : nowrap;
 }
@@ -902,9 +1222,19 @@ canvas.foreground : {
 }
 
 .autotarget-switches {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
-	justify-content : space-evenly;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
+	-webkit-box-pack : space-evenly;
+	-webkit-justify-content : space-evenly;
+	    -ms-flex-pack : space-evenly;
+	        justify-content : space-evenly;
 }
 
 .imbuement .gui-checkbox {
@@ -912,10 +1242,23 @@ canvas.foreground : {
 }
 
 .selector {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 }
 
 .selector .title {
@@ -923,8 +1266,15 @@ canvas.foreground : {
 }
 
 .selector .choices {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 	background-color : var(--background);
 	position : relative;
 	width : 180px;
@@ -937,10 +1287,21 @@ canvas.foreground : {
 	width : 180px;
 	white-space : nowrap;
 	overflow : hidden;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	position : absolute;
+	-webkit-transition : background-color 0.2s, color 0.2s, height 0.2s, margin 0.2s, top 0.2s;
+	-o-transition : background-color 0.2s, color 0.2s, height 0.2s, margin 0.2s, top 0.2s;
 	transition : background-color 0.2s, color 0.2s, height 0.2s, margin 0.2s, top 0.2s;
 	z-index : 1;
 	background-color : var(--shade14);
@@ -954,7 +1315,7 @@ canvas.foreground : {
 }
 
 .selector .choice.active:before {
-	content : "Target: ";
+	content : "目标: ";
 	padding : 0 5px;
 }
 
@@ -977,6 +1338,8 @@ canvas.foreground : {
 	border : 2px solid var(--lightframe);
 	padding : 5px;
 	cursor : pointer;
+	-webkit-transition : background-color 0.2s;
+	-o-transition : background-color 0.2s;
 	transition : background-color 0.2s;
 	background-color : var(--shade15);
 }	
@@ -991,38 +1354,68 @@ canvas.foreground : {
 }
 
 .gui-picker {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	padding : 3px 0 5px 0;
 	width : 100%;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 }
 
 .gui-picker .name {
 }
 
 .gui-picker .attributes {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 }
 
 .gui-picker .attribute {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	width : 20px;
 	height : 20px;
 	margin : 0 2px;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	border : 1px solid var(--darkframe);
 	cursor : pointer;
 }
 
 .gui-picker .special {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	width : 20px;
 	height : 20px;
 	margin : 0 2px;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	cursor : pointer;
 	background-size:cover;
 }
@@ -1032,14 +1425,25 @@ canvas.foreground : {
 }
 
 .gui-picker .all {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	width : 40px;
 	height : 20px;
 	margin : 0 2px;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	border : 1px solid var(--darkframe);
 	cursor : pointer;
+	-webkit-transition : background-color 0.2s;
+	-o-transition : background-color 0.2s;
 	transition : background-color 0.2s;
 }
 
@@ -1048,24 +1452,49 @@ canvas.foreground : {
 }
 
 .gui-checkbox {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 }
 
 .gui-checkbox .checkbox {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	width : 20px;
 	height : 20px;
 	margin : 0 2px;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	border : 1px solid var(--darkframe);
 	cursor : pointer;
 }
 
 .gui-slider {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	width : 350px;
 	height : 20px;
@@ -1117,14 +1546,30 @@ canvas.foreground : {
 }
 
 .tab.menu {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 }
 
 .tab.menu > .titles {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
-	align-items : stretch;
-	justify-content : center;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
+	-webkit-box-align : stretch;
+	-webkit-align-items : stretch;
+	    -ms-flex-align : stretch;
+	        align-items : stretch;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	width : 200px;
 	background-color : var(--shade10);
 	border-right : 2px solid var(--lightframe);
@@ -1134,6 +1579,8 @@ canvas.foreground : {
 	padding : 20px 20px 20px 0;
 	text-align : right;
 	cursor : pointer;
+	-webkit-transition : background-color 0.3s;
+	-o-transition : background-color 0.3s;
 	transition : background-color 0.3s;
 	z-index : 0;
 	background-color : var(--shade12);
@@ -1154,15 +1601,28 @@ canvas.foreground : {
 }
 
 .tab.menu > .tabs {
-	flex-grow : 999;
+	-webkit-box-flex : 999;
+	-webkit-flex-grow : 999;
+	    -ms-flex-positive : 999;
+	        flex-grow : 999;
 }
 
 .tab.menu > .tabs .tab {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 	width : 100%;
 	height : 100%;
-	align-items : stretch;
+	-webkit-box-align : stretch;
+	-webkit-align-items : stretch;
+	    -ms-flex-align : stretch;
+	        align-items : stretch;
 }
 	
 .savelist {
@@ -1171,14 +1631,26 @@ canvas.foreground : {
 	overflow : hidden;
 	overflow-y : auto;
 	height : 50%;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 }
 
 .savelist .save {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	white-space : nowrap;
-	flex-shrink : 0;
+	-webkit-flex-shrink : 0;
+	    -ms-flex-negative : 0;
+	        flex-shrink : 0;
 	padding : 3px 5px;
 }
 
@@ -1205,10 +1677,20 @@ canvas.foreground : {
 }
 
 .cloud {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
 	margin : 5px 15px -15px 15px;
-	align-items : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
 }
 
 .cloud .button.cloud-login {
@@ -1226,8 +1708,13 @@ canvas.foreground : {
 }
 
 .saves .buttons {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-wrap : wrap;
+	-webkit-flex-wrap : wrap;
+	    -ms-flex-wrap : wrap;
+	        flex-wrap : wrap;
 	padding : 0 15px;
 	margin : -15px 0;
 }
@@ -1238,6 +1725,8 @@ canvas.foreground : {
 	padding : 10px;
 	margin : 5px;
 	cursor : pointer;
+	-webkit-transition : background-color 0.2s;
+	-o-transition : background-color 0.2s;
 	transition : background-color 0.2s;
 	text-align : center;
 }
@@ -1254,7 +1743,10 @@ canvas.foreground : {
 .saves .export {
 	margin : 20px;
 	color : var(--foreground);
-	flex-grow : 999;
+	-webkit-box-flex : 999;
+	-webkit-flex-grow : 999;
+	    -ms-flex-positive : 999;
+	        flex-grow : 999;
 	border : 2px solid var(--lightframe);
 	background-color : var(--shade14);
 	font-family : Courier;
@@ -1262,15 +1754,23 @@ canvas.foreground : {
 }
 
 .management > .automation, .management > .sort {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	padding : 5px 10px 5px 10px;
-	align-items : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
 	margin : 10px 10px 0 10px;
 	border : 2px solid var(--lightframe);
 	overflow-x : auto;
 	overflow-y : hidden;
 	white-space: nowrap;
-	flex-shrink : 0;
+	-webkit-flex-shrink : 0;
+	    -ms-flex-negative : 0;
+	        flex-shrink : 0;
 }
 
 .automation .gui-picker {
@@ -1301,19 +1801,35 @@ canvas.foreground : {
 }
 
 .management .sorter {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
 	padding : 0 20px;
 }
 .management .sorter .choices {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
 	padding : 0 5px;
 }
 
 .management .sorter .choice, .slider .role .choice {
 	padding : 5px 10px;
 	margin : -5px 0;
+	-webkit-transition : background-color 0.2s, color 0.2s;
+	-o-transition : background-color 0.2s, color 0.2s;
 	transition : background-color 0.2s, color 0.2s;
 	cursor : pointer;
 }
@@ -1332,16 +1848,36 @@ canvas.foreground : {
 }
 
 .slider .role {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
 	padding : 10px 20px 15px 20px;
-	justify-content : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 }
 .slider .role .choices {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
 	padding : 0 5px;
-	justify-content : stretch;
+	-webkit-box-pack : stretch;
+	-webkit-justify-content : stretch;
+	    -ms-flex-pack : stretch;
+	        justify-content : stretch;
 }
 .slider .role.team-blood .choice.active {background-color : var(--bg-blood);}
 .slider .role.team-fire  .choice.active {background-color : var(--bg-fire );}
@@ -1350,30 +1886,51 @@ canvas.foreground : {
 
 .management .list {
 	overflow-y : auto;
-	flex-grow : 999;
+	-webkit-box-flex : 999;
+	-webkit-flex-grow : 999;
+	    -ms-flex-positive : 999;
+	        flex-grow : 999;
 	padding : 0 10px;
 }
 
 .management .point {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	padding : 5px;
 	border : 2px solid var(--lightframe);
 	margin : 10px 5px;
-	align-items : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
 }
 
 .management .point .level {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 	width : 40px;
 	height : 40px;
-	flex-shrink : 0;
+	-webkit-flex-shrink : 0;
+	    -ms-flex-negative : 0;
+	        flex-shrink : 0;
 	font-size : 25px;
 	border-radius : 20px;
 	border : 1px solid var(--darkframe);
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	margin : 5px 5px 5px 7px;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 }
 
 .management .point .level.enchant-gold {
@@ -1404,6 +1961,9 @@ canvas.foreground : {
 }
 
 .management .point .icons {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 }
 
@@ -1412,10 +1972,19 @@ canvas.foreground : {
 	height : 40px;
 	border : 2px solid var(--darkframe);
 	font-size : 35px;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	color : #FFFFFF;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	margin : -1px;
 	opacity : 0;
 	pointer-events : none;
@@ -1424,8 +1993,14 @@ canvas.foreground : {
 .management .point .icons .icon.visible, .management .automation .icon.visible {
 	pointer-events : auto;
 	opacity : 0.25;
-	transform : scale(0.8);
+	-webkit-transform : scale(0.8);
+	    -ms-transform : scale(0.8);
+	        transform : scale(0.8);
+	-webkit-transition : opacity 0.2s, -webkit-transform 0.2s;
+	transition : opacity 0.2s, -webkit-transform 0.2s;
+	-o-transition : transform 0.2s, opacity 0.2s;
 	transition : transform 0.2s, opacity 0.2s;
+	transition : transform 0.2s, opacity 0.2s, -webkit-transform 0.2s;
 }
 
 .management .point .icons .divider {
@@ -1439,12 +2014,16 @@ canvas.foreground : {
 
 .management .point .icons .icon.visible.bought, .management .automation .icon.visible.active {
 	opacity : 1;
-	transform : none;
+	-webkit-transform : none;
+	    -ms-transform : none;
+	        transform : none;
 }
 
 .management .automation .icon.visible.crossed {
 	opacity : 0.5;
-	transform : none;
+	-webkit-transform : none;
+	    -ms-transform : none;
+	        transform : none;
 }
 
 .management .list-hover {
@@ -1473,15 +2052,30 @@ canvas.foreground : {
 }
 
 .tab.story .records {
-	align-content : flex-start;
+	-webkit-align-content : flex-start;
+	    -ms-flex-line-pack : start;
+	        align-content : flex-start;
 }
 
 .records .record {
 	width : 100%;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	padding-top : 10px;
 	margin-top : -10px;
 }
@@ -1540,11 +2134,26 @@ canvas.foreground : {
 	width : 770px;
 	top : calc(10% - 10px);
 	max-height : 80%;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
-	align-items : center;
-	align-content : flex-start;
-	justify-content : center;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-align-content : flex-start;
+	    -ms-flex-line-pack : start;
+	        align-content : flex-start;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	overflow-y : hidden;
 	background-color : var(--background);
 	text-align : center;
@@ -1564,6 +2173,8 @@ canvas.foreground : {
 	margin : 10px;
 	border : 2px solid var(--lightframe);
 	cursor : pointer;
+	-webkit-transition : background-color 0.2s;
+	-o-transition : background-color 0.2s;
 	transition : background-color 0.2s;
 }
 
@@ -1577,7 +2188,10 @@ canvas.foreground : {
 }
 
 .popup .records {
-	flex-grow : 999;
+	-webkit-box-flex : 999;
+	-webkit-flex-grow : 999;
+	    -ms-flex-positive : 999;
+	        flex-grow : 999;
 	margin : 20px;
 	overflow-y : auto;
 	overflow-x : hidden;
@@ -1590,6 +2204,9 @@ canvas.foreground : {
 }
 
 .popup .records .record.unread {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	background-color : inherit;
 }
@@ -1599,8 +2216,15 @@ canvas.foreground : {
 }
 
 .about-holder {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 	padding : 30px;
 	overflow-y : auto;
 }
@@ -1616,6 +2240,9 @@ canvas.foreground : {
 }
 
 .about .links {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	padding : 20px 0;
 	margin : 0 0 20px 0;
@@ -1636,14 +2263,28 @@ canvas.foreground : {
 }
 
 .settings {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 }
 
 .settings > .titles {
 	margin : 20px 20px 0 20px;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
 	z-index : 2;
 }
 
@@ -1653,6 +2294,8 @@ canvas.foreground : {
 	padding : 5px;
 	border-bottom : none ;
 	cursor : pointer;
+	-webkit-transition : background-color 0.2s, color 0.2s, margin 0.2s;
+	-o-transition : background-color 0.2s, color 0.2s, margin 0.2s;
 	transition : background-color 0.2s, color 0.2s, margin 0.2s;
 }
 
@@ -1667,7 +2310,10 @@ canvas.foreground : {
 }
 
 .settings > .tabs {
-	flex-grow : 999;
+	-webkit-box-flex : 999;
+	-webkit-flex-grow : 999;
+	    -ms-flex-positive : 999;
+	        flex-grow : 999;
 	margin : 0 20px 20px 20px;
 	border : 2px solid var(--lightframe);
 	overflow-y : auto;
@@ -1681,8 +2327,15 @@ canvas.foreground : {
 }
 
 .settings .choices {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
 	padding : 5px 0 0 50px;
 }
 
@@ -1690,6 +2343,8 @@ canvas.foreground : {
 	padding : 10px;	
 	margin : 0 10px 0 0;
 	cursor : pointer;
+	-webkit-transition : background-color 0.2s, color 0.2s;
+	-o-transition : background-color 0.2s, color 0.2s;
 	transition : background-color 0.2s, color 0.2s;
 }
 
@@ -1703,14 +2358,28 @@ canvas.foreground : {
 }
 
 .tab.statistics .statistics {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 }
 
 .statistics .stat {
 	padding : 10px;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
 	white-space : nowrap;
 }
 
@@ -1726,18 +2395,44 @@ canvas.foreground : {
 }
 
 .tab.stardust {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	overflow : auto;
 }
 
 .tab.stardust .stardust-growth {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	width : 400px;
 	padding : 10px;	
 	border : 2px solid var(--lightframe);
@@ -1762,6 +2457,8 @@ canvas.foreground : {
 	margin : 10px 0 0 0;
 	border : 2px solid var(--lightframe);
 	cursor : pointer;
+	-webkit-transition : background-color 0.2s;
+	-o-transition : background-color 0.2s;
 	transition : background-color 0.2s;
 }
 
@@ -1772,8 +2469,15 @@ canvas.foreground : {
 .tab.stardust .virtual {
 	margin : 10px;
 	border : 2px solid var(--lightframe);
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 }
 
 .tab.stardust .virtual .gui-slider-runner{
@@ -1794,10 +2498,23 @@ canvas.foreground : {
 }
 
 .tab.stardust .virtual-create {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;	
-	align-items : center;
-	justify-content : center;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;	
+	-webkit-box-align : center;	
+	-webkit-align-items : center;	
+	    -ms-flex-align : center;	
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	margin : 5px 10px;
 }
 
@@ -1807,17 +2524,37 @@ canvas.foreground : {
 }
 
 .tab.stardust .virtual-maps {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 }
 
 .tab.stardust .virtual-map {
 	padding : 5px;
 	border : 2px solid var(--lightframe);
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;	
-	align-items : center;
-	justify-content : center;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;	
+	-webkit-box-align : center;	
+	-webkit-align-items : center;	
+	    -ms-flex-align : center;	
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	margin : 0 10px 10px 10px;
 }
 
@@ -1846,6 +2583,8 @@ canvas.foreground : {
 .tab.stardust .virtual .button.enabled {
 	border : 2px solid var(--lightframe);
 	color : var(--foreground);
+	-webkit-transition : background-color 0.2s;
+	-o-transition : background-color 0.2s;
 	transition : background-color 0.2s;
 	cursor : pointer;
 }
@@ -1863,6 +2602,8 @@ canvas.foreground : {
 }
 
 .notransition {
+	-webkit-transition: none !important;
+	-o-transition: none !important;
 	transition: none !important;
 }
 
@@ -1874,16 +2615,32 @@ canvas.foreground : {
 	height : 100%;
 	left : 0;
 	top : 0;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 }
 
 .login-form {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	width : 400px;
 	padding : 20px;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 	border : 2px solid var(--lightframe);
 	background-color : var(--background);
 }
@@ -1897,16 +2654,39 @@ canvas.foreground : {
 }
 
 .login-buttons {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
-	align-items : center;
-	justify-content : space-between;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : justify;
+	-webkit-justify-content : space-between;
+	    -ms-flex-pack : justify;
+	        justify-content : space-between;
 }
 
 .tablet {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
-	align-items : center;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
 	position : absolute;
 	width : 740px;
 	height : 570px;
@@ -1921,16 +2701,33 @@ canvas.foreground : {
 }
 
 .tablet-glyphs {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 	width : 700px;
 }
 
 .tablet-row {
 	height : 17px;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
-	justify-content : space-between;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
+	-webkit-box-pack : justify;
+	-webkit-justify-content : space-between;
+	    -ms-flex-pack : justify;
+	        justify-content : space-between;
 }
 
 .tablet-cell {
@@ -1965,8 +2762,15 @@ canvas.foreground : {
 
 .tablet-controls {
 	margin-top : 10px;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;	
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;	
 }
 
 .tablet-input {
@@ -1985,38 +2789,76 @@ canvas.foreground : {
 }
 
 .artifact {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 	width : 300px;
 	min-height : 200px;
 	padding : 10px;
 	margin : 20px 0 0 20px;
 	border : 2px solid var(--lightframe);
-	order : 2;
-	align-items : stretch;
+	-webkit-box-ordinal-group : 3;
+	-webkit-order : 2;
+	    -ms-flex-order : 2;
+	        order : 2;
+	-webkit-box-align : stretch;
+	-webkit-align-items : stretch;
+	    -ms-flex-align : stretch;
+	        align-items : stretch;
 }
 
 .artifact-research {
 	margin-top : auto;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
-	align-items : stretch;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
+	-webkit-box-align : stretch;
+	-webkit-align-items : stretch;
+	    -ms-flex-align : stretch;
+	        align-items : stretch;
 }
 
 .artifact-this  {
 	margin : 5px 0;
-	align-self : left;
+	-webkit-align-self : left;
+	    -ms-flex-item-align : left;
+	        align-self : left;
 }
 
 .artifact.researched {
-	order : 3;
+	-webkit-box-ordinal-group : 4;
+	-webkit-order : 3;
+	    -ms-flex-order : 3;
+	        order : 3;
 }
 
 .artifact-header {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
 	height : 40px;
-	align-items : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
 }
 
 .artifact-icon-holder {
@@ -2039,14 +2881,29 @@ canvas.foreground : {
 	text-align : center;
 	font-weight : bold;
 	font-size : 20px;
-	flex-grow : 999;
+	-webkit-box-flex : 999;
+	-webkit-flex-grow : 999;
+	    -ms-flex-positive : 999;
+	        flex-grow : 999;
 }
 
 .artifact-effect {
-	flex-grow : 999;
+	-webkit-box-flex : 999;
+	-webkit-flex-grow : 999;
+	    -ms-flex-positive : 999;
+	        flex-grow : 999;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	text-align : center;
 }
 
@@ -2060,8 +2917,15 @@ canvas.foreground : {
 }
 
 .equip-menu {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 	position : absolute;
 	background-color : var(--background);
 	border : 2px solid var(--lightframe);
@@ -2071,11 +2935,22 @@ canvas.foreground : {
 }
 
 .equip-item {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-shrink : 0;
-	flex-direction : row;
+	-webkit-flex-shrink : 0;
+	    -ms-flex-negative : 0;
+	        flex-shrink : 0;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
 	width : 200px;
 	height : 20px;
+	-webkit-transition : background-color 0.2s;
+	-o-transition : background-color 0.2s;
 	transition : background-color 0.2s;
 	padding : 2px;
 	white-space : nowrap;
@@ -2086,20 +2961,41 @@ canvas.foreground : {
 }
 
 .equip-icon {
-	flex-shrink : 0;
+	-webkit-flex-shrink : 0;
+	    -ms-flex-negative : 0;
+	        flex-shrink : 0;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	width : 20px;
 	height : 20px;
 	font-size :20px;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 }
 
 .equipment {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
 	margin : 5px 0 15px 0;
-	align-items : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
 }
 
 .equipment-slot {
@@ -2129,26 +3025,53 @@ canvas.foreground : {
 }
 
 .sliders .master {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
-	align-items : start;
-	justify-content : center;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
+	-webkit-box-align : start;
+	-webkit-align-items : start;
+	    -ms-flex-align : start;
+	        align-items : start;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	margin : 10px 10px 0 10px;
 	padding : 10px;
 	border : 2px solid var(--lightframe);
-	flex-shrink : 0;
+	-webkit-flex-shrink : 0;
+	    -ms-flex-negative : 0;
+	        flex-shrink : 0;
 }
 
 .sliders .master-pair, .sliders .master-autotarget {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
-	align-items : middle;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
+	-webkit-box-align : middle;
+	-webkit-align-items : middle;
+	    -ms-flex-align : middle;
+	        align-items : middle;
 	width : 250px;
 }
 
 .sliders .button.master-apply{
 	width : 200px;
-	align-self : center;
+	-webkit-align-self : center;
+	    -ms-flex-item-align : center;
+	        align-self : center;
 	text-align : center;
 	height : auto;
 }
@@ -2158,8 +3081,15 @@ canvas.foreground : {
 	background-color : var(--background);
 	border : 2px solid var(--lightframe);
 	padding : 10px;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 }
 
 .color.gui-slider {
@@ -2174,9 +3104,19 @@ canvas.foreground : {
 }
 
 .color-picker .buttons {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
-	justify-content : space-between;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
+	-webkit-box-pack : justify;
+	-webkit-justify-content : space-between;
+	    -ms-flex-pack : justify;
+	        justify-content : space-between;
 	margin : 10px 0 0 0;
 }
 
@@ -2192,40 +3132,87 @@ canvas.foreground : {
 	height : 100%;
 	left : 0;
 	top : 0;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 }
 
 .dialog {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 	background-color : var(--background);
 	border : 2px solid var(--lightframe);
 	padding : 10px;
 }
 
 .sliderlv-info{
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	align-items : center;
-	justify-content : center;
-	flex-grow : 999;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
+	-webkit-box-flex : 999;
+	-webkit-flex-grow : 999;
+	    -ms-flex-positive : 999;
+	        flex-grow : 999;
 	margin : 10px;
 	text-align : center;
 }
 
 .sliderlv-line {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
-	align-items : stretch;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
+	-webkit-box-align : stretch;
+	-webkit-align-items : stretch;
+	    -ms-flex-align : stretch;
+	        align-items : stretch;
 }
 
 .sliderlv-mult {
 	width : 120px;
 	text-align : center;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 }
 
 .sliderlv-line div:nth-child(even) {
@@ -2235,17 +3222,39 @@ canvas.foreground : {
 .sliderlv-mult-double {
 	width : 240px;
 	text-align : center;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 }
 
 .sliderlv-mult-name {
 	width : 150px;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 }
 
 .dialog-title {
@@ -2260,13 +3269,24 @@ canvas.foreground : {
 }
 
 .dialog .button {
+	display : -webkit-inline-box;
+	display : -webkit-inline-flex;
+	display : -ms-inline-flexbox;
 	display : inline-flex;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 	border : 2px solid var(--shade9);
 	color : var(--shade9);
 	padding : 10px;
 	margin : 5px;
+	-webkit-transition : background-color 0.2s, color 0.2s;
+	-o-transition : background-color 0.2s, color 0.2s;
 	transition : background-color 0.2s, color 0.2s;
 	text-align : center;
 }
@@ -2289,9 +3309,18 @@ canvas.foreground : {
 }
 
 .dialog .buttons {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 }
 
 .heavy {
@@ -2301,6 +3330,8 @@ canvas.foreground : {
 .imprint.button {
 	padding : 5px;
 	border : 2px solid var(--lightframe);
+	-webkit-transition : opacity 0.2s, background-color 0.2s;
+	-o-transition : opacity 0.2s, background-color 0.2s;
 	transition : opacity 0.2s, background-color 0.2s;
 	opacity : 0.5;
 	width : 200px;
@@ -2318,28 +3349,55 @@ canvas.foreground : {
 }
 
 .dialog .stats {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
 	width : 600px;
-	justify-content : space-evenly;
-	align-items : start;
+	-webkit-box-pack : space-evenly;
+	-webkit-justify-content : space-evenly;
+	    -ms-flex-pack : space-evenly;
+	        justify-content : space-evenly;
+	-webkit-box-align : start;
+	-webkit-align-items : start;
+	    -ms-flex-align : start;
+	        align-items : start;
 }
 
 .dialog .stats-info {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	justify-content : center;
-	align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
 	margin : 10px 5px;
 	min-width : 190px;
 }
 
 .stats > .stats-info {
-	justify-content : start;
+	-webkit-box-pack : start;
+	-webkit-justify-content : start;
+	    -ms-flex-pack : start;
+	        justify-content : start;
 }
 
 .build-button, .presets-button, .feats-button {
 	padding : 5px;
 	border : 2px solid var(--lightframe);
+	-webkit-transition : opacity 0.2s, background-color 0.2s;
+	-o-transition : opacity 0.2s, background-color 0.2s;
 	transition : opacity 0.2s, background-color 0.2s;
 	text-align : center;
 	cursor : pointer;
@@ -2366,9 +3424,14 @@ canvas.foreground : {
 	position : absolute;
 	background-color : var(--background);
 	border : 2px solid var(--lightframe);
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
 	max-width : 1100px;
-	flex-wrap : wrap;
+	-webkit-flex-wrap : wrap;
+	    -ms-flex-wrap : wrap;
+	        flex-wrap : wrap;
 	padding : 5px;
 }
 
@@ -2378,8 +3441,15 @@ canvas.foreground : {
 	margin : 5px;
 	background-color : var(--background);
 	border : 2px solid var(--lightframe);
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 	opacity : 0.5;
 }
 
@@ -2394,9 +3464,19 @@ canvas.foreground : {
 
 .building-header {
 	height : 40px;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
-	align-items : center;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
 }
 
 .building-icon {
@@ -2405,34 +3485,65 @@ canvas.foreground : {
 	border-radius : 15px;
 	margin : 5px;
 	border : 1px solid var(--lightframe);
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 }
 
 .building-desc {
-	flex-grow : 999;
+	-webkit-box-flex : 999;
+	-webkit-flex-grow : 999;
+	    -ms-flex-positive : 999;
+	        flex-grow : 999;
 	text-align : center;
 	padding : 5px;
 }
 
 .building-title {
 	text-align : center;
-	flex-grow : 999;
+	-webkit-box-flex : 999;
+	-webkit-flex-grow : 999;
+	    -ms-flex-positive : 999;
+	        flex-grow : 999;
 }
 
 .building-cost {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
-	flex-wrap : wrap;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
+	-webkit-flex-wrap : wrap;
+	    -ms-flex-wrap : wrap;
+	        flex-wrap : wrap;
 	height : 48px;
 	border-top : 1px solid var(--lightframe);
 	padding : 2px 5px;
 }
 
 .building-cost-holder {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
 	width : 50px;
 	height : 20px;
 	padding : 2px;
@@ -2463,8 +3574,15 @@ canvas.foreground : {
 
 .world-point {
 	position : absolute;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
 	border : 2px solid var(--lightframe);
 	width : 240px;
 	height : 60px;
@@ -2476,9 +3594,18 @@ canvas.foreground : {
 	width : 60px;
 	height : 60px;
 	font-size : 35px;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 }
 
 .world-point-info {
@@ -2494,8 +3621,15 @@ canvas.foreground : {
 
 .world-target {
 	position : absolute;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 	border : 2px solid var(--lightframe);
 	width : 240px;
 	height : 110px;
@@ -2503,16 +3637,34 @@ canvas.foreground : {
 }
 
 .world-target-buttons {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
-	justify-content : space-evenly;
-	align-items : center;
-	flex-grow : 999;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
+	-webkit-box-pack : space-evenly;
+	-webkit-justify-content : space-evenly;
+	    -ms-flex-pack : space-evenly;
+	        justify-content : space-evenly;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-flex : 999;
+	-webkit-flex-grow : 999;
+	    -ms-flex-positive : 999;
+	        flex-grow : 999;
 }
 
 .world-target-button {
 	padding : 5px;
 	border : 2px solid var(--lightframe);
+	-webkit-transition : opacity 0.2s, background-color 0.2s;
+	-o-transition : opacity 0.2s, background-color 0.2s;
 	transition : opacity 0.2s, background-color 0.2s;
 	text-align : center;
 	width : 80px;
@@ -2531,8 +3683,15 @@ canvas.foreground : {
 }
 
 .presets {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 	position : absolute;
 	width : 400px;
 	height : 400px;
@@ -2543,8 +3702,15 @@ canvas.foreground : {
 .presets-list {
 	margin : 20px;
 	border : 2px solid var(--lightframe);	
+	display : -webkit-box;	
+	display : -webkit-flex;	
+	display : -ms-flexbox;	
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 	height : 300px;
 }
 
@@ -2554,15 +3720,27 @@ canvas.foreground : {
 }
 
 .presets-buttons {
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : row;
-	justify-content : space-evenly;
+	-webkit-box-orient : horizontal;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : row;
+	    -ms-flex-direction : row;
+	        flex-direction : row;
+	-webkit-box-pack : space-evenly;
+	-webkit-justify-content : space-evenly;
+	    -ms-flex-pack : space-evenly;
+	        justify-content : space-evenly;
 	margin : auto 20px 20px;
 }
 
 .presets .button {
 	padding : 5px;
 	border : 2px solid var(--lightframe);
+	-webkit-transition : background-color 0.2s;
+	-o-transition : background-color 0.2s;
 	transition : background-color 0.2s;
 	text-align : center;
 	width : 60px;
@@ -2575,8 +3753,15 @@ canvas.foreground : {
 .feats {
 	max-height : 80vh;
 	overflow-y : auto;
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
 	margin : -5px 0;
 }
 
@@ -2584,19 +3769,28 @@ canvas.foreground : {
 	padding : 10px;
 	border : 2px solid var(--lightframe);
 	margin : 5px 0;
-	order : 1
+	-webkit-box-ordinal-group : 2;
+	-webkit-order : 1;
+	    -ms-flex-order : 1;
+	        order : 1
 }
 
 .feat.done {
 	background-color : var(--skill-owned);
 	border : 2px solid var(--lightframe);
 	color : var(--skill-owned-text);
-	order : 3
+	-webkit-box-ordinal-group : 4;
+	-webkit-order : 3;
+	    -ms-flex-order : 3;
+	        order : 3
 }
 
 .feat.failed {
 	opacity : 0.5;
-	order : 2;
+	-webkit-box-ordinal-group : 3;
+	-webkit-order : 2;
+	    -ms-flex-order : 2;
+	        order : 2;
 }
 
 .offline {
@@ -2607,10 +3801,23 @@ canvas.foreground : {
 	width : 100%;
 	height : 100%;
 	background-color : var(--background);
+	display : -webkit-box;
+	display : -webkit-flex;
+	display : -ms-flexbox;
 	display : flex;
-	flex-direction : column;
-	align-items : center;
-	justify-content : center;
+	-webkit-box-orient : vertical;
+	-webkit-box-direction : normal;
+	-webkit-flex-direction : column;
+	    -ms-flex-direction : column;
+	        flex-direction : column;
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	    -ms-flex-align : center;
+	        align-items : center;
+	-webkit-box-pack : center;
+	-webkit-justify-content : center;
+	    -ms-flex-pack : center;
+	        justify-content : center;
 }
 
 .offline-time {
