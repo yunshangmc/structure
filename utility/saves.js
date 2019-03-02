@@ -280,7 +280,7 @@ const cloud = {
 						gui.menu.saves.dvTextSave.value = "上传存档失败: " + data.error
 						return
 					}
-					gui.menu.saves.dvTextSave.value = "结构:"+data.code+ "\n\n\n导入上面的行来加载共享的存档\n存档会在24小时内过期"
+					gui.menu.saves.dvTextSave.value = "structure:"+data.code+ "\n\n\n导入上面的行来加载共享的存档\n存档会在24小时内过期"
 				})
 				.catch(x => {
 					gui.menu.saves.dvTextSave.value = "上传存档失败: " + x
