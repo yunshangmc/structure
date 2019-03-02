@@ -12,7 +12,7 @@ const SkillsTab = Template({
 		Object.keys(SKILLS).map(x => {
 			let skill = Object.assign({} , SKILLS[x])
 			skill.dvDisplay = createElement("div", "skill", this.dvSkills)
-			skill.dvTitle = createElement("div", "title", skill.dvDisplay, skill.name)
+			skill.dvTitle = createElement("div", "title", skill.dvDisplay, cnItem(skill.name))
 			skill.dvDesc = createElement("div", "desc", skill.dvDisplay, skill.desc)
 			skill.dvCost = createElement("div", "cost", skill.dvDisplay, "EXP: " + skill.cost)
 			
