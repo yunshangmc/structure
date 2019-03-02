@@ -341,7 +341,7 @@ const gui = {
 	updateTabs() {
 		let distress = game.map.markers && game.map.markers.length
 		//let progress = game.realMap.level > 20 && game.map.points.filter(x => x.boss && x.boss > game.map.boss).length
-		this.map.dvAscend.innerText = game.map.virtual?"进化":distress?"转生(📡\uFE0E"+game.map.markers.length+")":/*progress?"Advance(⚔\uFE0E)":*/game.map.boss?"Ascend(⚔\uFE0E)":"转生 (🌟\uFE0E" + game.map.ascendCost + ")"
+		this.map.dvAscend.innerText = game.map.virtual?"进化":distress?"转生(📡\uFE0E"+game.map.markers.length+")":/*progress?"Advance(⚔\uFE0E)":*/game.map.boss?"转生(⚔\uFE0E)":"转生 (🌟\uFE0E" + game.map.ascendCost + ")"
 		this.map.dvAscend.classList.toggle("disabled", !!(!game.map.virtual && (distress || game.resources.stars < game.map.ascendCost && !game.map.boss || game.map.boss && game.map.points.filter(x => !x.owned && x.boss == game.map.boss).length) || game.map.virtual && !game.map.complete))
 		this.map.dvAscend.classList.toggle("hidden", !!(!game.map.virtual && !game.statistics.stars || game.map.virtual && (game.map.level < 31 || (game.map.evolved && game.map.evolved >= 3) || !game.skills.evolveVirtual)))
 		this.map.dvDisplay.classList.toggle("dark", !!game.map.boss)
