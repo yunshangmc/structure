@@ -54,7 +54,7 @@ const SKILLS = {
 	},
 	learn: {
 		name: "指引我如何活着",
-		desc: "允许把相当于成长加成的三倍的经验值转换为成长",
+		desc: "允许消耗等同于成长加成的经验值使成长变为三倍",
 		sliders : 2,
 		req : ['invest'],
 		mult: 3,
