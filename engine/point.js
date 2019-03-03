@@ -1124,13 +1124,13 @@ const worldPointHandler = {
 	
 	valueString(projected) {
 		const element = WORLD_ELEMENTS[this.type]
-		if (projected?!this.projectedActive:!this.active) return "Inactive"
-		if (!element || !element.value) return "None"
+		if (projected?!this.projectedActive:!this.active) return "不活跃"
+		if (!element || !element.value) return "无"
 		const minus = (this.world.coreStats.finalLayer && this.depth == this.world.workers && this.depth > 1)?1:0
 		let s = ""
 		if (element.effect == WORLD_BONUS_ADD) s += "+"
-		if (element.effect == WORLD_BONUS_ADD_MULT) s += "Multiplier +"
-		if (element.effect == WORLD_BONUS_MUL) s += "Multiplier x"
+		if (element.effect == WORLD_BONUS_ADD_MULT) s += "加成 +"
+		if (element.effect == WORLD_BONUS_MUL) s += "加成 x"
 		s += element.value(projected?this.projectedDepth - minus:this.depth - minus).toDigits(3)
 		return s
 	},
