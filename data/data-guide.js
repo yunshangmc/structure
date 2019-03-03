@@ -169,7 +169,7 @@ const GUIDE = {
 			text : `You can't upgrade boss nodes.`
 		}, {
 			condition : () => game.skills.upgradePoints && !game.skills.build1,
-			text : `There's no merit in upgrading "Type : None" nodes except for statistics.`
+			text : `There's no merit in upgrading 'Type : None' nodes except for statistics.`
 		}, {
 			condition : () => game.skills.build1,
 			newBlock : true,
@@ -250,7 +250,7 @@ const GUIDE = {
 		},{
 			condition : () => (game.resources.exp || game.production.exp) && (game.skills.invest),
 			newBlock : true,
-			text: `You can reduce sliders' growth multiplier in "Sliders" tab to produce experience.`
+			text: `You can reduce sliders growth multiplier in "Sliders" tab to produce experience.`
 		},{
 			condition : () => (game.resources.exp || game.production.exp) && (game.skills.learn),
 			text: `Similarly, you can enable growth boost to consume exp for faster growth. Boosts will be disabled automatically if you run out of experience.`
