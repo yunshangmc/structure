@@ -326,7 +326,7 @@ const GUIDE = {
 			condition : () => (game.resources.science || game.production.science),
 			text: `Science is produced by science labs.
 			
-			It's used a threshold value to unlock more skills, most of them being "Quality of life" ones. The science is not consumed upon unlocking.`
+			Its used a threshold value to unlock more skills, most of them being "Quality of life" ones. The science is not consumed upon unlocking.`
 		},{
 			condition : () => (game.resources.science || game.production.science) && game.skills.artifacts,
 			text: `You can redirect science production into researching an artifact. In that case, Science value wont grow, and increase will be displayed as "Researching".`
@@ -367,7 +367,7 @@ const GUIDE = {
 		},{
 			condition : () => (game.resources.clouds || game.production.clouds) && game.skills.stardust,
 			newBlock : true,
-			text: `Clouds provide bonus to your sliders' elemental growth based on amount of stardust assigned in "Stardust" tab.`
+			text: `Clouds provide bonus to your sliders elemental growth based on amount of stardust assigned in "Stardust" tab.`
 		},{
 			condition : () => (game.resources.clouds || game.production.clouds) && game.world.coreStats.spiritElements,
 			text: `Clouds provide bonus to your sliders' elements based on its spirit.`
