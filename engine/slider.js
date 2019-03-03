@@ -330,7 +330,7 @@ const sliderHandler = {
 			container : this.atFilter,
 			value : "pointSpecials",
 			valueNot : "neverSpecials",
-			title : "Shields: ",
+			title : "盾牌: ",
 			hint : "Prioritizes points with chosen shields when autotargetting",
 			attributeVisible(x, n) {
 				return !n || game.statistics[["_","special_blocks","_","special_clones","special_resists","special_nobuilds","special_noclones","special_alones","special_nochannels"][n]]

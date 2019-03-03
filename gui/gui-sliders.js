@@ -88,7 +88,7 @@ const masterSliderHandler = {
 		this.dvRow1 = createElement("div", "master-row", this.dvDisplay)
 		this.dvRow2 = createElement("div", "master-row", this.dvDisplay)
 
-		this.dvPresetsButton = createElement("div", "master-apply apply button", this.dvRow1, "Presets")
+		this.dvPresetsButton = createElement("div", "master-apply apply button", this.dvRow1, "预设")
 		this.dvPresetsButton.onclick = (event) => {
 			gui.sliders.presetMenu.presets = game.sliderPresets,
 			gui.sliders.presetMenu.show(event.clientX, event.clientY)
