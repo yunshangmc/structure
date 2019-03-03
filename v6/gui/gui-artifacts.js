@@ -271,7 +271,7 @@ const ArtifactsTab = Template({
 		if (game.map.points[0].mineDepth)
 			Object.values(ARTIFACTS).filter(x => x.depth < game.map.points[0].mineDepth).map(x => game.unlockStory("digged_"+x.id))
 		const toResearch = Object.values(ARTIFACTS).filter(x => x.depth < game.map.points[0].mineDepth && !game.research[x.id].done).length
-		gui.tabs.setTitle("artifacts", "Artifacts" + (toResearch?" ("+toResearch+")":""))
+		gui.tabs.setTitle("artifacts", "工艺品" + (toResearch?" ("+toResearch+")":""))
 	}
 })
 

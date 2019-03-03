@@ -112,11 +112,11 @@ const ArtifactsTab = Template({
 				display.dvIcon.style.color = artifact.iconTextColor
 			}
 			display.dvTitle = createElement("div", "artifact-title", display.dvHeader, "???")
-			display.dvEffect = createElement("div", "artifact-effect", display.dvDisplay, "Effect: ???")
+			display.dvEffect = createElement("div", "artifact-effect", display.dvDisplay, "效果: ???")
 			display.dvResearchHolder = createElement("div", "artifact-research", display.dvDisplay)
-			display.dvResearchCost = createElement("div", "artifact-info", display.dvResearchHolder, "Research cost: "+displayNumber(artifact.codeCost)+" science per glyph")
+			display.dvResearchCost = createElement("div", "artifact-info", display.dvResearchHolder, "研究成本: "+displayNumber(artifact.codeCost)+" 科学/字符")
 //			display.dvResearchProgress = createElement("div", "artifact-info", display.dvResearchHolder, "Current glyph progress: 0%")
-			display.dvLength = createElement("div", "artifact-info", display.dvResearchHolder, "Code length: "+artifact.codeLength+" symbols")
+			display.dvLength = createElement("div", "artifact-info", display.dvResearchHolder, "编码长度: "+artifact.codeLength+" 符号")
 			display.researched = false
 			display.cbResearched = GuiCheckbox({
 				parent : display.dvResearchHolder,
@@ -142,7 +142,7 @@ const ArtifactsTab = Template({
 				this.dvTabletInput.focus()
 			}
 
-			display.dvDepth = createElement("div", "artifact-info", display.dvDisplay, "Found at depth: "+displayNumber(artifact.depth))
+			display.dvDepth = createElement("div", "artifact-info", display.dvDisplay, "在深度发现: "+displayNumber(artifact.depth))
 			return display
 		})
 		
@@ -197,14 +197,14 @@ const ArtifactsTab = Template({
 		
 		const research = game.research[name]
 		if (!research) return
-		artifact.display.dvProgressInfo.innerText = research.done?"Researched":((research.type==RESEARCH_NUMBERS?"Numbers: ":"Glyphs: ")+research.goodGlyphs+" ("+(research.maxFind?research.found : Object.keys(research.tablet).length)+"/"+(research.maxFind || LETTER_PAIRS.length) +")"+ (research.progress?" (Next: "+displayNumber(100*(research.progress || 0)/artifact.codeCost,1) + "%)":""))
+		artifact.display.dvProgressInfo.innerText = research.done?"已研究":((research.type==RESEARCH_NUMBERS?"数字: ":"符号: ")+research.goodGlyphs+" ("+(research.maxFind?research.found : Object.keys(research.tablet).length)+"/"+(research.maxFind || LETTER_PAIRS.length) +")"+ (research.progress?" (下一个: "+displayNumber(100*(research.progress || 0)/artifact.codeCost,1) + "%)":""))
 
 		if (research.done) return
 		
 		if (name != this.displayedTablet) {
 			if (forced) {
 				this.displayedTablet = name
-				this.dvTabletTitle.innerText = "Tablet (Code length: "+artifact.codeLength+" symbols)"
+				this.dvTabletTitle.innerText = "石碑 (编码长度: "+artifact.codeLength+" 符号)"
 			} else
 				return
 		}
@@ -312,23 +312,23 @@ const ArtifactsTab = Template({
 				const research = game.research[display.id]
 				display.dvDisplay.classList.toggle("researched", !!research.done)
 //				display.dvDisplay.classList.toggle("researching", game.researching === display.id)
-				display.dvTitle.innerText = research.done?display.artifact.name:"???"
+				display.dvTitle.innerText = research.done?cnItem(display.artifact.name):"???"
 
 				display.dvEffect.classList.toggle("hidden", !research.done)
-				display.dvEffect.innerText = "Effect: "+(research.done?display.artifact.desc:"???")
+				display.dvEffect.innerText = "效果: "+(research.done?cnItem(display.artifact.desc):"???")
 				display.dvResearchHolder.classList.toggle("hidden", !!research.done)
 				display.researched = (game.researching == display.id)
 				display.cbResearched.update()
-				display.cbResearched.dvLabel.innerText = "Research this (" + shortTimeString(((research.maxFind?research.maxFind-research.found:(LETTER_PAIRS.length - Object.keys(research.tablet).length)) * display.artifact.codeCost - (research.progress || 0))/game.real.production.science) + ")"
-				display.dvProgressInfo.innerText = research.done?"Researched":((research.type==RESEARCH_NUMBERS?"Numbers: ":"Glyphs: ")+research.goodGlyphs+" ("+(research.maxFind?research.found:Object.keys(research.tablet).length)+"/"+(research.maxFind || LETTER_PAIRS.length) +")"+ (research.progress?" (Next: "+displayNumber(100*(research.progress || 0)/display.artifact.codeCost,1) + "%)":""))
+				display.cbResearched.dvLabel.innerText = "研究这个 (" + shortTimeString(((research.maxFind?research.maxFind-research.found:(LETTER_PAIRS.length - Object.keys(research.tablet).length)) * display.artifact.codeCost - (research.progress || 0))/game.real.production.science) + ")"
+				display.dvProgressInfo.innerText = research.done?"已研究":((research.type==RESEARCH_NUMBERS?"数字: ":"符号: ")+research.goodGlyphs+" ("+(research.maxFind?research.found:Object.keys(research.tablet).length)+"/"+(research.maxFind || LETTER_PAIRS.length) +")"+ (research.progress?" (Next: "+displayNumber(100*(research.progress || 0)/display.artifact.codeCost,1) + "%)":""))
 				this.updateTablet(display.id)
 			})
 		}
 		if (game.researching && game.research[game.researching]) {
 			const research = game.research[game.researching]
 			const artifact = ARTIFACTS[game.researching]
-			artifact.display.cbResearched.dvLabel.innerText = "Research this (" + shortTimeString(((research.maxFind?research.maxFind-research.found:(LETTER_PAIRS.length - Object.keys(research.tablet).length)) * artifact.codeCost - (research.progress || 0))/game.real.production.science) + ")"
-			artifact.display.dvProgressInfo.innerText = research.done?"Researched":((research.type==RESEARCH_NUMBERS?"Numbers: ":"Glyphs: ")+research.goodGlyphs+" ("+(research.maxFind?research.found:Object.keys(research.tablet).length)+"/"+(research.maxFind || LETTER_PAIRS.length) +")"+ (research.progress?" (Next: "+displayNumber(100*(research.progress || 0)/artifact.codeCost,1) + "%)":""))
+			artifact.display.cbResearched.dvLabel.innerText = "研究这个 (" + shortTimeString(((research.maxFind?research.maxFind-research.found:(LETTER_PAIRS.length - Object.keys(research.tablet).length)) * artifact.codeCost - (research.progress || 0))/game.real.production.science) + ")"
+			artifact.display.dvProgressInfo.innerText = research.done?"已研究":((research.type==RESEARCH_NUMBERS?"数字: ":"符号: ")+research.goodGlyphs+" ("+(research.maxFind?research.found:Object.keys(research.tablet).length)+"/"+(research.maxFind || LETTER_PAIRS.length) +")"+ (research.progress?" (Next: "+displayNumber(100*(research.progress || 0)/artifact.codeCost,1) + "%)":""))
 		}
 	},
 	
@@ -355,7 +355,7 @@ const ArtifactsTab = Template({
 				}
 			})
 		const toResearch = Object.values(ARTIFACTS).filter(x => x.depth < game.map.points[0].mineDepth && !game.research[x.id].done).length
-		gui.tabs.setTitle("artifacts", "Artifacts" + (toResearch?" ("+toResearch+")":""))
+		gui.tabs.setTitle("artifacts", "工艺品" + (toResearch?" ("+toResearch+")":""))
 	}
 })
 

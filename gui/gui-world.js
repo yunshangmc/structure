@@ -21,7 +21,7 @@ const WorldTab = Template({
 		this.dvWorkers = createElement("div", "workers", this.dvDisplay)
 		this.dvBonus = createElement("div", "bonus", this.dvDisplay)
 		
-		this.dvBuildButton = createElement("div", "build-button", this.dvDisplay, "Build")
+		this.dvBuildButton = createElement("div", "build-button", this.dvDisplay, "建造")
 		this.dvBuildButton.onclick = (event) => {
 			this.build.dvHolder.classList.toggle("hidden", false)
 			this.build.update(true)
@@ -42,7 +42,7 @@ const WorldTab = Template({
 			}
 		})*/
 		
-		this.dvWorldsButton = createElement("div", "worlds-button", this.dvDisplay, "Worlds")
+		this.dvWorldsButton = createElement("div", "worlds-button", this.dvDisplay, "世界")
 		this.dvWorldsButton.onclick = (event) => {
 			this.worldList.show()
 //			this.presetMenu.presets = game.world.presets,
@@ -50,14 +50,14 @@ const WorldTab = Template({
 		}
 		this.build = BuildList()
 		
-		this.dvFeatsButton = createElement("div", "feats-button", this.dvDisplay, "Feats")
+		this.dvFeatsButton = createElement("div", "feats-button", this.dvDisplay, "功绩")
 		this.dvFeatsButton.onclick = (event) => {
 			this.showingFeats = true
 			this.updateFeats()
 			this.dvFeatsHolder.classList.toggle("hidden", false)
 		}
 
-		this.dvCoreButton = createElement("div", "core-button", this.dvDisplay, "Core")
+		this.dvCoreButton = createElement("div", "core-button", this.dvDisplay, "核心")
 		this.dvCoreButton.onclick = (event) => {
 			this.coreScreen.show()
 //			this.showingCore = true

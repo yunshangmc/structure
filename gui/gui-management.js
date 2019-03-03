@@ -55,7 +55,7 @@ const ManagementTab = Template({
 		})
 		
 		this.dvMaxCost = createElement("div", "slider", this.dvAutomation)
-		this.dvText2 = createElement("div", "text", this.dvMaxCost, "Maximum gold:")
+		this.dvText2 = createElement("div", "text", this.dvMaxCost, "黄金上限:")
 
 		this.maxCost = GuiSlider({
 			parent : this.dvAutomation,
@@ -71,7 +71,7 @@ const ManagementTab = Template({
 		})
 		
 		this.dvBuildAutomation = createElement("div", "automation", this.dvDisplay)
-		this.dvBuildAutomationText = createElement("div", "automation-text", this.dvBuildAutomation, "Autobuild: ")
+		this.dvBuildAutomationText = createElement("div", "automation-text", this.dvBuildAutomation, "自动建造: ")
 
 		this.buildings = Object.keys(BUILDINGS).map(x => BuildingIcon(x, this.dvBuildAutomation))
 		this.buildings.map(x => {
@@ -83,7 +83,7 @@ const ManagementTab = Template({
 			}
 		})
 		
-		this.dvEnchantAutomationText = createElement("div", "automation-enchantment-text", this.dvBuildAutomation, "Enchant displayed: ")
+		this.dvEnchantAutomationText = createElement("div", "automation-enchantment-text", this.dvBuildAutomation, "显示附魔: ")
 
 		this.enchantments = Object.keys(SPELLS).filter(x => SPELLS[x].managed).map(x => SpellIcon(x, this.dvBuildAutomation))
 		this.enchantments.map(x => {
@@ -97,7 +97,7 @@ const ManagementTab = Template({
 			}
 		})
 		
-		this.dvImprintAll = createElement("div", "imprint button active", this.dvBuildAutomation, "Imprint displayed")
+		this.dvImprintAll = createElement("div", "imprint button active", this.dvBuildAutomation, "显示印记")
 		this.dvImprintAll.onclick = (event) => {
 			game.autoUpgrading = 1
 			game && game.map && game.map.points.filter(x => x.owned && x.index && x.completed && (!x.map.virtual || x.exit)).filter(x => x.getDisplay("management").visible).map(point => point.startHarvest(1))
@@ -157,7 +157,7 @@ const ManagementTab = Template({
 		
 		this.dvExtraFilter = createElement("div", "automation", this.dvDisplay)
 		
-		this.dvBuildFilterText = createElement("div", "automation-text", this.dvExtraFilter, "Building filter: ")
+		this.dvBuildFilterText = createElement("div", "automation-text", this.dvExtraFilter, "建筑过滤器: ")
 
 		this.filterBuildings = Object.keys(BUILDINGS).map(x => BuildingIcon(x, this.dvExtraFilter))
 		this.filterBuildings.map(x => {
