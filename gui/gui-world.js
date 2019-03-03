@@ -99,10 +99,10 @@ const WorldTab = Template({
 		})
 		
 		this.dvControlHint = createElement("div", "world-hint hidden", this.dvDisplay, `
-			Right-click - Cancel
-			Hold Shift - Build multiple
-			Hold Ctrl - Snap to closest
-			Hold Alt - Snap to closest two
+			右键 - 取消
+			长按 Shift - 建造多个
+			长按 Ctrl - 切换到最近的
+			长按 Alt - 切换到最近的两个
 		`)
 		
 		this.hover = WorldPointInfo({
@@ -136,7 +136,7 @@ const WorldTab = Template({
 	
 	update(forced) {
 		this.build.update()
-		this.dvWorkers.innerText = "Workers: "+game.world.workers
+		this.dvWorkers.innerText = "工人: "+game.world.workers
 		if (this.hover.point)
 			this.hover.update()
 		if (this.showingFeats) 
@@ -179,7 +179,7 @@ const presetImporterHandler = {
 		`);
 		this.dvPresets = createElement("div", "presets-list",this.dvDisplay)
 		this.presets = []
-		this.dvFinish = createElement("div", "button",this.dvDisplay, "Import")
+		this.dvFinish = createElement("div", "button",this.dvDisplay, "导入")
 		this.dvFinish.onclick = (event) => {
 			if (!game.payStardust(this.totalCost)) return
 			const imports = this.presets.filter(x => x.chosen)
@@ -203,7 +203,7 @@ const presetImporterHandler = {
 		let items = this.presets.filter(x => x.chosen).length
 		if (!items) {
 			this.totalCost = 0
-			this.dvFinish.innerText = "Leave everything behind"
+			this.dvFinish.innerText = "就把一切抛在脑后"
 			this.dvFinish.classList.toggle("available", true)
 			return
 		}
@@ -213,7 +213,7 @@ const presetImporterHandler = {
 			this.totalCost += 50 * 2 ** items
 			items--
 		}
-		this.dvFinish.innerText = "Import - "+displayNumber(this.totalCost, 0)+" stardust (You have "+displayNumber(game.resources.stardust,0)+")"
+		this.dvFinish.innerText = "导入 - "+displayNumber(this.totalCost, 0)+" 星尘 (你拥有 "+displayNumber(game.resources.stardust,0)+")"
 		this.dvFinish.classList.toggle("available", this.totalCost <= game.resources.stardust)
 	},
 	
@@ -321,7 +321,7 @@ const worldBuildingHandler = {
 			})
 		}
 		this.dvDisplay.classList.toggle("active", canAfford)
-		this.dvStored.innerText = game.world.stored[this.building.id]?"Stored: "+game.world.stored[this.building.id]:""
+		this.dvStored.innerText = game.world.stored[this.building.id]?"已存储: "+game.world.stored[this.building.id]:""
 	}
 }
 
@@ -361,9 +361,9 @@ const worldPointInfoHandler = {
 			this.dvIcon.innerText = this.building.iconText
 			this.dvIcon.style.backgroundColor = gui.theme.world[this.point.family]
 		}
-		const depth = this.point.depth < 100?this.point.depth + (this.point.depth == this.point.world.workers && this.point.world.coreStats.finalLayer && this.point.depth > 1?" - 1":""):"Detached"
-		const projectedDepth = this.point.projectedDepth < 100?this.point.projectedDepth + (this.point.projectedDepth == this.point.world.workers && this.point.world.coreStats.finalLayer && this.point.projectedDepth > 1?" - 1":""):"Detached"
-		this.dvInfo.innerText = "Type: " + this.building.name + "\nDepth: " + (depth + (depth != projectedDepth?" => "+projectedDepth:"")) + "\n" + ("Effect: "+this.point.valueString()+(this.point.valueString() != this.point.valueString(1)?" => "+this.point.valueString(1):""))
+		const depth = this.point.depth < 100?this.point.depth + (this.point.depth == this.point.world.workers && this.point.world.coreStats.finalLayer && this.point.depth > 1?" - 1":""):"分离"
+		const projectedDepth = this.point.projectedDepth < 100?this.point.projectedDepth + (this.point.projectedDepth == this.point.world.workers && this.point.world.coreStats.finalLayer && this.point.projectedDepth > 1?" - 1":""):"分离"
+		this.dvInfo.innerText = "类型: " + this.building.name + "\n深度: " + (depth + (depth != projectedDepth?" => "+projectedDepth:"")) + "\n" + ("效果: "+this.point.valueString()+(this.point.valueString() != this.point.valueString(1)?" => "+this.point.valueString(1):""))
 	}
 }
 
@@ -377,7 +377,7 @@ const worldPointTargetHandler = {
 		})
 		this.dvButtons = createElement("div", "world-target-buttons", this.dvDisplay)
 
-		this.dvBuy = createElement("div", "world-target-button active", this.dvButtons, "Buy") 
+		this.dvBuy = createElement("div", "world-target-button active", this.dvButtons, "购买") 
 		
 		this.dvBuy.onclick = (event) => {
 			game.world.finalize(this.point)
@@ -385,7 +385,7 @@ const worldPointTargetHandler = {
 			this.update()	
 		}
 
-		this.dvMove = createElement("div", "world-target-button active", this.dvButtons, "Move")
+		this.dvMove = createElement("div", "world-target-button active", this.dvButtons, "移动")
 		
 		this.dvMove.onclick = (event) => {
 //			this.dvDisplay.classList.toggle("hidden", true)
@@ -401,7 +401,7 @@ const worldPointTargetHandler = {
 			gui.world.hover.reset()
 		}
 		
-		this.dvFree = createElement("div", "world-target-button active", this.dvButtons, "Remove") 
+		this.dvFree = createElement("div", "world-target-button active", this.dvButtons, "移除") 
 		
 		this.dvFree.onclick = (event) => {
 			game.world.free(this.point)
@@ -413,7 +413,7 @@ const worldPointTargetHandler = {
 			}
 		}
 		
-		this.dvStore = createElement("div", "world-target-button active", this.dvButtons, "Store") 
+		this.dvStore = createElement("div", "world-target-button active", this.dvButtons, "保存") 
 		
 		this.dvStore.onclick = (event) => {
 			game.world.store(this.point)
@@ -469,11 +469,11 @@ const worldListHandler = {
 				this.hide()
 		}
 		this.dvDisplay = createElement("div", "dialog", this.dvHolder)
-		this.dvTitle = createElement("div", "dialog-title", this.dvDisplay, "Worlds")
+		this.dvTitle = createElement("div", "dialog-title", this.dvDisplay, "世界")
 		this.dvWorlds = createElement("div", "world-list", this.dvDisplay)
 		this.worlds = []
 		this.dvButtons = createElement("div", "buttons", this.dvDisplay)
-		this.dvCreate = createElement("div", "button", this.dvButtons, "Create new world (X stardust)")
+		this.dvCreate = createElement("div", "button", this.dvButtons, "创建新世界 (X 星尘)")
 		this.dvCreate.onclick = (event) => {
 			const newWorldCost = 50 * 2 ** (Object.entries(game.worlds).length - 1)
 			if (!game.payStardust(newWorldCost)) return
@@ -508,7 +508,7 @@ const worldListHandler = {
 				world : x
 			}))
 		}
-		this.dvCreate.innerText = "Create new world - "+displayNumber(newWorldCost,0)+" stardust "+ETAString(newWorldCost, "stardust", 2)
+		this.dvCreate.innerText = "创建新世界 - "+displayNumber(newWorldCost,0)+" 星尘 "+ETAString(newWorldCost, "stardust", 2)
 		this.dvCreate.classList.toggle("available", newWorldCost <= game.resources.stardust)
 	},
 }
@@ -526,14 +526,14 @@ const worldInfoHandler = {
 					gui.world.worldList.hide()
 				}
 			}
-		this.dvRename = createElement("div", "button available", this.dvDisplay, "Rename")
+		this.dvRename = createElement("div", "button available", this.dvDisplay, "重命名")
 		this.dvRename.onclick = (event) => {
 			const newName = prompt("输入新名称:", this.world.title)
 			if (newName !== null)
 				this.world.title = newName
 			gui.world.worldList.update(true)
 		}
-		this.dvDelete = createElement("div", "button" + ((this.world != game.world && Object.entries(game.worlds).length > 1)?" available":""), this.dvDisplay, "Delete")
+		this.dvDelete = createElement("div", "button" + ((this.world != game.world && Object.entries(game.worlds).length > 1)?" available":""), this.dvDisplay, "删除")
 		this.dvDelete.onclick = (event) => {
 			if (Object.entries(game.worlds).length < 2 || this.world == game.world) return
 			if (!confirm("虽然新的地图价格将下降，删除一个世界你也不会得到退款。\n\n你想删除它吗?")) return

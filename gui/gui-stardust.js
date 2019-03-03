@@ -92,26 +92,26 @@ const StardustTab = Template({
 			visible : () => game.skills.autoStar
 		})
 		this.dvSpreadButtons = createElement("div", "buttons", this.dvSliders)
-		this.dvSpread = createElement("div", "equal button", this.dvSpreadButtons, "Equalize amounts")
+		this.dvSpread = createElement("div", "equal button", this.dvSpreadButtons, "平衡数量")
 		this.dvSpread.onclick = (event) => {
 			this.spreadStardust()
 			this.updateStardust()
 		}
-		this.dvEqual = createElement("div", "equal button", this.dvSpreadButtons, "Equalize growth")
+		this.dvEqual = createElement("div", "equal button", this.dvSpreadButtons, "平衡增长")
 		this.dvEqual.onclick = (event) => {
 			this.equalStardust()
 			this.updateStardust()
 		}
 		
 		this.dvVirtual = createElement("div", "virtual", this.dvSubdisplay)
-		this.dvVirtualTitle = createElement("div", "virtual-title", this.dvVirtual, "Virtual maps")
+		this.dvVirtualTitle = createElement("div", "virtual-title", this.dvVirtual, "虚拟地图")
 		this.dvVirtualHint = createElement("div", "virtual-hint", this.dvVirtual, ``)
 		this.dvVirtualCreate = createElement("div", "virtual-create", this.dvVirtual)
 		
 		this.newMapLevel = 20
 		this.newMapFocus = 0
 		
-		this.dvVirtualCreateTitle = createElement("div", "virtual-create-title", this.dvVirtualCreate, "Virtual map level:")
+		this.dvVirtualCreateTitle = createElement("div", "virtual-create-title", this.dvVirtualCreate, "虚拟地图等级:")
 		
 		this.newMapLevelSlider = GuiSlider({
 			parent : this.dvVirtualCreate,
@@ -123,7 +123,7 @@ const StardustTab = Template({
 			shortStep : 1,
 			digits : 0,
 			onSet : () => {
-				this.dvVirtualCreateCost.innerText = "成本: " + displayNumber(virtualMapCost(this.newMapLevel),0) + " stardust"
+				this.dvVirtualCreateCost.innerText = "成本: " + displayNumber(virtualMapCost(this.newMapLevel),0) + " 星尘"
 			}
 		})
 		
@@ -165,8 +165,8 @@ const StardustTab = Template({
 			this.selector.expanded = false
 		}
 
-		this.dvVirtualCreateCost = createElement("div", "virtual-create-cost", this.dvVirtualCreate, "Cost:")
-		this.dvVirtualCreateButton = createElement("div", "button", this.dvVirtualCreate, "Create")
+		this.dvVirtualCreateCost = createElement("div", "virtual-create-cost", this.dvVirtualCreate, "成本:")
+		this.dvVirtualCreateButton = createElement("div", "button", this.dvVirtualCreate, "创建")
 		
 		this.dvVirtualCreateButton.onclick = (event) => {
 			const name = Array(Math.min(5, game.realMap.level - 20)).fill().map((x,n) => "virtual"+n).filter(x => !game.maps[x])[0]
@@ -361,16 +361,16 @@ function virtualMapCost(level) {
 const mapDisplayHandler = {
 	_init() {
 		const map = game.maps[this.name]
-		this.dvDisplay = createElement("div", "virtual-map"+(game.activeMap == this.name?" active":""), this.parent)
-		this.dvTitle = createElement("div", "virtual-map-title", this.dvDisplay, this.name == "main"?"Real":this.name.capitalizeFirst()+(map.starfield?" (Starfield)":"")+(map.evolved?"\nEvolved: "+pluralize(map.evolved,["time","times"]):""))
+		this.dvDisplay = createElement("div", "virtual-map"+(game.activeMap == this.name?" 活动":""), this.parent)
+		this.dvTitle = createElement("div", "virtual-map-title", this.dvDisplay, this.name == "main"?"真实":this.name.capitalizeFirst()+(map.starfield?" (星际)":"")+(map.evolved?"\n进化: "+pluralize(map.evolved,["time","times"]):""))
 		const stars = map.points.filter(x => x.exit && x.owned).length
 		const progress = map.points.filter(x => x.owned).length / map.points.length * 100
 		const exits = map.exitsCount
-		this.dvLevel = createElement("div", "virtual-map-level", this.dvDisplay, "等级 "+map.level+", "+Math.floor(progress)+(this.name == "main"?"%\nStars: ":"%\nStardust: ")+stars+"/"+((map.level == game.realMap.level && progress < 100)?"???":exits))
+		this.dvLevel = createElement("div", "virtual-map-level", this.dvDisplay, "等级 "+map.level+", "+Math.floor(progress)+(this.name == "main"?"%\n星星: ":"%\n星图: ")+stars+"/"+((map.level == game.realMap.level && progress < 100)?"???":exits))
 		const focus = map.focus?POINT_TYPES[map.focus]:0
 		this.dvFocus = createElement("div", "virtual-map-focus"+(focus?" bg-"+focus:""), this.dvDisplay, (focus?focus.capitalizeFirst():""))
 		this.dvCharge = createElement("div", "virtual-map-charge", this.dvDisplay)
-		this.dvGo = createElement("div", "button" + (game.activeMap == this.name?"":" enabled"), this.dvDisplay, "Visit")
+		this.dvGo = createElement("div", "button" + (game.activeMap == this.name?"":" enabled"), this.dvDisplay, "访问")
 		if (this.name != game.activeMap) {
 			this.dvGo.onclick = (event) => {
 				const summons = game.sliders.filter(x => x.clone == 2).length
@@ -382,7 +382,7 @@ const mapDisplayHandler = {
 		}
 
 		if (game.skills.evolveVirtual) {
-			this.dvEvolve = createElement("div", "button" + ((!map.virtual || map.level < 31 || progress < 100 || map.evolved && map.evolved >= 3)?"":" enabled"), this.dvDisplay, "进化")
+			this.dvEvolve = createElement("div", "button" + ((!map.virtual || map.level < 31 || progress < 100 || map.evolved && map.evolved >= 3)?"":" 启用"), this.dvDisplay, "进化")
 			this.dvEvolve.onclick = (event) => {
 				map.evolve()
 				gui.stardust.update(true)
@@ -395,19 +395,19 @@ const mapDisplayHandler = {
 			gui.stardust.updateMapStats(this.name)
 		}
 
-		this.dvDelete = createElement("div", "button" + (this.name == "main"?"":" enabled"), this.dvDisplay, "Delete")
+		this.dvDelete = createElement("div", "button" + (this.name == "main"?"":" enabled"), this.dvDisplay, "删除")
 		
 		if (this.name != "main"){
 			this.dvDelete.onclick = (event) => {
-				let ask = !game.skills.retainVirtualBonus?"You will lose all bonuses from this virtual map\n":""
-				ask += game.maps[this.name].points.some(x => x.exit && !x.owned)?"You have not collected all the stardust on this virtual map\n":""
-				if (game.skills.retainVirtualBonus && game.skills.book_enchantments1 && game.maps[this.name].points.some(x => !x.enchanted && (x.manaCosts.enchantDoom != -1 || x.manaCosts.enchantGold != -1 || x.manaCosts.enchantMana != -1 || x.manaCosts.enchantGrowth != -1))) ask += "There are nodes you can enchant.\n"
-				if (game.skills.virtualImprint && game.maps[this.name].points.some(x => x.canImprint && !x.harvested && !x.harvestTime)) ask += "There are nodes you can imprint.\n"
-				if (game.maps[this.name].points.some(x => x.harvesting)) ask += "There are unfinished imprints that will be lost.\n"
-				if (game.maps[this.name].focus && game.maps[this.name].complete && game.world.coreStats.mapChargeSpeed) ask += "Map will stop charging to produce " + POINT_TYPES[game.maps[this.name].focus] + " growth.\n"
-				if (game.skills.starfall && game.maps[this.name].complete && game.maps[this.name].evolved) ask += "Map will stop producing stardust.\n"
+				let ask = !game.skills.retainVirtualBonus?"你将失去这个虚拟地图的所有奖励\n":""
+				ask += game.maps[this.name].points.some(x => x.exit && !x.owned)?"你还没有收集到虚拟地图上所有的星尘\n":""
+				if (game.skills.retainVirtualBonus && game.skills.book_enchantments1 && game.maps[this.name].points.some(x => !x.enchanted && (x.manaCosts.enchantDoom != -1 || x.manaCosts.enchantGold != -1 || x.manaCosts.enchantMana != -1 || x.manaCosts.enchantGrowth != -1))) ask += "有些节点你可以使其附魔。\n"
+				if (game.skills.virtualImprint && game.maps[this.name].points.some(x => x.canImprint && !x.harvested && !x.harvestTime)) ask += "有些节点是可以标记的。\n"
+				if (game.maps[this.name].points.some(x => x.harvesting)) ask += "有些未完成的印记将会丢失。\n"
+				if (game.maps[this.name].focus && game.maps[this.name].complete && game.world.coreStats.mapChargeSpeed) ask += "地图将停止充电生产 " + POINT_TYPES[game.maps[this.name].focus] + " 成长.\n"
+				if (game.skills.starfall && game.maps[this.name].complete && game.maps[this.name].evolved) ask += "地图将停止产生星尘。\n"
 
-				if (ask && !confirm(ask+"\nAre you sure you want to delete this map?")) return
+				if (ask && !confirm(ask+"\n您确定要删除此地图吗?")) return
 				game.deleteMap(this.name, game.skills.retainVirtualBonus)
 				gui.stardust.update(true)
 			}

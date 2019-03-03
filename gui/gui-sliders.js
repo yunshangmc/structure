@@ -194,7 +194,7 @@ const masterSliderHandler = {
 			title : "Master autotarget control"
 		})*/
 		
-		this.dvAutotargetAll = createElement("div", "master-apply apply button", this.dvRow1, "Autotarget all")
+		this.dvAutotargetAll = createElement("div", "master-apply apply button", this.dvRow1, "全部自动目标")
 		this.dvAutotargetAll.onclick = (event) => {
 			game.sliders.map(x => {
 				if (x.clone != 2 && (x.role != ROLE_FOLLOWER || !x.target))

@@ -186,7 +186,7 @@ const attributePickerHandler = {
 const specialPickerHandler = {
 	_init() {
 		this.dvDisplay = createElement("div", "gui-picker "+(this.className||"")+" " +this.value, this.parent || document.body)
-		this.dvDisplay.title = this.hint || ""
+		this.dvDisplay.title = cnItem(this.hint) || ""
 		this.dvTitle = createElement("div", "name", this.dvDisplay, this.title)
 		this.dvAttributes = createElement("div", "attributes", this.dvDisplay)
 		this.attributes = SPECIAL_NAMES.map((x,n) => {

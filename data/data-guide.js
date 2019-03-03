@@ -454,7 +454,7 @@ const GUIDE = {
 		},{
 			subtitle : "Party",
 			condition : () => (game.skills.sliderLevels),
-			text: `You can have up to 4 slider parties active. Whenever "Leader" slider changes target, every "Follower" slider from same color team tries to switch to that target as well. You can change slider's team by clicking same role more than once.`
+			text: `You can have up to 4 slider parties active. Whenever "Leader" slider changes target, every "Follower" slider from same color team tries to switch to that target as well. You can change sliders team by clicking same role more than once.`
 
 		},{
 			subtitle : "Master controls",
@@ -471,7 +471,7 @@ const GUIDE = {
 		},{
 			subtitle : "Science",
 			condition : () => (game.resources.science),
-			text: `Some skills require you to have certain amount of science. Once threshold is achieved, the skill can be obtained as usual. While early science costs seem huge, you are not supposed to get them early on, and most of them are "Quality of life" upgrades that don't affect progression speed.`
+			text: `Some skills require you to have certain amount of science. Once threshold is achieved, the skill can be obtained as usual. While early science costs seem huge, you are not supposed to get them early on, and most of them are 'Quality of life' upgrades that don't affect progression speed.`
 		},{
 			newBlock : true,
 			condition : () => (game.skills.artifacts),
