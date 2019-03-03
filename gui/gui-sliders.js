@@ -285,7 +285,7 @@ const sliderLevelUpHandler = {
 			display.dvMult = createElement("div", "sliderlv-mult", display.dvDisplay)
 			display.dvRaiseHolder = createElement("div", "sliderlv-mult-double", display.dvDisplay)
 			display.dvLevelMult = createElement("div", "sliderlv-mult", display.dvRaiseHolder)
-			display.dvRaise = createElement("div", "button", display.dvRaiseHolder, "Increase")
+			display.dvRaise = createElement("div", "button", display.dvRaiseHolder, "提升")
 			display.dvTotalMult = createElement("div", "sliderlv-mult", display.dvDisplay)
 			display.dvRaise.onclick = (event) => {
 				if (this.slider.canLevel(x))
@@ -296,7 +296,7 @@ const sliderLevelUpHandler = {
 			return display
 		})
 		this.dvButtons = createElement("div", "buttons", this.dvDisplay)
-		this.dvClose = createElement("div", "button available", this.dvButtons, "Close")
+		this.dvClose = createElement("div", "button available", this.dvButtons, "关闭")
 		this.dvClose.onclick = (event) => this.reset()
 	},
 	

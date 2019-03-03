@@ -410,9 +410,9 @@ const managementPointElementHandler = {
 				this.visible = true
 				this.dvDisplay.classList.toggle("hidden", false)
 			}
-			this.dvInfo.innerText = "Power : " + displayNumber(this.point.power) + "\n" +
-									"Growth : " + displayNumber(this.point.totalBonus) + "\n" +
-									"Depth : " + this.point.depth// + (this.point.enchanted?" ("+["None", "Gold", "Growth", "Mana"][this.point.enchanted]+")":"")
+			this.dvInfo.innerText = "力量 : " + displayNumber(this.point.power) + "\n" +
+									"成长 : " + displayNumber(this.point.totalBonus) + "\n" +
+									"深度 : " + this.point.depth// + (this.point.enchanted?" ("+["None", "Gold", "Growth", "Mana"][this.point.enchanted]+")":"")
 			this.dvIcon.innerText = this.point.level || "0"
 			if (game.skills.magicManagement)
 				this.dvIcon.classList.toggle(["enchant-none", "enchant-gold", "enchant-growth", "enchant-mana", "enchant-doom"][this.point.enchanted || 0], 1)
@@ -427,7 +427,7 @@ const managementPointElementHandler = {
 			})
 			this.dvImprint.classList.toggle("hidden", !this.point.canImprint)
 			this.dvImprint.classList.toggle("active", !(this.point.harvesting || this.point.harvested))
-			this.dvImprint.innerText = this.point.harvested?"Imprinted":"Imprint ("+shortTimeString(this.point.harvestTimes[1]*(game.harvesting.size+1)/(game.world.stats.harvestSpeed))+")"
+			this.dvImprint.innerText = this.point.harvested?"印记":"印记 ("+shortTimeString(this.point.harvestTimes[1]*(game.harvesting.size+1)/(game.world.stats.harvestSpeed))+")"
 		}
 		if (!this.visible) return
 		this.dvLevelUp.classList.toggle("available", this.point.costs.levelUp <= game.resources.gold)

@@ -6,9 +6,9 @@ const StoryTab = Template({
 		this.dvRecords = createElement("div", "story records", this.dvDisplay)
 		this.dvPopup = createElement("div", "popup hidden", document.body)
 		this.dvFrame = createElement("div", "frame", this.dvPopup)
-		this.dvFrameTitle = createElement("div", "title", this.dvFrame, "Story")
-		this.dvClose = createElement("div", "button", this.dvFrame, "Close")
-		this.dvHint = createElement("div", "hint", this.dvFrame, "You can change story display mode in settings")
+		this.dvFrameTitle = createElement("div", "title", this.dvFrame, "故事")
+		this.dvClose = createElement("div", "button", this.dvFrame, "关闭")
+		this.dvHint = createElement("div", "hint", this.dvFrame, "您可以在设置中更改故事显示模式")
 
 		this.dvPopup.onclick = this.dvClose.onclick = (event) => {
 			game.lastViewedStory = Math.round((game.statistics.onlineTime || 0) + (game.statistics.offlineTime || 0))

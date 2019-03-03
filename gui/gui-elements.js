@@ -633,12 +633,12 @@ const colorPickerHandler = {
 			className : "color"
 		})
 		this.dvButtons = createElement("div", "buttons", this.dvDisplay)
-		this.dvSet = createElement("div", "button", this.dvButtons, "OK")
+		this.dvSet = createElement("div", "button", this.dvButtons, "确定")
 		this.dvSet.onclick = (event) => {
 			this.dvHolder.classList.toggle("hidden", true)
 		}
 
-		this.dvUndo = createElement("div", "button", this.dvButtons, "Cancel")
+		this.dvUndo = createElement("div", "button", this.dvButtons, "取消")
 		this.dvUndo.onclick = (event) => {
 			this.updateColor(this.oldColor)
 			this.dvHolder.classList.toggle("hidden", true)
@@ -688,7 +688,7 @@ const presetMenuHandler = {
 		this.dvPresets = createElement("div", "presets-list", this.dvDisplay)
 		this.dvButtons = createElement("div", "presets-buttons", this.dvDisplay)
 
-		this.dvSave = createElement("div", "button", this.dvButtons, "Save")
+		this.dvSave = createElement("div", "button", this.dvButtons, "保存")
 		this.dvSave.onclick = (event) => {
 			let name = this.activePreset
 			if (name == this.newName) {
@@ -701,7 +701,7 @@ const presetMenuHandler = {
 			this.update()
 		}
 
-		this.dvLoad = createElement("div", "button", this.dvButtons, "Load")
+		this.dvLoad = createElement("div", "button", this.dvButtons, "加载")
 		this.dvLoad.onclick = (event) => {
 			if (this.presets[this.activePreset]) {
 				this.load(this.activePreset)
@@ -709,7 +709,7 @@ const presetMenuHandler = {
 			}
 		}
 
-		this.dvDelete = createElement("div", "button", this.dvButtons, "Delete")
+		this.dvDelete = createElement("div", "button", this.dvButtons, "删除")
 		this.dvDelete.onclick = (event) => {
 			if (this.presets[this.activePreset] && confirm("真的要删除吗?")) {
 				delete this.presets[this.activePreset]

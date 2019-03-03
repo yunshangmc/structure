@@ -37,7 +37,7 @@ const ArtifactsTab = Template({
 		this.dvTabletInput.oninput = (event) => {
 				this.updateTabletPairs()
 		}
-		this.dvTabletAttempt = createElement("div", "button", this.dvTabletControls, "Try code")
+		this.dvTabletAttempt = createElement("div", "button", this.dvTabletControls, "试试代码")
 		this.dvTabletAttempt.onclick = (event) => {
 			const result = this.dvTabletInput.value && game.research[this.displayedTablet].finalize(this.dvTabletInput.value)
 			if (result) {
@@ -55,7 +55,7 @@ const ArtifactsTab = Template({
 				this.dvTabletAttempt.click()
 			}
 		}
-		this.dvTabletClose = createElement("div", "button", this.dvTabletControls, "Close")
+		this.dvTabletClose = createElement("div", "button", this.dvTabletControls, "关闭")
 		this.dvTabletClose.onclick = (event) => {
 			this.dvTabletHolder.classList.toggle("hidden", true)
 			this.displayedTablet = ""
