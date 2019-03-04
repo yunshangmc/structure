@@ -1,165 +1,172 @@
 'use strict'
 
+/*********
+ * @JAR:20190304AM：
+ * 本文档是游戏背景;
+ * 建议采用本版本之前备份源文档；
+ * file://structure/v6/data/data-story.js
+ */
+
 const STORY = {
 	m000: {
 		forced : 1,
-		title: "Chapter 1: I want out",
-		text: `This can't go on any longer. I've been stranded on this small fragment of what used to be my world for too long. That... wall, the barrier, the only source of light I have... it feels weaker every time I touch it. I could already push my hand through for a bit yesterday. Maybe today is the day to take a look at what's out there.`,
+		title: "第一章：我要出去",
+		text: `不能再这样下去了……我停滞在这个来自我的世界的碎片前面太久了……那面墙，屏障，那一点点光亮……每次我碰触它，都会感觉到它在变弱……昨天，我已经可以把手伸过去一点了！也许，今天可以看到外面的样子！`,
 	},
 	type_power: {
 		forced : 2,
 		text: `
-			God, this is disapointing. It's just another shard. Vastly different from the one I came from, to the point where I'm not sure it's from my world at all. Just what has happened out there? I should find out somehow...
-			Is it just me or am I becoming stronger all of sudden? It feels like this land is pumping me up. I should try to explore more...
+			天哪，这不对劲！这只是另一个碎片而已！这与原先的世界大不相同，我简直怀疑它是否来自我的世界；到底发生了什么？我应该去寻找答案！
+			这还是我吗，我突然变强了？这片土地在滋养着我；我应该向更广阔的世界探索！
 		`,
 		guide: `
-			Nodes increase your growth of their type.
-			Power determines your attack.
-			You have to choose a new destination to fight your way into.
+			节点可以增加相应属性的成长；
+			力量，决定你的攻击；
+			你必须选择一个新的战斗目标。
 		`,
 	},
 	type_spirit: {
 		forced : 2,
 		text: `
-			Yup, another small fragment. It's not the world I used to see. Words from my world can't even describe it. Except for may be that one, "beautiful". Yeah, this is beautiful. Inspiring. Now I wonder what else can I find?..
+			噢，另一个小碎片。这不是我以前看到的世界。我的世界中的文字根本无法描述它。可能除了那个词，“美丽”。是的，非常美丽。神奇。现在我急切地想要知道我还能发现些什么？
 		`,
 		guide: `		
-			Spirit is important when fighting for higher power nodes.
-			Whenever your spirit is lower than barrier power, your attack is decreased.
+			精神，在攻击力量更大的节点时非常重要；
+			每当你的精神低于屏障力量，你的攻击就会减弱。
 		`,
 	},
 	type_none: {
 		forced : 1,
 		text: `
-			So boring... just another uninhabited section. These worlds are so different though. It's like I'm actually sliding between the worlds, traversing the planes... At least my power is not attached to some timer. 
-			I guess I should just move on...
+			太无聊了……这只是另一个无人区。但这些世界是如此不同，就像我乘坐飞机在不同的世界之间穿行……至少我的力量没有绑定在秒表上。
+			我想我又该动身了……
 		`,
 	},
 	special_star: {
 		forced : 1,
 		text: `
-			Hey-hey-hey, what's this thing brimming with energy? It looks like a star! I know stars don't fall from the sky, but whatever this is, theres no better description. It's shiny, it's star-shaped, and it feels so powerful. I wonder if there are any other like this...
+			嘿，嘿，嘿，这是什么东西充满了能量？看上去像颗星星！我知道星星不会从天而降，但不管它是啥，都没有更好的描述了。它光洁呈星形，感觉很强大。我想知道是否还有更多……
 		`,
 	},
 	m000_enough: {
 		forced : 2,
 		text: `
-			Another star. As soon as I touched it, the sky cleared. Well, you'd imagine clouds to move away or something, but the thing is - there are no clouds. There's no real "sky" either. Just infinite darkness out there. And now it just turned bright. The barrier is suddenly not the only thing that gives me light anymore.
-			And now what's this? I'm not touching the ground anymore. The gravity has released me. From the very beginning I've feltt like a victim of fate, and now I could fly high and touch the sky. I should probably look around a bit more though, there might be even more stars to get.
+			又一颗星星。我一碰它，天空就放晴了。嗯，你可以想象云彩的移动或别的什么，但事实上——并没有云彩。也没有真正的“天空”。只有无限的黑暗。现在它亮了起来。突然间，屏障不再是唯一能给我光的东西了。
+			现在这个又是什么？我不再触地，地心引力释放了我。从一开始我就觉得自己是命运的牺牲品，现在我却可以飞得很高、触摸天空。我也许应该看得更广，也许还有更多星星可以采摘。
 		`,
 		guide: `
-			You can spend stars to ascend to the next map.
-			It's a good idea to gather all the stars on the map.
+			你可以使用星星升级到下一张图。
+			收集图中所有星星会是个好主意。
 		`,
 	},
 	m000_full: {
 		forced : 0,
-		title : "Log record #0001",
+		title : "日志#0001",
 		text : `
-			Straight out of hell. That thing must have come straight out of hell, I tell ya. That reverse pyramid thingy hit the Moon and fell apart like a Millenium puzzle! Honestly, the pieces looked harmless. Except we could not get close to them. Scientists were spitting out some mumbo-jumbo about falling through space and time that did not make much sense, and in the end we did not make any progress towards it.
-			However, that thing.. whatever it is... it was slowly making its progress towards us. It took us some time to notice. The flight times were off. The long-term forecasts were getting less and less accurate. The distances... became inconsistent. Soon, we were able to track some lines where anomalies happened. We figured out the pattern. We saw it before. The pieces of that thing on the moon were casting their evl shadow onto Earth.
+			冲出地狱。我告诉你，那东西一定是从地狱里出来的。那个倒金字塔的东西撞上了月亮，就像千年之谜一样散开！老实说，这些碎片看起来无害。但我们不能接近他们。科学家们胡说什么穿越时空，这都没什么意义，最后我们没有任何进展。
+			但是，那东西……不管是什么……它正在慢慢靠近，但我们花了一些时间才注意到。飞行计划被取消了。预测越来越不准确。距离……变得不一致。很快，我们追踪到一些异常线路；我们发现了模型。我们曾见过的。月亮上那东西的碎片正在把它们的EVL阴影投射到地球上。
 		`,
 	},
 	m001: {
 		forced : 1,
 		text : `
-			I'm at my house. Again. But something have changed. The barrier is still there, but it looks different somehow. I think I'm getting hang of this sliding thing. Some more practice and I can navigate these worlds without hassle.
+			我回到了家乡。又一次。但情况有所改变。屏障依旧，但看起来有些不同。我想我对这种滑动的东西很在行。再多练习一下，我就可以轻松驾驭这些世界了。
 		`,
 	},
 	special_key: {
 		forced : 0,
 		text: `
-			As I broke into this world, swarm of small shiny particles engulfed me. Whatever happened, I feel like I understand this world a bit better.
+			当我闯入这个世界时，一大群闪亮的粒子围绕着我。不论发生了什么，我觉得自己更加了解这个世界了。
 		`,
 	},
 	special_lock: {		
 		forced : 0,
 		text: `
-			That barrier definitely looks different from the others. I can't even fathom whan could be there. 
+			这道屏障与其他屏障显然不同。我甚至不知道它为什么会在那儿。
 		`,
 	},
 	special_key_lock: {
 		forced : 2,
 		text: `
-			That barrier... It looks different. As I noticed that, the stream of shining lights that followed me flew right through it. It sure looks gloomer than what I've seen before, but it does feel passable.
+			那道屏障……看起来不一样。正如我注意到的，包围着我的光流穿过了它。它看起来确实比之前的更阴暗，但感觉可以通过。
 		`,
 		guide: `
-			Numbered locks are opened by obtaining the key that has the same number.
-		`		
+			钥匙，可以打开具有相同编号的锁。
+		`
 	},
 	special_lock_key: {		
 		forced : 2,
 		text: `
-			As soon as I broke in, stream of light has surrounded me. The light is strange, it feels like I've felt something like this before... In that room with a solid barrier. Maybe I can get through now...
+			我一闯进来，光流就包围了我。这些光流很奇怪，我似曾有过这种感觉……在有坚固屏障的房间里。也许我现在可以通过了……
 		`,
 		guide: `
-			Numbered locks are opened by obtaining the key that has the same number.
+			通过获取具有相同编号的钥匙来打开带编号的锁。
 		`		
 	},
 	m002: {
 		forced : 2,
 		text : `
-			It's getting harder. The barrier is responding, it's pushing me back slowly. I definitely deal better with it when in high spirits...
+			越来越困难了。屏障有了反应，它慢慢地把我推回。我打起精神更好地对付它……
 		`
 	},
 	s_autoTarget: {
 		forced : 2,
 		text: `
-			This world chasing thing is becoming addictive. I can really see myself chasing worlds without a rest now.
+			这个追逐世界变得有趣了。我真的可以看到自己在无休止地追逐着世界永不停歇。
 		`,
 		guide: `
-			You don't have to choose a target for you slider every time he finishes breaking a barrier anymore. 
-			You can toggle this on Slider tab.
+			你不必在每次突破屏障时都要为你的滑块设定目标。
+			你可以在滑块选项卡中设置它。
 		`,
 	},
 	s_sensor: {
 		forced : 2,
 		text: `
-			The barriers... they are not identical. I've seen so many already that I can tell if there's anything behind the world I'm breaking into before I get there. Now I can see which worlds give me more directions to go and which are just dead ends.
+			屏障……它们各不相同。在我到达那里之前已经见识了很多，我在突入之前就明白在世界背后的东西。现在我可以看到哪个世界可以给了我更多收获而哪些只是死区。
 		`,
 		guide: `
-			You can now see whether there's anything in different directions.
-			It's pretty useful to know where you unveil more nodes when you are looking for something.
+			现在你可以看到各方向的东西了。
+			当你在寻找一些东西的时候，知道在哪里你会发现更多的节点是非常有用的。
 		`
 	},
 	s_mining: {
 		forced : 2,
 		text: `
-			I havent been to my cellar for ages, but curiousity got me: if there's no sky and walls around, there should be something strange down there too. Well guess what? It's there. It looks like a barrier, but it is not. I can dig it. It feels like some metallic material. If anything, it resembles gold, so I'll just call it that. Dunno if I'll ever need it later, but having some definitely won't hurt.
+			我已经很久没有去过地窖了，但是好奇心让我明白：如果周围没有天空和屏障，那么下面也应该有一些奇怪的东西。你猜怎么着？就在那里。它看起来像一个屏障，但它不是。我能挖出来。感觉像是某种金属材料。如果有的话，它像黄金，所以我就这样叫它吧。不知道我以后是否需要它，但是收藏着肯定不会有什么坏处。
 		`,
 		guide: `
-			You can now mine gold by assigning Slider to your starting point
+			现在你可以通过将滑块分配到起始点来开采黄金。
 		`
 	},
 	m001_full: {
 		forced : 0,
-		title : "Log record #0002",
+		title : "日志#0002",
 		text : `
-			A lot of things could happen at those lines. You know how people used to claim to have seen some weird stuff and never able to capture it on camera? Well, the cameras worked. The first video of some unknown landscape in the middle of interstate highway was bashed for being a fake, but then others came, the most weird things out of nowhere, all of them seen around anomaly lines. Well, you know how it goes in a horror movie: people go missing, then other people claim to have seen them... there. 
-			And then the first crack happened. The Earth was divited into two parts. It was not "torn apart", it was more like day and night, with a terminator line following the moon. Nothing faster than sound could break the wall. It would be just gone... somewhere else. Radio waves. Electronic signals. Planes. Light. All gone.
+			在那些线路上可能会发生很多事情。你知道人们以前是怎么声称看到了一些奇怪的东西却永远无法在相机上捕捉到它的吗？好吧，照相机工作了。在高速路中间的一些未知景观的第一个视频因为是假的而遭到抨击；但随后其他的更奇怪的东西不知从何而来，都是在异常线路附近看到的。嗯，你知道恐怖电影里是怎么回事：人们失踪了，然后其他人声称见过他们……就在那里。
+			然后第一道裂缝就发生了。地球被分成两部分。它并没有被“撕裂”，更像是日夜不停地，终结者在月亮后面排着队。没有比声音更快的东西能打破墙壁。它就会消失…在别的地方。无线电波。电子信号。飞机。光线。都不见了。
 		`
 	},
 	m002_full: {
 		forced : 0,
-		title : "Log record #0003",
+		title : "日志#0003",
 		text : `
-			And we adapted. We've had no choice. We've called the sector without direct sunlight "The Dead sector". It was not really dead, neither was it cold while I'd definitely expect that from sunless world. 
-			And then one day it just happened. The line stopped. The border turned into a bright wall. Nothing could get through anymore. 
+			我们适应了。我们别无选择。我们把没有阳光直射的区域称为“死区”。它不是真的死了，也不是冷的，虽然我肯定会期待从没有阳光的世界。
+			然后有一天，事情发生了。线路停了。边界变成了一堵明亮的屏障。再也过不去了。 
 		`,
 	},
 	m003_full: {
 		forced : 0,
-		title : "Log record #0004",
+		title : "日志#0004",
 		text : `
-			I've been at home when it happened. I just woke up to the bright light. The barrier was in my backyard. The barrier was on the street. I've been surrounded with it. That was hella scary. The barrier was bright and felt very solid. I could not contact anyone, I've only had myself to rely on...
+			事情发生时我一直在家。我刚被明亮的灯光吵醒。屏障在我的后院。屏障在街上。我被它包围了。那太可怕了。屏障很亮，感觉很坚固。我联系不上任何人，我只能依靠……
 		`,
 	},
 	m020b1b: {
 		forced : 5,
-		title: "You have done it!",
+		title: "你做到了！",
 		text: `
-			As of now, this is the end of the game. I hope you enjoyed your adventure and will return when there's more. Please make and backup a save state at this point. You can ascend and keep playing, but there will be nothing new past this point.
-			Congratulations on your victory!
+			到此为止，游戏结束。我希望你喜欢你的冒险，有空还会再来。请创建并备份存档。你可以继续升级并游戏，但不会有新的东西了。
+			恭喜你获得胜利！
 		`,
 	}
 }
