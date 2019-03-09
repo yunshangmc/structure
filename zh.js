@@ -414,7 +414,7 @@ function cntitle(text) {
     }
 /***（2）尝试优化函数***
     for ( var i in cntit ) {
-        if (text == i) return cnItems[i];
+        if (text == i) return cntit[i];
     }
     console.log("需汉化的英文标题：" + text);
     return text;
