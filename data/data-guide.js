@@ -1,26 +1,26 @@
 const GUIDE = {
 	level21: {
-		title : "Congratulations!",
+		title : "恭喜你!",
 		content: [{
-			text: `You have finished the tutorial part of the game. Now that you've learned the ropes it's time for some important changes.`,
+			text: `你完成了游戏的教程部分. 你现在已经学会了大部分规则，不过接下来会有一些改变.`,
 		},{
-			subtitle: "So, what's gonna change?",
-			text: `First of all, the clones are gone. You can now only rely on yourself. Hopefully, new skills will help you overcome this loss.
+			subtitle: "那么, 会有什么改变?",
+			text: `首先, 再也没有克隆了. 你只能依赖你自己. 别灰心, 你的新技能会帮助你克服这个困难.
 			
-			Second and most important change is that elements now went mad. `,
+			第二点也是最重要的一点就是元素都变得疯狂了. `,
 		},{
-			subtitle: "Elemental chaos",
-			text: `Power only deals 0.1% damage to elemental nodes.
+			subtitle: "元素狂暴",
+			text: `力量只能对元素节点造成 0.1% 伤害.
 			
-			Elemental nodes absorb damage dealt with the same element. You can only deal full damage to them with stronger element. Opposite element deals 10% damage, and weak element is ignored outright.
+			元素节点会吸收同种元素的伤害. 你只能用克制的元素对它造成全额的伤害. 对位元素造成 10% 伤害, 被克制的元素伤害会被忽略.
 			
-			Blood is strong to fire, fire is weak to blood.
+			血克制火, 火被血克制.
 			
-			Fire is strong to ice, ice is weak to fire.
+			火克制冰, 冰被火克制.
 			
-			Ice is strong to metal, metal is weak to ice.
+			冰克制金属, 金属被冰克制.
 			
-			Metal is strong to blood, blood is weak to metal.
+			金属克制血, 血被金属克制.
 			`,
 		},{
 			subtitle: "Have fun!",
