@@ -17,7 +17,7 @@ const SKILLS = {
 	},
 	charge: {
 		name: "装填",
-		desc: "停止的时候也能增强士气",
+		desc: "停止的时候能增强士气",
 		map : 2,
 		mult : 2,
 		exp : 1000
@@ -227,7 +227,7 @@ const SKILLS = {
 	},
 	imbuement: {
 		name: "元素, pt.2",
-		desc: "使用法力给元素注入力量",
+		desc: "消耗法力把力量转换成元素伤害",
 		req : ["magic"],
 		map : 17,
 		mult: 4,
@@ -257,7 +257,7 @@ const SKILLS = {
 	},
 	gild: {
 		name: "金色黎明",
-		desc: "滑块在战斗和使用法力的时候获得黄金",
+		desc: "滑块在战斗时可以消耗法力并获得黄金",
 		map : 18,
 		mult : 1.5,
 		req : ["magic"],
@@ -287,7 +287,7 @@ const SKILLS = {
 	},
 	book_summons1 : {
 		name: "战士的法术",
-		desc: "法术书 - 召唤核心并攻击目标",
+		desc: "法术书 - 召唤克隆并攻击目标",
 		req : ["spellcasting"],
 		science : 10e12,
 		exp : 1e19,
@@ -302,7 +302,7 @@ const SKILLS = {
 	},
 	book_dispels1 : {
 		name: "打破规则",
-		desc: "法术书 - 破坏被保护的节点的防御",
+		desc: "法术书 - 破坏被保护的节点的免疫效果",
 		req : ["spellcasting"],
 		map : 23,
 		science : 30e12,
@@ -318,7 +318,7 @@ const SKILLS = {
 	},
 	book_enchantments1: {
 		name : "魔域交响曲 II",
-		desc : "法术书 - 使用法力对占领点数产生影响",
+		desc : "法术书 - 使用法力对占领的节点产生影响",
 		map : 25,
 		req : ["spellcasting"],
 		science : 1e14,
@@ -400,7 +400,7 @@ const SKILLS = {
 	},
 	book_enchantments2: {
 		name : "进入魔法室",
-		desc : "法术书 - 根据点数获得更多元素",
+		desc : "法术书 - 根据节点成长获得更多元素",
 		map : 28,
 		req : ["book_enchantments1","spellcasting"],
 		science : 5e14,
@@ -436,7 +436,7 @@ const SKILLS = {
 	},
 	spiritStar : {
 		name : "占星师",
-		desc : "滑块成长受星云和星星影响",
+		desc : "滑块成长受星尘和星星影响",
 		map : 28,
 		exp : 2e28,
 		mult : 2
@@ -501,7 +501,7 @@ const SKILLS = {
 	},
 	levelSummons : {
 		name : "力量提升",
-		desc : "召唤物占领一个目标后会获得等级并提升年能力",
+		desc : "召唤物占领一个目标后会获得等级并提升能力",
 		req : ["smartSummons"],
 		map : 34,
 		exp : 1e30,
@@ -509,7 +509,7 @@ const SKILLS = {
 	},
 	starfall : {
 		name : "流星雨",
-		desc : "完成和当前地图等级相同的虚拟地图会获得基于进化次数的星云",
+		desc : "完成和当前地图等级相同的虚拟地图会获得基于进化次数的星尘",
 		req : ["evolveVirtual"],
 		map : 36,
 		exp : 1e40,
@@ -525,7 +525,7 @@ const SKILLS = {
 	},
 	autoStar : {
 		name : "天文学",
-		desc : "自动重新分配星云",
+		desc : "自动重新分配星尘",
 		req : ["starfall"],
 		map : 37,
 		exp : 1e41,
