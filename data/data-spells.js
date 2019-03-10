@@ -11,7 +11,7 @@ const ENCHANT_DOOM = 4
 const SPELLS = {//function context == point
 	destroyResist : {
 		name : "驱散魔法护罩",
-		desc : "驱散被反魔法防御保护的节点",
+		desc : "解除节点魔免效果",
 		book : "dispels1",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -26,7 +26,7 @@ const SPELLS = {//function context == point
 	},
 	destroyBlock : {
 		name : "驱散物理护罩",
-		desc : "驱散被反物理防御保护的节点",
+		desc : "解除节点物免效果",
 		book : "dispels1",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -41,7 +41,7 @@ const SPELLS = {//function context == point
 	},
 	destroyNoclone : {
 		name : "驱散召唤护罩",
-		desc : "驱散被反召唤防御保护的节点",
+		desc : "解除节点反召唤效果",
 		book : "dispels2",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -88,7 +88,7 @@ const SPELLS = {//function context == point
 	},
 	summonPower : {
 		name : "强大的元素",
-		desc : "召唤一个核心去进攻目标节点",
+		desc : "召唤一个克隆去进攻目标节点",
 		book : "summons1",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -104,7 +104,7 @@ const SPELLS = {//function context == point
 	},
 	summonRandom : {
 		name : "随机元素",
-		desc : "召唤一个随机元素核心进攻目标节点",
+		desc : "召唤一个随机元素克隆进攻目标节点",
 		book : "summons1",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -120,7 +120,7 @@ const SPELLS = {//function context == point
 	},
 	summonBlood : {
 		name : "血液元素",
-		desc : "召唤一个血液元素核心去进攻目标节点",
+		desc : "召唤一个血液元素克隆去进攻目标节点",
 		book : "summons2",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -136,7 +136,7 @@ const SPELLS = {//function context == point
 	},
 	summonFire : {
 		name : "火焰元素",
-		desc : "召唤一个火焰元素核心去进攻目标节点",
+		desc : "召唤一个火焰元素克隆去进攻目标节点",
 		book : "summons2",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -152,7 +152,7 @@ const SPELLS = {//function context == point
 	},
 	summonIce : {
 		name : "冰元素",
-		desc : "召唤一个冰元素核心去进攻目标节点",
+		desc : "召唤一个冰元素克隆去进攻目标节点",
 		book : "summons2",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
@@ -168,7 +168,7 @@ const SPELLS = {//function context == point
 	},
 	summonMetal : {
 		name : "金属元素",
-		desc : "召唤一个金属元素核心去进攻目标节点",
+		desc : "召唤一个金属元素克隆去进攻目标节点",
 		book : "summons2",
 		type : SPELL_TYPE_POINT,
 		cost(point) { 
