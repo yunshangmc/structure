@@ -47,13 +47,13 @@ const BUILDINGS = {//function context == point
 	},
 	obelisk : {
 		name : "钢铁之心战旗",
-		desc : "增强附近滑块的精神",
+		desc : "增强从本节点出击的滑块的精神",
 		level : 1,
 		cost(point) { 
 			return (point.depth * point.outs * 1000000) || -1
 		},
 		info(point) {
-			return "精神产出: x" + ((point.level || 0) + 1)
+			return "精神增强: x" + ((point.level || 0) + 1)
 		},
 		build(point) {},
 		destroy(point) {},
