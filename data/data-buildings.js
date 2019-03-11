@@ -12,7 +12,7 @@ const BUILDINGS = {//function context == point
 			return point.depth * 68400
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point)) + "/s"
+			return "Production: " + displayNumber(this.production(point)) + "/s"
 		},
 		build(point) {
 			game.production.gold += this.production(point)
@@ -34,7 +34,7 @@ const BUILDINGS = {//function context == point
 			return point.depth * point.map.level ** 2 / 1e5 * ((point.level || 0) + 1) * (game.skills.magicBoost1 && (point.distance < point.map.ownedRadius)?point.map.ownedRadius * (point.map.ownedRadius - point.distance + 1):1) * (point.enchanted == ENCHANT_DOOM?point.map.level:1)
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point))
+			return "Production: " + displayNumber(this.production(point))
 		},
 		build(point) {
 			game.production.science += this.production(point)
@@ -53,7 +53,7 @@ const BUILDINGS = {//function context == point
 			return (point.depth * point.outs * 1000000) || -1
 		},
 		info(point) {
-			return "精神增强: x" + ((point.level || 0) + 1)
+			return "Spirit bonus: x + ((point.level || 0) + 1)
 		},
 		build(point) {},
 		destroy(point) {},
@@ -71,7 +71,7 @@ const BUILDINGS = {//function context == point
 			return (point.depth * point.bonus) ** 0.5 / 1e5
 		},
 		info(point) {
-			return "增强倍率: x" + displayNumber(this.production(point))
+			return "Power bonus: x" + displayNumber(this.production(point))
 		},
 		build(point) {
 			game.multi.power = (game.multi.power || 1) + this.production(point)
@@ -93,7 +93,7 @@ const BUILDINGS = {//function context == point
 			return 1e-10 * point.map.level ** 6
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point))
+			return "Production: " + displayNumber(this.production(point))
 		},
 		build(point) {
 			game.production.fears += this.production(point)
@@ -115,7 +115,7 @@ const BUILDINGS = {//function context == point
 			return 2e-11 * point.map.level ** 6
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point))
+			return "Production: " + displayNumber(this.production(point))
 		},
 		build(point) {
 			game.production.clouds += this.production(point)
@@ -137,7 +137,7 @@ const BUILDINGS = {//function context == point
 			return point.distance < point.map.ownedRadius?1e15:-1
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point))
+			return "Production: " + displayNumber(this.production(point))
 		},
 		build(point) {
 			game.production.mana += this.production(point)
@@ -159,7 +159,7 @@ const BUILDINGS = {//function context == point
 			return point.totalBonus
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point))
+			return "Production: " + displayNumber(this.production(point))
 		},
 		build(point) {
 			game.growth["power"] += this.production(point)
@@ -181,8 +181,7 @@ const BUILDINGS = {//function context == point
 			return point.totalBonus
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point))
-		},
+			return "Production: " + displayNumber(this.production(point))
 		build(point) {
 			game.growth["spirit"] += this.production(point)
 		},
@@ -203,7 +202,7 @@ const BUILDINGS = {//function context == point
 			return point.totalBonus
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point))
+			return "Production: " + displayNumber(this.production(point))
 		},
 		build(point) {
 			const value = this.production(point)
@@ -233,7 +232,7 @@ const BUILDINGS = {//function context == point
 			return (point.map.level - 10) ** 5 / 1e6 * point.depth
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point))
+			return "Production: " + displayNumber(this.production(point))
 		},
 		build(point) {
 			game.production.thunderstone += this.production(point) 
