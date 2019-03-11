@@ -162,10 +162,10 @@ const BUILDINGS = {//function context == point
 			return "产出: " + displayNumber(this.production(point))
 		},
 		build(point) {
-			game.growth["力量"] += this.production(point)
+			game.growth["power"] += this.production(point)
 		},
 		destroy(point) {
-			game.growth["力量"] -= this.production(point)
+			game.growth["power"] -= this.production(point)
 		},
 		iconText : "P",
 		iconColor : "#888833"
@@ -184,10 +184,10 @@ const BUILDINGS = {//function context == point
 			return "产出: " + displayNumber(this.production(point))
 		},
 		build(point) {
-			game.growth["精神"] += this.production(point)
+			game.growth["spirit"] += this.production(point)
 		},
 		destroy(point) {
-			game.growth["精神"] -= this.production(point)
+			game.growth["spirit"] -= this.production(point)
 		},
 		iconText : "S",
 		iconColor : "#338833"
@@ -207,17 +207,17 @@ const BUILDINGS = {//function context == point
 		},
 		build(point) {
 			const value = this.production(point)
-			game.growth["火焰"]  += value
-			game.growth["冰"]   += value
-			game.growth["血液"] += value
-			game.growth["金属"] += value
+			game.growth["fire"]  += value
+			game.growth["ice"]   += value
+			game.growth["blood"] += value
+			game.growth["metal"] += value
 		},
 		destroy(point) {
 			const value = this.production(point)
-			game.growth["火焰"]  -= value
-			game.growth["冰"]   -= value
-			game.growth["血液"] -= value
-			game.growth["金属"] -= value
+			game.growth["fire"]  -= value
+			game.growth["ice"]   -= value
+			game.growth["blood"] -= value
+			game.growth["metal"] -= value
 		},
 		iconText : "R",
 		iconColor : "#FF8844"
