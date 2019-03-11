@@ -55,9 +55,9 @@ const GUIDE = {
 			Elements go in the same order they are usually listed : Blood beats fire, Fire beats ice, Ice beats metal, Metal beats blood.`
 		}, {
 			condition: () => game.map.virtual || game.map.level >= 21,
-			text: `Every element negates damage to itself, deals full damage to the next, 10% damage to opposite element, and zero damage to previous one. Power also deals only 0.1% damage to elemental nodes.
+			text: `每种元素的伤害都会被同种元素节点吸收, 对克制元素造成全额伤害, 对位元素造成 10% 伤害, 被克制的元素伤害会被忽略. 力量只能对元素节点造成 0.1% 伤害.
 			
-			Elements go in the same order they are usually listed : Blood beats fire, Fire beats ice, Ice beats metal, Metal beats blood.`
+			元素总是遵从这个规则 : 血克火, 火克冰, 冰克金属, 金属克血.`
 		}, {
 			newBlock : true,
 			text: `Power: This number determines how strong the node is. Most of other values depend on this one. 
@@ -108,14 +108,14 @@ const GUIDE = {
 		}, {
 			condition: () => game.statistics.special_blocks,
 			newBlock : true,
-			text : `Physical shield (looks like big triangle around node): The node ignores power-based damage.`
+			text : `物理免疫 (看上去像个盾牌): 这个节点忽略力量的伤害.`
 		}, {
 			condition: () => game.statistics.special_blocks && game.skills.build4,
 			text : `Mean machines can't damage it as well.`
 		}, {
 			condition: () => game.statistics.special_resists,
 			newBlock : true,
-			text : `Magical shield (looks like magical circle around node): The node ignores element-based damage.`
+			text : `魔法免疫 (看上去像有个魔法盾围绕着它): 这个节点忽略元素的伤害.`
 		}, {
 			condition: () => game.statistics.special_resists && game.skills.build4,
 			text : `Mean machines deal triple damage to it.`
