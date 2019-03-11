@@ -53,7 +53,7 @@ const BUILDINGS = {//function context == point
 			return (point.depth * point.outs * 1000000) || -1
 		},
 		info(point) {
-			return "Spirit bonus: x + ((point.level || 0) + 1)
+			return "Spirit bonus: x" + ((point.level || 0) + 1)
 		},
 		build(point) {},
 		destroy(point) {},
