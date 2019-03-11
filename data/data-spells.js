@@ -87,7 +87,7 @@ const SPELLS = {//function context == point
 		iconColor : "#DD55DD",
 	},
 	summonPower : {
-		name : "强大的元素",
+		name : "强大的克隆",
 		desc : "召唤一个克隆去进攻目标节点",
 		book : "summons1",
 		type : SPELL_TYPE_POINT,
