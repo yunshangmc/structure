@@ -182,7 +182,7 @@ const BUILDINGS = {//function context == point
 		},
 		info(point) {
 			return "Production: " + displayNumber(this.production(point))
-	    },
+		},
 		build(point) {
 			game.growth["spirit"] += this.production(point)
 		},
