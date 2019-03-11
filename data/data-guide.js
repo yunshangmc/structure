@@ -421,9 +421,9 @@ const GUIDE = {
 			text: `You can enable boosting of an attribute. That way, slider will consume attribute growth worth of experience to grow the attribute at triple speed. Boosting is disabled automatically if you run out of experience.`
 
 		},{
-			subtitle : "Channeling",
+			subtitle : "通道",
 			condition : () => (game.skills.channel),
-			text: `You can make slider channel any of its attributes. Any attribute channeled stops growing or producing exp, but instead its value from channeling slider is added to every other slider.`
+			text: `你可以把滑块的任意属性共享给所有滑块. 滑块在开启通道时对应属性将无法成长也无法转换为经验, 相对的这个属性会叠加到所有其他滑块上.`
 		},{
 			condition : () => (game.sliders.some(x => x.clone==1)),
 			text: `Clones receive any channeling as bonus to their power.`
@@ -434,12 +434,12 @@ const GUIDE = {
 		},{
 			subtitle : "Gilding touch",
 			condition : () => (game.skills.gild),
-			text: `By spending mana, you can make slider produce gold while fighting.`
+			text: `消耗法力, 你可以让滑块在战斗时获得黄金.`
 
 		},{
-			subtitle : "Imbuement",
+			subtitle : "灌输",
 			condition : () => (game.skills.imbuement),
-			text: `You can convert slider's power attribute into any single element. This uses up large amounts of mana, and the cost depends heavily on that slider's power to target element ratio. Imbuing power with element slider is weak at can cost a lot, so to avoid burning all your mana for nothing, it's strongly recommended to keep "Safe" setting on. It disables imbuement if less than 10 seconds worth of mana to support it left. Either way, imbuement is disabled automatically if you run out of mana.`
+			text: `你可以把滑块的力量转换成一种元素. 这会消耗大量的法力, 消耗很大程度取决于滑块对应元素的强度. 转换成滑块不擅长的元素消耗会非常大, 所以为了避免你不小心把所有法力都浪费掉, 最好开启 "安全" 选项. 它会在你剩余 10 秒就用完法力时强行终止你的灌输. 否则, 灌输只会在用完法力时停止.`
 
 		},{
 			subtitle : "Artifacts",
