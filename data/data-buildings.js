@@ -12,7 +12,7 @@ const BUILDINGS = {//function context == point
 			return point.depth * 68400
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point)) + "/s"
+			return "生产: " + displayNumber(this.production(point)) + "/s"
 		},
 		build(point) {
 			game.production.gold += this.production(point)
@@ -34,7 +34,7 @@ const BUILDINGS = {//function context == point
 			return point.depth * point.map.level ** 2 / 1e5 * ((point.level || 0) + 1) * (game.skills.magicBoost1 && (point.distance < point.map.ownedRadius)?point.map.ownedRadius * (point.map.ownedRadius - point.distance + 1):1) * (point.enchanted == ENCHANT_DOOM?point.map.level:1)
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point))
+			return "生产: " + displayNumber(this.production(point))
 		},
 		build(point) {
 			game.production.science += this.production(point)
@@ -71,7 +71,7 @@ const BUILDINGS = {//function context == point
 			return (point.depth * point.bonus) ** 0.5 / 1e5
 		},
 		info(point) {
-			return "增强倍率: x" + displayNumber(this.production(point))
+			return "力量增强: x" + displayNumber(this.production(point))
 		},
 		build(point) {
 			game.multi.power = (game.multi.power || 1) + this.production(point)
@@ -93,7 +93,7 @@ const BUILDINGS = {//function context == point
 			return 1e-10 * point.map.level ** 6
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point))
+			return "生产: " + displayNumber(this.production(point))
 		},
 		build(point) {
 			game.production.fears += this.production(point)
@@ -115,7 +115,7 @@ const BUILDINGS = {//function context == point
 			return 2e-11 * point.map.level ** 6
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point))
+			return "Production: " + displayNumber(this.production(point))
 		},
 		build(point) {
 			game.production.clouds += this.production(point)
@@ -137,7 +137,7 @@ const BUILDINGS = {//function context == point
 			return point.distance < point.map.ownedRadius?1e15:-1
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point))
+			return "生产: " + displayNumber(this.production(point))
 		},
 		build(point) {
 			game.production.mana += this.production(point)
@@ -159,13 +159,13 @@ const BUILDINGS = {//function context == point
 			return point.totalBonus
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point))
+			return "生产: " + displayNumber(this.production(point))
 		},
 		build(point) {
-			game.growth["力量"] += this.production(point)
+			game.growth["power"] += this.production(point)
 		},
 		destroy(point) {
-			game.growth["力量"] -= this.production(point)
+			game.growth["power"] -= this.production(point)
 		},
 		iconText : "P",
 		iconColor : "#888833"
@@ -181,13 +181,13 @@ const BUILDINGS = {//function context == point
 			return point.totalBonus
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point))
+			return "生产: " + displayNumber(this.production(point))
 		},
 		build(point) {
-			game.growth["精神"] += this.production(point)
+			game.growth["spirit"] += this.production(point)
 		},
 		destroy(point) {
-			game.growth["精神"] -= this.production(point)
+			game.growth["spirit"] -= this.production(point)
 		},
 		iconText : "S",
 		iconColor : "#338833"
@@ -203,21 +203,21 @@ const BUILDINGS = {//function context == point
 			return point.totalBonus
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point))
+			return "生产: " + displayNumber(this.production(point))
 		},
 		build(point) {
 			const value = this.production(point)
-			game.growth["火焰"]  += value
-			game.growth["冰"]   += value
-			game.growth["血液"] += value
-			game.growth["金属"] += value
+			game.growth["fire"]  += value
+			game.growth["ice"]   += value
+			game.growth["blood"] += value
+			game.growth["metal"] += value
 		},
 		destroy(point) {
 			const value = this.production(point)
-			game.growth["火焰"]  -= value
-			game.growth["冰"]   -= value
-			game.growth["血液"] -= value
-			game.growth["金属"] -= value
+			game.growth["fire"]  -= value
+			game.growth["ice"]   -= value
+			game.growth["blood"] -= value
+			game.growth["metal"] -= value
 		},
 		iconText : "R",
 		iconColor : "#FF8844"
@@ -233,7 +233,7 @@ const BUILDINGS = {//function context == point
 			return (point.map.level - 10) ** 5 / 1e6 * point.depth
 		},
 		info(point) {
-			return "产出: " + displayNumber(this.production(point))
+			return "生产: " + displayNumber(this.production(point))
 		},
 		build(point) {
 			game.production.thunderstone += this.production(point) 
