@@ -46,8 +46,8 @@ const GUIDE = {
 			text: `Namely, fire node ignores fire damage fom attackers.`
 		}, {
 			condition: () => game.growth.fire && game.growth.ice && !game.growth.metal,
-			text: `Fire ignores fire damage and receives halved damage from ice.
-			Ice receives quadruple fire damage and ignores ice damage.`
+			text: `火节点忽略火伤害并只收到一半的冰伤害.
+			冰节点受到四倍的火伤害但忽略冰伤害.`
 		}, {
 			condition: () => game.growth.fire && game.growth.ice && game.growth.metal && !game.map.virtual && game.map.level < 21,
 			text: `Every element ignores itself, deals quadruple damage to the next, straight damage to opposite element, halved damage to previous one.
@@ -75,7 +75,7 @@ const GUIDE = {
 			text: `Boss nodes don't give you spirit penalty.`
 		}, {
 			condition: () => !game.skills.power && (game.skills.fire || game.skills.ice || game.skills.blood || game.skills.metal),
-			text: `Some of the elements ignore spirit penalty`
+			text: `有些元素可以忽略精神惩罚`
 		}, {
 			newBlock : true,
 			text: `Progress: How close are you to capturing a node. This is not linear, and a triangle by its side demonstrates that. 50% progress fills left half of the triangle, which is 25% its square, so it only has 25% of the barrier down.
@@ -122,7 +122,7 @@ const GUIDE = {
 		}, {
 			condition: () => game.realMap.level > 5 && game.realMap.level % 5 == 1,
 			newBlock : true,
-			text : `Radiowave: The node emits radiowaves. The new slider will join you upon capturing that node. You can't ascend until you find this node.`
+			text : `雷达: 这种节点没有占领时会释放出雷达波. 占领这个节点可以获得一个新的滑块. 没有占领这个节点你不能转生.`
 		}, {
 			condition: () => game.statistics.special_clones && !game.map.virtual && game.map.level <= 20,
 			newBlock : true,
