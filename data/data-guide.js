@@ -90,7 +90,7 @@ const GUIDE = {
 		}, {
 			condition: () => game.skills.build4,
 			newBlock : true,
-			text: `Passive damage: Damage dealt per second by non-slider damage.`
+			text: `被动伤害: 滑块以外的东西造成的伤害.`
 		}, {
 			condition: () => game.map.level > 0 || game.resources.stars,
 			subtitle : "Node specials",
@@ -111,14 +111,14 @@ const GUIDE = {
 			text : `物理免疫 (看上去像个盾牌): 这个节点忽略力量的伤害.`
 		}, {
 			condition: () => game.statistics.special_blocks && game.skills.build4,
-			text : `Mean machines can't damage it as well.`
+			text : `均衡机器也无法对它造成伤害.`
 		}, {
 			condition: () => game.statistics.special_resists,
 			newBlock : true,
 			text : `魔法免疫 (看上去像有个魔法盾围绕着它): 这个节点忽略元素的伤害.`
 		}, {
 			condition: () => game.statistics.special_resists && game.skills.build4,
-			text : `Mean machines deal triple damage to it.`
+			text : `均衡机器对它造成三倍伤害.`
 		}, {
 			condition: () => game.realMap.level > 5 && game.realMap.level % 5 == 1,
 			newBlock : true,
@@ -511,7 +511,7 @@ const GUIDE = {
 		},{
 			condition : () => (game.skills.virtualMaps) && (!game.skills.retainVirtualBonus),
 			newBolck : true,
-			text: `You lose all the growth, multipliers and production provide by a virtual map if you delete it. The actual values gained from it remain with you.`
+			text: `删除地图会失去该地图所有成长, 加成和其它生产. 但已获得的东西会保留.`
 		},{
 			condition : () => (game.skills.virtualMapFocus),
 			text: `Focused virtual maps have more nodes of focused type than others.`
