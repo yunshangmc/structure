@@ -152,7 +152,7 @@ var cnItems = {
     'Ascension': '转生',
     "This is game's main window. You can see the map you are exploring and order your sliders around.": '这是游戏的主窗口。 您可以看到您正在探索的地图并调整滑块。',
     'Power: This number determines how strong the node is. Most of other values depend on this one. ': '功率：此数字决定节点的强度。 大多数其他值取决于此值。',
-    'This list displays accumulated growth speed of your sliders, supported by nodes you have captured. Every second your sliders gain increase in displayed attrubites unless some other mechanics alter the change.': '此列表显示滑块的累积增长速度，并由您捕获的节点支持。除非有其他机制改变改变，否则你的滑块显示的属性的数量会增加。',
+    'This list displays accumulated growth speed of your sliders, supported by nodes you have captured. Every second your sliders gain increase in displayed attrubites unless some other mechanics alter the change.': '这个列表显示了你滑块积累的增长速度，增长速度从你已捕获的节点得到。每一秒你滑块显示的属性都会增长，除非有其他的操作改变了它的变化。',
     'Namely, "Exp <-> Growth" sliders allow you to convert some of this growth to Experience.': '也就是说 “经验 < - > 增长”滑条允许你将这些增长转化为经验。',
     'Growth control': '成长控制',
     'Autotargetting': '自动定位',
