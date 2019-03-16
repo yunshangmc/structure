@@ -155,7 +155,7 @@ var cnItems = {
     'This list displays accumulated growth speed of your sliders, supported by nodes you have captured. Every second your sliders gain increase in displayed attrubites unless some other mechanics alter the change.': '这个列表显示了你滑块积累的成长速度，成长速度从你已捕获的节点得到。每一秒你滑块显示的属性都会增加，除非有其他的操作改变了它的变化。',
     'Namely, "Exp <-> Growth" sliders allow you to convert some of this growth to Experience.': '也就是说，“经验 <-> 成长”滑条允许你将这些成长转化为经验。',
     'Growth control': '成长控制',
-    'Autotargetting': '自动定位目标',
+    'Autotargetting': '自动目标',
     'Sliders tab': '滑块选项卡',
     'While any kind of autotargetting is enabled, slider will check for new available target every time a node is captured on a map.': '当任何一种自动定位启动时，滑块每次在地图上捕捉到一个节点时就会检查新的目标。',
     'You can set up a lot of different autotargetting rules with some of them unlocked over time with separate skills.': '您可以设置许多不同的自动定位规则，其中一些规则可以随着时间的推移通过不同的技能解除锁定。',
