@@ -354,17 +354,29 @@ var cnItems = {
     '': '',
 
 };
+
+//2.采集新词
+//20190320@JAR
+//2.采集新词
+//20190320@JAR
+
 var cnItem = function() {
+
     //传参是否非空字串
-    if (
-        !arguments[0]
-        || typeof(arguments[0]) != "String"
-    ) return;
-    //检验传参是否有效
-    let text = arguments[0],
-        s = arguments[0].charCodeAt();
+    if (!arguments[0]) return;
+
+    //检验传参是否对象
+    let text = arguments[0], s = '';
+    if (typeof(text) != "string")
+        return text;
+    else
+        s = arguments[0].charCodeAt()
+    ;
+
+    //检验传参是否英文
     if(
         s < 65 || (s > 90 && s <97) || (s > 122)
+        
     ) return text;
     //检验字典是否可存
     if(!cnItems._OTHER_) cnItems._OTHER_=[];
@@ -374,7 +386,7 @@ var cnItem = function() {
         //字典已有词汇或译文、且译文不为空，则返回译文
         if(
             text == i || text == cnItems[i]
-            && cnItem[i] != ''
+            && cnItems[i] != ''
         )
         return cnItems[i];
     }
