@@ -818,7 +818,7 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-metal)"
 	},	
 	expScales: {
-		name : "Scales of rogue decimals",
+		name : "奸商的天平",
 		desc : "你的经验变化如果为0或很小，加倍你的成长",
 		codeLength : 16,
 		codeCost : 5e11,
