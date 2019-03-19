@@ -355,7 +355,11 @@ var cnItems = {
 
 };
 var cnItem = function() {
-    if (!arguments[0]) return;
+    //传参是否非空字串
+    if (
+        !arguments[0]
+        || typeof(arguments[0]) != "String"
+    ) return;
     //检验传参是否有效
     let text = arguments[0],
         s = arguments[0].charCodeAt();
