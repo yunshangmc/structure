@@ -357,8 +357,6 @@ var cnItems = {
 
 //2.采集新词
 //20190320@JAR
-//2.采集新词
-//20190320@JAR
 
 var cnItem = function() {
 
