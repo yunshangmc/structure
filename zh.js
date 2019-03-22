@@ -319,13 +319,13 @@ var cnItems = {
     "By investing science into research, you get clues that are displayed on artifact's tablet. While you are researching an artifact, science value does not grow.": '通过将科学投入到研究中，您可以获得显示在神器平板电脑上的线索。当你在研究一个人工制品时，科学价值不会增长。',
     'You then have to guess a correct code word to activate it. A code word is a sequence of letters of given length.': '然后你必须猜出一个正确的码字来激活它。码字是给定长度的字母序列。',
     'You can see artifacts you have found here. Artifacts are unlocked by digging them out. ': '您可以在这里看到您找到的工艺品。通过挖掘工艺品来解锁它们。',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    'Elemental shield': '元素护盾',
+    'Physical shield': '物理护盾',
+    'h': '时',
+    'm': '分',
+    's': '秒',
+    'd': '天',
+    'w': '周',
     '': '',
     '': '',
     '': '',
@@ -355,383 +355,66 @@ var cnItems = {
 
 };
 
-function cnItem(text) {
-    //数组里面有的，返回中文
-    for (var i in cnItems) {
-        if (text == i) {
-            return cnItems[i];
-        }
-    }
-    //数组里面没有的，原样返回
-    for (var i in cnItems) {
-        if (text != i) {
-//            console.log("需汉化的英文Item：" + text);
-            return text;
-        }
-    }
-/***（1）尝试优化函数***
-    for ( var i in cnItem ) {
-        if (text == i) return cnItems[i];
-    }
-//  console.log("需汉化的英文：" + text);
-    return text;
- *****************/
-}
+//2.采集新词
+//20190320@JAR
 
+var cnItem = function() {
 
+    //传参是否非空字串
+    if (!arguments[0]) return;
 
-//汉化标题
-var cntit = {
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    
+    //检验传参是否对象
+    let text = arguments[0], s = '';
+    if (typeof(text) != "string")
+        return text;
+    else
+        s = arguments[0].charCodeAt()
+    ;
 
-};
+    //检验传参是否英文
+    if(
+        s < 65 || (s > 90 && s <97) || (s > 122)
+        
+    ) return text;
+    //检验字典是否可存
+    if(!cnItems._OTHER_) cnItems._OTHER_=[];
 
-function cntitle(text) {
-    //数组里面有的，返回中文
-    for (var i in cntit) {
-        if (text == i) {
-            return cntit[i];
-        }
+    //遍历尝试匹配
+    for ( let i in cnItems ) {
+        //字典已有词汇或译文、且译文不为空，则返回译文
+        if(
+            text == i || text == cnItems[i]
+            && cnItems[i] != ''
+        )
+        return cnItems[i];
     }
-    //数组里面没有的，原样返回
-    for (var i in cntit) {
-        if (text != i) {
-            console.log("需汉化的英文标题：" + text);
-            return text;
-        }
-    }
-/***（2）尝试优化函数***
-    for ( var i in cntit ) {
-        if (text == i) return cntit[i];
-    }
-    console.log("需汉化的英文标题：" + text);
-    return text;
- *****************/
-}
 
-/***（3）尝试优化字典***
-var cnItems = {
-    '1 hour': '1小时',
-    '1 minute': '1分钟',
-    '5 minute': '5分钟',
-    '5 minutes': '5分钟',
-    '10 minutes': '10分钟',
-    '15 seconds': '15秒',
-    '30 minutes': '30分钟',
-    'Activated artifacts can be equipped at "Sliders" tab.': '激活的工具可在“滑块”选项卡中装备。',
-    'Activating nodes': '活跃节点',
-    'Allow detached node placement': '允许分离节点的位置',
-    'Always': '经常',
-    'Any slider can be enchanted for producing gold while fighting with constant influx of mana.': '任何滑块都可在与不断涌入的法力作斗争的同时产生黄金。',
-    'Artifact icons': '物品图标',
-    'Artifacts': '工具',
-    'Artifacts tab': '工具选项卡',
-    'Ascension': '转生',
-    'Attacking': '攻击',
-    'Autoload cloud save if newer one found': '如果找到云存档，则自动加载云存档',
-    'Automatic low load mode when idling': '空转时自动进入低负载模式',
-    'Automatic low load mode when not active window': '当没有活动窗口时，自动进入低负载模式',
-    'Automatically upgrades points as soon as possible': '尽可能快的自动升级点数',
-    'Autosave period': '自动保存周期',
-    'Autotargetting': '自动定位',
-    '"Autoupgrade:"': '自动升级：',
-    'Barrier power: The force the node resists your attacks. When attackers\' spirit is below this value, it gets damage reduced by double the difference. Equals to node\'s power multiplier by your progress towards it. So, to effectively attack a node all the way, your attacker\'s spirit should exceed that node\'s power.': '屏障力量:节点抵抗力。当攻击者的精神低于这个值时，攻击伤害会减少两倍。按攻击量计算。因此，为了有效地攻击一个节点，攻击者的精神应该超过该节点的能力。',
-    'Barrier: Remaining amount of health you have to deplete from the node to capture it. Starting value is its power multiplied by distance to it.': '屏障:你必须消耗节点剩余的生命值来捕获它。初始值是它的幂乘以到它的距离。',
-    'Black obelisks produce mana as well, and their production scales with distance from the edge of the circle': '黑色方尖塔也能产生法力值，它们的法力值随着距离圆的边缘的距离而变化',
-    'Blood': '血',
-    'Blue': '蓝色',
-    'Blueprints': '蓝图',
-    'Boosts Mean machine damage to slider\'s target': '增加机器对滑块目标的平均伤害',
-    'Building shield (looks like brick wall covering node): You can\'t build on a node leading to this one. That node is marked with a cross.': '构建屏蔽(类似节点外墙):您不能在通向此节点的节点上构建。那个节点用叉号标出。',
-    'Building worlds': '建造世界',
-    'By adjusting Exp<->Growth sliders, you can set up, how much of growth will be applied to given attribute of given slider, and how much is converted into Experience.': '通过调整【经验<->增长】滑块，您可以设置有多少增长将应用于给定滑块的给定属性，或有多少转换为经验。',
-    'By default, low load mode is turned on automagically when you idle for a long time or switch to another browser tab or window, this behavior can be changed in the settings (Menu => Settings => Performance).': '默认情况下，当您长时间空闲或切换到另一个浏览器选项卡或窗口时，低负载模式会自动打开，可以在设置中更改此行为(菜单=>设置=>性能)。',
-    'By investing science into research, you get clues that are displayed on artifact\'s tablet. While you are researching an artifact, science value does not grow.': '通过将科学投入到研究中，您可以获得显示在神器平板电脑上的线索。当你在研究一个人工制品时，科学价值不会增长。',
-    'Captured node notification': '捕获节点通知',
-    'Captured points': '捕获点数',
-    'Channel: ': '通道: ',
-    'Circles': '圆圈',
-    'Click a node to see its information (explained above) and available actions. ': '单击一个节点以查看其信息(如上所述)和可用操作。',
-    'Closest': '距离最近',
-    'Cloud save period': '云端储存期',
-    'Clouds': '云',
-    'Clouds are produced by Cloud factories that can only be placed on magically-protected nodes.': '云是由云工厂产生的，这些云工厂只能放置在受魔法保护的节点上。',
-    'Clouds provide bonus to your sliders elemental growth based on amount of stardust assigned in "Stardust" tab.': '根据“星尘”选项卡中分配的星尘数量，云为滑块的元素增长提供奖励。',
-    'Color blind mode': '色盲模式',
-    'Color theme': '主题颜色',
-    'Consumes experience to triple the growth': '消耗经验使增长翻三倍',
-    'Consumes mana to add current power to chosen element': '消耗法术力来为所选元素添加当前力量',
-    'Controls': '控制',
-    'Crossed swords (⚔︎): A boss node. Boss nodes hide until you try to ascend. Boss nodes don\'t give you spirit penalty. You can\'t ascend until you find and capture every boss node.': '交叉剑(⚔︎):Boss节点。Boss节点隐藏，直到您尝试提升。Boss节点不会给你精神惩罚。除非找到并捕获每个boss节点，否则无法转生。',
-    'Dark': '暗黑',
-    'Dashed': '虚线',
-    'Deepest': '最大深度',
-    'Depth': '深度',
-    'Destination set to nowhere': '目的地无处可去',
-    'Different types of nodes interact with your attributes differently:': '不同类型的节点与属性的交互方式不同：',
-    'Display': '显示',
-    'Display connectable distance': '显示连接距离',
-    'Display dead zones': '显示死亡区域',
-    'Display map progress while in automatic low load mode': '在自动低负载模式下显示地图进度',
-    'Distribute equally on change': '变化均匀分布',
-    'Distribute for equal growth on change': '分配平等的增长变化',
-    'Doubles growth if your exp change speed is zero or negligibly small': '如果你的经验值改变速度为零或小到可以忽略不计，你的速度会加倍',
-    'Elemental nodes block less physical damage': '元素节点可以减少物理伤害',
-    'Elemental summons avoid same element': '元素召唤避免相同的元素',
-    'Engineering': '工程符号',
-    'Every star increases spirit growth multiplier for every stardust you have.': '每颗星星都会为你所拥有的每一颗星尘增加精神成长加成。',
-    'Every stardust increases spirit growth multiplier for every star you have.': '每一颗星尘都会为你所拥有的每一颗星增加精神成长加成。',
-    'Evolution': '进化',
-    'Exp': '经验',
-    'Experience': '经验',
-    'Fade': '淡出',
-    'Farthest': '距离最远',
-    'Fears': '恐惧',
-    'Fears are produced by Fear factories that can only be placed on physically-protected nodes.': '恐惧是由恐惧工厂产生的，它只能被放置在物理保护的节点上。',
-    'Fears provide bonus to your sliders\' power based on its spirit.': '恐惧会基于它的精神为你的滑块提供额外的力量。',
-    'Feats': '成绩',
-    'Filter: ': '过滤器：',
-    'Fire': '火',
-    'Fireworks': '烟花效果',
-    'Focus': '焦点',
-    'Focused virtual maps have more nodes of focused type than others.': '有焦点的虚拟映射具有比其他映射更多的有焦点类型的节点。',
-    'Follower': '追随者',
-    'For each slot the slider has, you can assign up to one artifact. Artifacts that are active glow slightly. To equip artifact, it must be fully researched and unlocked.': '对于滑块的每个槽，您可以分配至多一个工艺品。活跃的人工制品微微发光。装备神器，必须充分研究和解锁。',
-    '"For every artifact there\'s a puzzle you must solve. "': '每件工艺品都有一个你必须解决的谜题。',
-    'For every world you create, you have access to all memories you have to build it from scratch. Only one world can be active at a time.': '对于你创造的每一个世界，你都可以获得你必须从头开始创造的所有记忆。一次只能有一个世界是活跃的。',
-    'Found stars': '找到星星',
-    'Free': '自由',
-    'From Map tab only': '只从地图选项卡',
-    'From any tab': '从任何选项卡',
-    'Game processing speed': '游戏处理速度',
-    'Game time': '游戏时间',
-    'Gem of bloody fire': '血腥的火焰宝石',
-    'Gem of fiery ice': '炽热的冰宝石',
-    'Gem of light': '光之宝石',
-    'Gem of metallic blood': '金属之血宝石',
-    'Gem of storms': '风暴宝石',
-    'Gilding touch': '镀金触摸',
-    'Gold': '黄金',
-    'Gold is a shiny resource you can mine at your starting point.': '黄金由“起点”开采、也可以由节点上建设的“黄金工厂”生产。',
-    'Gold is also produced by Gold factories built on nodes.': '黄金也是由建在节点上的黄金工厂生产的。',
-    'Green': '绿色',
-    'Growth': '成长',
-    'Growth boost: ': '增长提高：',
-    'Growth control': '成长控制',
-    'Growth: The amount of growth of node\'s type it provides to you. If node does not have a type, it provides no growth.': '增长:它提供给您的节点类型的增长数量。如果节点没有类型，则不提供增长。',
-    'Halts chosen attributes\' growth to give bonus equal to current value to other sliders': '停止所选属性的增长，使其他滑块获得与当前值相等的加值',
-    'Here you can create your new world that affects progression of the game.': '在这里你可以创建一个影响游戏进程的新世界。',
-    'Here you can distribute stardust you have to boost sliders\' elemental growth.': '在这里你可以分配星尘,你必须促进滑块的元素生长。',
-    'Hiberload': '休眠负载',
-    'Hide': '隐藏',
-    'Hide completed': '隐藏已完成',
-    'Hide enchanted': '隐藏魔法',
-    'Hide imprinted/unimprintable': '隐藏印记/不可打印',
-    'High-level virtual maps can be evolved up to three times. Every evolutions adds large amounts of new, more powerful nodes. Evolved maps are really strong, have larger magical circle and provide much larger bonus to growth and production.': '高级虚拟地图最多可以进化三次。每个演进都会添加大量新的、更强大的节点。进化后的地图非常强大，有更大的魔法圈，并为增长和生产提供更大的红利。',
-    'Highest damage': '最高伤害',
-    'Ice': '冰',
-    'If a node is a mine, you can similarly assign attackers to mine gold.': '如果一个节点是一个矿，您可以类似地将攻击者分配给矿。',
-    'If a node is already captured, you will be able to invest gold into upgrading it. Every upgrade multiplies node growth bonus by 4. Maximum level is 4, with a total multiplier of 256.': '如果一个节点已经被捕获，您将能够投资黄金来升级它。每次升级都将节点增长加值乘以4。最大等级为4，总倍数为256。',
-    'If a node is not captured, a list of available attackers will appear. Clicking attacker info toggles its attacking state.': '如果没有捕获节点，将显示可用攻击者的列表。单击攻击者信息可以切换其攻击状态。',
-    'Images': '图片',
-    'Imbuement: ': '灌输：',
-    'In this tab you can control your sliders, which are your main means of advancing through the game. You can change slider\'s displayed color by double-clicking its header.': '在这个选项卡中，你可以控制你的滑块，这是你在游戏中前进的主要方式。您可以通过双击滑块的标题来更改其显示的颜色。',
-    'Invert lightness': '反转亮度',
-    'It can be spent for casting spells that you unlock with spellbooks.': '你可以用它来施放魔法书解锁的魔法。',
-    'Its used a threshold value to unlock more skills, most of them being "Quality of life" ones. The science is not consumed upon unlocking.': '它使用了临界值来解锁更多的技能，大部分都是"生活质量"的。科学不是在开锁时被消耗的。',
-    'Key with a number (⚷\uFE0E): Unlocker node. You need to capture it to be able to attack the locked node with the same number.': '钥匙带有数字 (⚷︎):无锁节点。您需要捕获它，以便能够使用相同的编号攻击锁定的节点。',
-    'Leader': '领导者',
-    'Least deep': '最小深度',
-    'Least defended': '最低防御',
-    'Level': '等级',
-    'Level 1 buildings are boosted within magical circle proportionally to distance to the edge of it.': '1级的建筑在魔法圈内按距离的比例提升。',
-    'Level: How many times was the node upgraded. Maximum level is 4.': '等级:节点升级了多少次。最大级别是4。',
-    'Levels': '等级',
-    'Light': '白灰',
-    'Lightning effects': '闪电效果',
-    'Lock with a number (🔒︎): A locked node. Requires you to capture a node with a key with the corresponding number.': '锁定的带数字的节点(🔒︎): 锁定的的节点。要求您使用具有相应编号的键捕获节点。',
-    'Log': '日志',
-    'Low load mode': '低负载模式',
-    'Low load mode only': '仅低负载模式',
-    'Lower bound for full numbers': '下限为完整的数字',
-    'Lowest solo ETA': '最低solo ETA',
-    'Magic circle': '魔法圈',
-    'Magic circle expands from starting point to the closest uncaptured node (you may not be able to see it yet in some cases). It produces mana based on square and map level.': '魔法环从起始点扩展到最接近的未捕获节点(在某些情况下你可能无法看到它)它根据方块和地图等级产生法力值。',
-    'Main story display': '主要故事显示',
-    'Main window': '主窗口',
-    'Mana': '法术',
-    'Mana can also be spent to imbue slider\'s power with element. The cost depends heavily on hat slider\'s power / target element ratio. When you run out of mana, all mana-supported effects are automatically disabled.': '法力也可以用来给滑块的力量注入元素。成本很大程度上取决于帽子滑块的功率/目标元素比。当你耗尽法力时，所有由魔法支持的效果都会自动失效。',
-    'Mana is produced by magic circle and production depends on its square and map level.': '法力是由魔法圈产生的，它的产量取决于它的方块和地图等级。',
-    'Management tab': '管理选项卡',
-    'Map': '地图',
-    'Map tab': '地图标签页',
-    'Master channel control': '掌握通道控制',
-    'Master gilding touch control': '掌握镀金触摸控制',
-    'Master imbuement control': '掌握灌输控制',
-    'Maximum level': '最高等级',
-    'Mechanics guide display': '力学指南显示',
-    'Memories': '记忆',
-    '"Memories can be obtained by imprinting nodes. Every imprinted node provides one memory of its type. "': '记忆可以通过印记节点来获得。每个印迹节点提供其类型的一个内存。',
-    'Metal': '金属',
-    'Miner/worker sparks': '矿工/工人火花',
-    'Mining': '采矿',
-    'Most defended': '最高防御',
-    'Multipliers affect growth speed as well, actually applied growth is displayed after an arrow. Multipliers can be obtained with various game mechanics, skills, resources and buildings. Theres a limit to how big your multiplier can be. Capped multiplier is designated with "(CAP)".': '乘数也会影响生长速度，实际应用的生长显示在箭头之后。乘数可以通过各种游戏机制、技能、资源和建筑获得。乘数的大小是有限制的。上限乘法器用“(CAP)”指定。',
-    'Namely, "Exp <-> Growth" sliders allow you to convert some of this growth to Experience.': '也就是说 “经验 < - > 增长”滑条允许你将这些增长转化为经验。',
-    'Namely, fire node ignores fire damage fom attackers.': '即火节点忽略来自攻击者的火伤害。',
-    'Natural': '标准',
-    'New skills can be unlocked by acsending, obtaining more sliders, discovering new resources and other means.': '可以通过转生、获取更多的滑块、发现新的资源和其他方法来解锁新技能。',
-    'No damage': '无伤害',
-    '"No damage is dealt to nodes on an inactive map. "': '未激活的地图上的节点没有伤害。',
-    'Node information': '节点信息',
-    'Node level display': '节点等级显示',
-    'Node size scale': '缩放尺寸',
-    'Node specials': '节点特点',
-    'None': '无',
-    'Note: Science value does not grow while researching an artifact. ETA displayed is only valid when there\'s no artifact research active.': '注:在研究工艺品时，科学价值不会增长。显示的ETA仅在没有工艺品研究活动时有效。',
-    'Note: You can build on "Type : None" nodes as well.': '注意:您也可以在“类型:无”节点上构建。',
-    'Number': '数字',
-    'Numbers': '数字',
-    'Off': '关闭',
-    'Offline time': '离线时间',
-    'Old routes - new waters': '旧的路线-新的水域',
-    'On': '开启',
-    'Once per five seconds': '每5秒1次',
-    'Once per second': '每秒1次',
-    'Online time': '在线时间',
-    'Only display points of chosen types:': '仅显示选定类型的点:',
-    'Party': '派系',
-    'Performance': '性能',
-    'Points up to level 1': '指向1级',
-    'Points up to level 2': '指向2级',
-    'Points up to level 3': '指向3级',
-    'Points up to level 4': '指向4级',
-    'Popup': '弹出框',
-    'Power': '力量',
-    'Power: This number determines how strong the node is. Most of other values depend on this one. ': '功率：此数字决定节点的强度。 大多数其他值取决于此值。',
-    'Precision of short numbers': '简短数字的精确性',
-    'Priorities: ': '优先级：',
-    'Prioritizes points of chosen types when autotargetting': '在自动获取时，对选定类型的点数进行优先排序',
-    'Prioritizes points with chosen shields when autotargetting': '自动塔防时优先选择盾牌',
-    'Progress: How close are you to capturing a node. This is not linear, and a triangle by its side demonstrates that. 50% progress fills left half of the triangle, which is 25% its square, so it only has 25% of the barrier down.': '进度:您离捕获节点有多近。这不是线性的，它旁边的三角形证明了这一点。50%的进度填充了三角形的左半边，也就是25%的正方形，所以只有25%的障碍被填满。',
-    'Random': '随机',
-    'Re-sort upon change': '改变后重新排序',
-    'Red': '红色',
-    'Redistribute if exceeding total': '如果超过总数，重新分配',
-    'Research': '研究',
-    'Research this': '研究这个',
-    'Resources': '资源',
-    'Role': '角色',
-    'Rough ETA display': '粗略估计显示',
-    'Rough ETA: The approximate node capture time based on current damage. Can be very unreliable, especially early on.': '粗略估计，根据目前的伤害，大致估计节点的捕获时间。可能非常不可靠，尤其是在早期。',
-    'safe': '安全',
-    'saves': '保存',
-    'scales of rogue decimals': '流氓小数的比例',
-    'science': '科学',
-    'science is produced by science labs.': '科学是由科学实验室产生的。',
-    'scientific': '科学计数法',
-    'scientific number display': '科学数字显示',
-    'short number format': '短数字格式',
-    'show': '显示',
-    'show growth controls (available by click if hidden)': '显示增长控件(如果隐藏，点击显示)',
-    'show overriden controls': '显示重载控制',
-    'side story display': '侧面故事显示',
-    'similarly, you can enable growth boost to consume exp for faster growth. Boosts will be disabled automatically if you run out of experience.': '同样也可减少经验来提升滑块增速、但经验不足时会禁用这个功能。',
-    'skills': '技能',
-    'skills tab': '技能选项卡',
-    'sliders': '滑块',
-    'Sliders start virtal maps with zero stats, but the growth is retained. Sliders only grow on a virtual map if it\'s active. Real map growth happens all the time. ': '滑块以零状态开始虚拟地图，但是增长保持不变。只有当虚拟地图处于活动状态时，滑块才会在其上增长。真正的地图增长一直在发生。',
-    'sliders tab': '滑块选项卡',
-    'slow mode processing speed': '慢速模式处理速度',
-    'solid': '实线',
-    'some skills are designated as "Blueprints". Those skills provide you new types of nodes for the world. They are unlocked by completing specific feats.': '有些技能被指定为“蓝图”。这些技能为您提供了新的节点类型。它们通过完成特定专长而解锁。',
-    'some skills are designated as "Spellbooks". Those skills provide you new spells.': '有些技能被指定为魔法书。这些技能可以为你提供新的法术。',
-    'some skills require you to have certain amount of science. Once threshold is achieved, the skill can be obtained as usual. While early science costs seem huge, you are not supposed to get them early on, and most of them are \'Quality of life\' upgrades that don\'t affect progression speed.': '有些技能要求你具备一定的科学知识。一旦达到阈值，就可以照常获得该技能。虽然早期科学的成本似乎很高，但你不应该在早期就获得它们，而且它们中的大多数是“生活质量”的升级，不会影响进展速度。',
-    'sort by': '排序',
-    'sounds': '声音',
-    'spellbooks': '魔法书',
-    'spirit': '精神',
-    'star (🌟︎): Collect stars by capturing these nodes. Getting enough stars allows you to ascend.': '',
-    'stardust': '星尘',
-    'stardust is what remains of unused stars.': '星尘由废弃的“星星”产生。',
-    'stardust tab': '星尘选项卡',
-    'stars': '星星',
-    'stars that were not used for ascending for two maps crumble to dust.': '没有被用于转生的星星，被粉碎成尘埃。',
-    'story': '故事',
-    'story timing': '故事时间',
-    'strongest': '最强输出',
-    'summons avoid narrow path': '避免狭窄路径',
-    'Target': '目标',
-    'Target connected if possible': '如果有可能，依次连接目标',
-    'Ten times per second': '每秒10次',
-    'Text': '文字',
-    'The time it takes to imprint a node depends on how many you have imprinted. Every imprint progresses simultaneously and imprinting speed is spread among nodes being imprinted. "': '标记节点所需的时间取决于您已经标记了多少个节点。每个印迹同时进行，印迹速度在被印迹节点间传播。',
-    'There\'s no merit in upgrading \'Type : None\' nodes except for statistics.': '升级“类型:无”节点，统计数据除外，',
-    'Thirty times per second': '每秒30次',
-    'This is game\'s main window. You can see the map you are exploring and order your sliders around.': '这是游戏的主窗口。 您可以看到您正在探索的地图并调整滑块。',
-    'This list displays accumulated growth speed of your sliders, supported by nodes you have captured. Every second your sliders gain increase in displayed attrubites unless some other mechanics alter the change.': '此列表显示滑块的累积增长速度，并由您捕获的节点支持。除非有其他机制改变改变，否则你的滑块显示的属性的数量会增加。',
-    '"This mode is designed to decrease load on your CPU while you are idling. It lists all nearby nodes so you can watch progress and control it to some extent. "': '此模式旨在在您空闲时减少CPU上的负载。它列出了所有附近的节点，这样您就可以在一定程度上监视和控制进度。',
-    'This tab is focused on optimization and automation of your map management. Some science-locked skills contribute towards features on this tab. On larger maps with lots of nodes this tab can take time to display. Sorry for the inconvenience.': '此选项卡侧重于地图管理的优化和自动化。一些科学锁定的技能有助于这个标签上的功能。在包含大量节点的较大地图上，此选项卡可能需要时间显示。很抱歉给您带来不便。',
-    'Thunderstone': '雷石',
-    'Thunderstone is produced by Thunder spires.': '雷石是由雷电制造的。',
-    'Thunderstones power the Mean machines.': '雷石能给机器带来力量。',
-    '"To be able to use an artifact, you should research and activate it with a code word first. "': '为了能够使用工艺品，您应该首先使用一个码字来研究和激活它。',
-    'Triples damage to target blood node': '对目标血液节点造成三倍伤害',
-    'Triples damage to target fire node': '对目标火节点造成三倍伤害',
-    'Triples damage to target ice node': '对目标冰系节点造成三倍伤害',
-    'Type\': The main attribute of the node. If a node has an attribute, your growth in that attribute will increase upon capturing it.': '类型:节点的主属性。如果一个节点有一个属性，在捕获该属性时，该属性的增长将会增加。',
-    'Uncaptured node lines': '未捕捉到的节点线',
-    'Unknown': '未知',
-    'Upload cloud saves if logged in': '如果登录了，上传云端保存',
-    'Upper bound for full numbers': '上限为完整的数字',
-    'Virtual maps': '虚拟地图',
-    '"Virtual maps are stronger than same-level map and may have a different layout. "': '虚拟地图比同级地图更强大，可能有不同的布局。',
-    'Weakest': '最弱输出',
-    'When hovering a node on a map, you can see information related to it.': '在地图上悬停一个节点时，可以看到与之相关的信息。',
-    'While any kind of autotargetting is enabled, slider will check for new available target every time a node is captured on a map.': '当任何一种自动定位启动时，滑块每次在地图上捕捉到一个节点时就会检查新的目标。',
-    'While it does not seem to have any use right now, it\'s really worth collecting.': '虽然暂时无效、但值得收藏。',
-    'Wishmaster': '意愿大师',
-    'World': '世界',
-    'World tab': '世界选项卡',
-    'World time': '世界时间',
-    'You advance through the game by ascending. By spending stars, you get to a next map that has higher node power and growth returns. Higher level maps unlock new skills and mechanics. All the growth and production from old map is retained. You can\'t return to the maps you have left.': '你通过转生提升游戏。通过使用星星，您可以得到一个具有更高节点能力和增长回报的下一个映射。高级地图解锁新的技能和机制。所有的增长和生产从旧地图是保留下来的。你不能回到你离开的地图上。',
-    'You can build several types of structures on an owned node, if its level is enough. Some types of buildings have special requirements besides level. ': '如果拥有的节点级别足够高，可以在其上构建多种类型的结构。有些类型的建筑除了等级外还有特殊的要求。',
-    'You can distribute it to boost elemental growth multipliers.': '你可以分配它来提高元素生长倍增器。',
-    'You can enable boosting of an attribute. That way, slider will consume attribute growth worth of experience to grow the attribute at triple speed. Boosting is disabled automatically if you run out of experience.': '您可以启用属性的增强。这样，滑动条将消耗属性增长的经验值，以三倍的速度增长属性。如果你没有经验，升级功能会自动关闭。',
-    'You can have up to 4 slider parties active. Whenever "Leader" slider changes target, every "Follower" slider from same color team tries to switch to that target as well. You can change sliders team by clicking same role more than once.': '最多可有4个激活的滑块派系。每当“领导者”滑块改变目标时，来自同一颜色团队的每个“追随者”滑块也会尝试切换到该目标。您可以通过多次单击相同的角色来更改滑块的团队。',
-    'You can imprint any node on a real map and any stardust node on a virtual map of the same level if that node is fully upgraded and built.': '如果完全升级和构建了相同级别的虚拟地图，您可以将任何节点标记在真实地图上，将任何星尘节点标记在虚拟地图上。',
-    'You can obtain new skills here. Most skills require experience to obtain. Experience cost multiplier is applier to every cost, and obtaining a skill makes every other skill more expensive. ': '你可以在这里获得新的技能。大多数技能需要经验来获得。经验成本倍增器适用于每一种成本，而获得一种技能会使其他技能变得更加昂贵。',
-    'You can rearrange sliders by dragging them around by their color header. Rearranging can be done by dragging slider target preview icons on map tab as well. Clicking on those previews calls up slider setup window similar to ones you see here.': '你可以通过拖动滑块的颜色标头来重新排列它们。重新排列也可以通过拖动地图选项卡上的滑块目标预览图标来完成。单击这些预览将调用与您在这里看到的类似的滑动条设置窗口。',
-    'You can redirect science production into researching an artifact. In that case, Science value wont grow, and increase will be displayed as "Researching".': '您可以将科学生产重定向到研究工艺品。在这种情况下，科学价值不会增长，增长将被显示为“研究”。',
-    'You can reduce sliders growth multiplier in "Sliders" tab to produce experience.': '可在选项卡【滑块】里用滑块增速来换取经验增速。',
-    'You can see artifacts you have found here. Artifacts are unlocked by digging them out. ': '您可以在这里看到您找到的工艺品。通过挖掘工艺品来解锁它们。',
-    'You can set up a lot of different autotargetting rules with some of them unlocked over time with separate skills.': '您可以设置许多不同的自动定位规则，其中一些规则可以随着时间的推移通过不同的技能解除锁定。',
-    'You can spend experience to level up sliders, which provides permanent multipliers to its growth speed. For every level, multipliers can be raised up to 5x, which is also done automatically when you get a new level. Multipliers stack between levels.New level multipliers are arbitrary head-ups you get based on how slider was used recently. Whenever you level up a slider, all its attributes are reset, and on every odd level you get an extra artifact slot.': '您可以花费经验来升级滑块，这为它的增长速度提供了永久的乘数。对于每一个关卡，乘数都可以提升到5x，当你获得一个新的关卡时，这也是自动完成的。在层之间叠加乘数。新的水平倍增器是任意头你得到的基础上滑块是如何使用最近。每当您升级滑块时，它的所有属性都将重置，并且在每一个奇怪的级别上，您将获得一个额外的工艺品插槽。',
-    'You can spend it to upgrate captured nodes and build on them.': '您可以使用它来升级捕获的节点并在其上进行构建。',
-    'You can spend it to upgrate captured nodes.': '用于升级捕获的“节点”及其建设。',
-    'You can spend mana to make sliders produce gold while fighting.': '你可以使用法力使滑块在战斗中产生黄金。',
-    'You can spend stardust to create virtual maps here. You find stardust instead of stars on virtual maps. Maps of same level as real map are free to create, one level below they cost half the stardust they produce, anything lower costs as much as you can get back by completing a map. Once map is created and cost is paid, it can\'t be refunded, except by completing that map.': '你可以用星尘来创建虚拟地图。你可以在虚拟地图上找到星尘而不是恒星。与真实地图相同级别的地图是免费创建的，比它们低一层的成本是它们产生的星尘的一半，任何更低的成本都可以通过完成一张地图得到。一旦创建了地图并支付了费用，就不能退款，除非完成该地图。',
-    'You can spend stardust to create virtual maps. Star nodes on those maps give you stardust back instead of stars.': '你可以用星尘来创建虚拟地图。那些地图上的星节点给你的是星尘而不是星星。',
-    'You can spend stardust to create worlds.': '你可以用星尘来创造世界。',
-    'You can use "All" button to assign/free all the attackers available.': '您可以使用“全部”按钮来分配/释放所有可用的攻击者。',
-    'You can use experience to obtain skills from "Skills" tab .': '用于在选项卡【技能】里获取新技能；',
-    'You can use memories to build your own world.': '你可以用记忆来建立自己的世界。',
-    'You can use stars to ascend to the next map. It\'s recommended to find all the stars on the map, as this resource is very scarce and unstable.': '你可以使用星星来转生到下一个地图。建议在地图上找到所有的星星，因为这种资源是非常稀少和不稳定的。',
-    'You gain experience by capturing nodes.': '经验由捕获任意“节点”产生。',
-    'You gain stars by capturing nodes with a star.': '星星由捕获“星星节点”产生。',
-    'You lose summons when switching maps.': '当切换地图时，你会失去召唤。',
-    'You then have to guess a correct code word to activate it. A code word is a sequence of letters of given length.': '然后你必须猜出一个正确的码字来激活它。码字是给定长度的字母序列。'
-}
+    //遍历生词表是否收录
+    for (
+        let i = 0;
+        i < cnItems._OTHER_.length;
+        i++
+    ) {
+        //已收录则直接返回
+        if (text == cnItems._OTHER_[i])
+        return text;
+    }
+
+    //未收录则保存
+    cnItems._OTHER_.push(text);
+    cnItems._OTHER_.sort(
+      function(a,b){
+        return a.localeCompare(b)
+      }
+    );
+        
+/*
+    //开启生词打印
+    //console.log(
+        '有需要汉化的英文：', text
+    );
 */
+
+    //返回生词字串
+    return text;
+};

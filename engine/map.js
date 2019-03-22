@@ -605,10 +605,10 @@ const mapHandler = {
 			growth : Object.keys(baseGrowth).reduce((v,x) => (game.growth[x] - baseGrowth[x]?v[x] = displayNumber(game.growth[x] - baseGrowth[x]):0,v),{}),
 			production : Object.keys(baseProduction).reduce((v,x) => (game.production[x] - baseProduction[x]?v[x] = displayNumber(game.production[x] - baseProduction[x]):0,v),{}),
 			multi : Object.keys(baseMulti).reduce((v,x) => (game.multi[x] - baseMulti[x]?v[x] = "x"+displayNumber(game.multi[x] - baseMulti[x]):0,v),{}),
-			created : this.createTime?timeString(currentTime - this.createTime) + " ago":"unknown",
-			completed : this.complete?this.completeTime?timeString(currentTime - this.completeTime) + " ago":"unknown":progress.toFixed(1)+"%",
-			took : this.complete?this.completeTime&&this.createTime?timeString(this.completeTime - this.createTime):"unknown":this.createTime?timeString(currentTime - this.createTime):"unknown",
-			tookLocal : this.complete?this.tookTime?timeString(this.tookTime):"unknown":this.relativeStart?timeString((game.map != this?(this.lastLeft || this.relativeStart):(currentTime)) - this.relativeStart):"unknown",
+			created : this.createTime?timeString(currentTime - this.createTime) + " 之前":"未知",
+			completed : this.complete?this.completeTime?timeString(currentTime - this.completeTime) + " 之前":"未知":progress.toFixed(1)+"%",
+			took : this.complete?this.completeTime&&this.createTime?timeString(this.completeTime - this.createTime):"未知":this.createTime?timeString(currentTime - this.createTime):"未知",
+			tookLocal : this.complete?this.tookTime?timeString(this.tookTime):"未知":this.relativeStart?timeString((game.map != this?(this.lastLeft || this.relativeStart):(currentTime)) - this.relativeStart):"未知",
 			nodeSpecial, nodeType, locksOpen, maxDepth, totalNodes
 		}
 	},

@@ -168,7 +168,7 @@ function timeString(t = 0, start = 1) {
 		
 		step++
 	}
-	if (result == "") result = pluralize(0, timeStringCodes[start].name)
+	if (result == "") result = pluralize(0, cnItem(timeStringCodes[start].name))
 	return result
 }
 
@@ -209,7 +209,7 @@ function shortTimeString(t = 0, start = 0, length = 2, cap = true) {
 		}
 		
 		if (step >= start && value) 
-			shortTimeResult.unshift(value + timeCode.name)
+			shortTimeResult.unshift(value + cnItem(timeCode.name))
 		
 		step++
 	}

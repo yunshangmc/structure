@@ -721,8 +721,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--enchantdoom)"
 	},
 	reloadShield: {
-		name : "Shield of acclaim",
-		desc : "Slider refills full spirit charge when it changes target",
+		name : "赞美之盾",
+		desc : "滑块改变目标时获得满士气",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 4,
 		codeCost : 1e16,
@@ -736,8 +736,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-spirit)"
 	},
 	stormGem: {
-		name : "Gem of storms",
-		desc : "Boosts Mean machine damage to slider's target",
+		name : "风暴宝石",
+		desc : "提高均衡机器对目标的伤害",
 		codeLength : 15,
 		codeCost : 17e10,
 		depth : 5.794e31,
@@ -749,8 +749,8 @@ const ARTIFACTS = {
 		iconTextColor : "#5588DD"
 	},	
 	powerGem: {
-		name : "Gem of light",
-		desc : "Elemental nodes block less physical damage",
+		name : "光之宝石",
+		desc : "元素节点对物理伤害的抵抗降低",
 		codeLength : 20,
 		codeCost : 26e10,
 		depth : 1.613e33,
@@ -762,8 +762,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-power)"
 	},	
 	bloodGem: {
-		name : "Gem of metallic blood",
-		desc : "Triples damage to target blood node",
+		name : "金属的血之宝石",
+		desc : "对血节点造成三倍伤害",
 		codeLength : 20,
 		codeCost : 26e10,
 		depth : 3.582e31,
@@ -776,8 +776,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-blood)"
 	},	
 	fireGem: {
-		name : "Gem of bloody fire",
-		desc : "Triples damage to target fire node",
+		name : "鲜血的火之宝石",
+		desc : "对火节点造成三倍伤害",
 		codeLength : 20,
 		codeCost : 26e10,
 		depth : 5.622e32,
@@ -790,8 +790,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-fire)"
 	},	
 	iceGem: {
-		name : "Gem of fiery ice",
-		desc : "Triples damage to target ice node",
+		name : "炽热的冰之宝石",
+		desc : "对冰节点造成三倍伤害",
 		codeLength : 20,
 		codeCost : 26e10,
 		depth : 9.412e31,
@@ -804,8 +804,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-ice)"
 	},	
 	metalGem: {
-		name : "Gem of icy metal",
-		desc : "Triples damage to target metal node",
+		name : "寒冷的钢之宝石",
+		desc : "对金属节点造成三倍伤害",
 		codeLength : 20,
 		codeCost : 26e10,
 		depth : 3.179e33,
@@ -818,8 +818,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-metal)"
 	},	
 	expScales: {
-		name : "Scales of rogue decimals",
-		desc : "Doubles growth if your exp change speed is zero or negligibly small",
+		name : "奸商的天平",
+		desc : "你的经验变化如果为0或很小，加倍你的成长",
 		codeLength : 16,
 		codeCost : 5e11,
 		depth : 1.623e35,
@@ -831,8 +831,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--foreground)"
 	},	
 	bloodBracelet: {
-		name : "Bracelet of blood knight",
-		desc : "Focus all the elemental power in blood",
+		name : "血骑士的手镯",
+		desc : "所有元素转换为血",
 		codeLength : 25,
 		codeCost : 1e13,
 		depth : 2.608e36,
@@ -844,8 +844,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-blood)"
 	},
 	fireBracelet: {
-		name : "Bracelet of keeper of fire",
-		desc : "Focus all the elemental power in fire",
+		name : "火焰管理者的手镯",
+		desc : "所有元素转换为火",
 		codeLength : 25,
 		codeCost : 1e13,
 		depth : 5.377e38,
@@ -857,8 +857,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-fire)"
 	},
 	iceBracelet: {
-		name : "Bracelet of icepicker",
-		desc : "Focus all the elemental power in ice",
+		name : "掘冰者的手镯",
+		desc : "所有元素转换为冰",
 		codeLength : 25,
 		codeCost : 1e13,
 		depth : 2.623e41,
@@ -870,8 +870,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-ice)"
 	},
 	metalBracelet: {
-		name : "Bracelet of metallurgist",
-		desc : "Focus all the elemental power in metal",
+		name : "冶金学者的手镯",
+		desc : "所有元素转换为金属",
 		codeLength : 25,
 		codeCost : 1e13,
 		depth : 8.261e43,
@@ -883,8 +883,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-metal)"
 	},
 	reloadFlag: {
-		name : "Flag of high spirits",
-		desc : "Spirit charge lasts longer and provides higher bonus with high charge",
+		name : "振奋旗帜",
+		desc : "士气持续时间更长，并获得更高的效果",
 		codeLength : 22,
 		codeCost : 3e13,
 		depth : 7.754e41,
@@ -896,8 +896,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-spirit)"
 	},
 	bloodFlag: {
-		name : "Banner of infliction",
-		desc : "Halves slider's final blood attribute, channelling the other half to every blood elemental",
+		name : "暴虐旗帜",
+		desc : "滑块的血元素减半, 剩余一半以通道的形式分享给其它滑块",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 6,
 		codeCost : 4e15,
@@ -911,8 +911,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-blood)"
 	},
 	fireFlag: {
-		name : "Banner of ignition",
-		desc : "Halves slider's final fire attribute, channelling the other half to every fire elemental",
+		name : "燃烧旗帜",
+		desc : "滑块的火元素减半, 剩余一半以通道的形式分享给其它滑块",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 6,
 		codeCost : 4e15,
@@ -926,8 +926,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-fire)"
 	},
 	iceFlag: {
-		name : "Banner of cooling",
-		desc : "Halves slider's final ice attribute, channelling the other half to every ice elemental",
+		name : "寒冰旗帜",
+		desc : "滑块的冰元素减半, 剩余一半以通道的形式分享给其它滑块",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 6,
 		codeCost : 4e15,
@@ -941,8 +941,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-ice)"
 	},
 	metalFlag: {
-		name : "Banner of quenching",
-		desc : "Halves slider's final metal attribute, channelling the other half to every metal elemental",
+		name : "淬火旗帜",
+		desc : "滑块的金属元素减半, 剩余一半以通道的形式分享给其它滑块",
 		researchType : RESEARCH_NUMBERS,
 		codeLength : 6,
 		codeCost : 4e15,
@@ -956,8 +956,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-metal)"
 	},
 	aligner: {
-		name : "Radiant stone",
-		desc : "Slider has a chance to realign accompanying elementals to strong element",
+		name : "光耀之石",
+		desc : "滑块有几率使随行元素转换为克制元素",
 		codeLength : 20,
 		codeCost : 3e13,
 		depth : 9.797e36,
@@ -969,8 +969,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-power)"
 	},
 	summonBreaker: {
-		name : "Oblivion stone",
-		desc : "Accompanying summons deal 10% unblockable damage",
+		name : "赦免之石",
+		desc : "随行的召唤物造成10%的穿透伤害",
 		codeLength : 20,
 		codeCost : 85e12,
 		depth : 5.546e44,
@@ -982,8 +982,8 @@ const ARTIFACTS = {
 		iconTextColor : "var(--bg-spirit)"
 	},
 	stormStone: {
-		name : "Thunderstone shard",
-		desc : "Boosts power of Mean machine on a nearby node",
+		name : "雷石碎片",
+		desc : "提高附近节点的均衡机器效率",
 		codeLength : 15,
 		codeCost : 1e13,
 		depth : 3.004e40,

@@ -212,17 +212,17 @@ const StardustTab = Template({
 		const map = game.maps[name]
 		this.displayMap = name
 		const stats = map.getStats()
-		this.dvStatsTitle.innerText = "Level "+map.level+(map.virtual?" virtual":"")+(map.focus?" "+POINT_TYPES[map.focus]:"")+(map.starfield?" starfield":" map") + (map.evolved?" evolved "+pluralize(map.evolved, ["time", "times"]):"")
-		this.dvStatsTime.innerText = "Created: "+stats.created + 
+		this.dvStatsTitle.innerText = ""+map.level+" 级 "+(map.virtual?"虚拟":"")+(map.focus?" "+POINT_TYPES[map.focus]:"")+(map.starfield?" 星域":" 地图") + (map.evolved?" 进化 "+pluralize(map.evolved, ["time", "times"]):"")
+		this.dvStatsTime.innerText = "创建时间: "+stats.created + 
 											"\n完成: "+stats.completed + 
 											"\n花费时间: "+stats.took +
 											"\n地图时间花费: "+stats.tookLocal
-		this.dvStatsGrowth.innerText = "成长:\n\n"+Object.keys(stats.growth).map(x => x.capitalizeFirst()+": "+stats.growth[x]).join("\n")
-		this.dvStatsProduction.innerText = "生产:\n\n"+Object.keys(stats.production).filter(x => x[0] != "_").map(x => x.capitalizeFirst()+": "+stats.production[x]).join("\n")
-		this.dvStatsMulti.innerText = "倍数:\n\n"+Object.keys(stats.multi).filter(x => x[0] != "_").map(x => x.capitalizeFirst()+": "+stats.multi[x]).join("\n")
-		this.dvDiscoveredTypes.innerText = "点数类型:\n"+stats.nodeType.map((x,n) => x?"\n"+POINT_TYPES[n].capitalizeFirst()+": "+x:"").join("")
-		this.dvDiscoveredSpecials.innerText = "特点:\n"+stats.nodeSpecial.map((x,n) => x?"\n"+SPECIAL_NAMES[n]+": "+x:"").join("")
-		this.dvDiscoveredInfo.innerText = "Other:\n"+
+		this.dvStatsGrowth.innerText = "成长:\n\n"+Object.keys(stats.growth).map(x => cnItem(x.capitalizeFirst())+": "+stats.growth[x]).join("\n")
+		this.dvStatsProduction.innerText = "生产:\n\n"+Object.keys(stats.production).filter(x => x[0] != "_").map(x => cnItem(x.capitalizeFirst())+": "+stats.production[x]).join("\n")
+		this.dvStatsMulti.innerText = "倍数:\n\n"+Object.keys(stats.multi).filter(x => x[0] != "_").map(x => cnItem(x.capitalizeFirst())+": "+stats.multi[x]).join("\n")
+		this.dvDiscoveredTypes.innerText = "点数类型:\n"+stats.nodeType.map((x,n) => x?"\n"+cnItem(POINT_TYPES[n].capitalizeFirst())+": "+x:"").join("")
+		this.dvDiscoveredSpecials.innerText = "特点:\n"+stats.nodeSpecial.map((x,n) => x?"\n"+cnItem(SPECIAL_NAMES[n])+": "+x:"").join("")
+		this.dvDiscoveredInfo.innerText = "其它:\n"+
 											"\n得到的点数: "+stats.totalNodes+
 											"\n解锁数量: "+stats.locksOpen+
 											"\n达到的最大深度: "+stats.maxDepth
