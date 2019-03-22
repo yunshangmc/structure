@@ -300,7 +300,7 @@ const StardustTab = Template({
 				this.newMapLevelSlider.dvRight.innerText = game.realMap.level
 				this.newMapLevelSlider.update()
 				this.selector.update(true)
-				this.dvVirtualCreateCost.innerText = "成本: " + displayNumber(virtualMapCost(this.newMapLevel),0) + " stardust"
+				this.dvVirtualCreateCost.innerText = "成本: " + displayNumber(virtualMapCost(this.newMapLevel),0) + " 星尘"
 				
 				while (this.dvVirtualMaps.firstChild)
 					this.dvVirtualMaps.firstChild.remove()
