@@ -552,10 +552,10 @@ const GUIDE = {
 			subtitle: "Building worlds",
 			text: `Building of a world consists of two phases: planning and buying. 
 			
-			First, you plan out your node placement. There are some rules on how you can place nodes: 
-			- Every node has a "dead zone". No node can intersect with it.
-			- Every node has a "reach zone". Every pair of node with intersecting reach zones will be connected.
-			- Nodes of same type (color) can't be connected.
+			首先，你计划你的节点位置。 关于如何放置节点有一些规则： 
+			- 每个节点都有一个“死区”。 没有节点可以与它相交。
+			- 每个节点都有一个“到达区域”。 将连接具有相交到达区域的每对节点。
+			- 无法连接相同类型（颜色）的节点。
 			
 			Planned nodes then can be bought to be actually activated and used. Once bought, node can't be refunded, only stored for later use.`,
 		},{
