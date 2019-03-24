@@ -557,7 +557,7 @@ const coreScreenHandler = {
 				this.hide()
 		}
 		this.dvDisplay = createElement("div", "dialog", this.dvHolder)
-		this.dvTitle = createElement("div", "dialog-title", this.dvDisplay, "Core")
+		this.dvTitle = createElement("div", "dialog-title", this.dvDisplay, "核心")
 		this.dvBoard = createElement("div", "core-board", this.dvDisplay)
 		this.cells = {}
 		this.columns = {}
@@ -599,7 +599,7 @@ const coreScreenHandler = {
 		}
 		
 		this.dvButtons = createElement("div", "buttons", this.dvDisplay)
-		this.dvResetButton = createElement("div", "button", this.dvButtons, "Reset ()")
+		this.dvResetButton = createElement("div", "button", this.dvButtons, "重置 ()")
 		this.dvResetButton.onclick = (event) => {
 			if (game.world.coreResetCost && game.resources.stardust >= game.world.coreResetCost) {
 				game.payStardust(game.world.coreResetCost)
@@ -607,7 +607,7 @@ const coreScreenHandler = {
 			}
 		}
 		
-		this.dvCloseButton = createElement("div", "button available", this.dvButtons, "Close")
+		this.dvCloseButton = createElement("div", "button available", this.dvButtons, "关闭")
 		this.dvCloseButton.onclick = (event) => {
 			this.hide()
 		}
@@ -661,7 +661,7 @@ const coreScreenHandler = {
 					cell.holder.classList.toggle("locked", !!cell.locked)
 				})
 			)
-			this.dvResetButton.innerText = "Reset core ("+displayNumber(game.world.coreResetCost)+" stardust)"
+			this.dvResetButton.innerText = "重置核心 ("+displayNumber(game.world.coreResetCost)+" 星尘)"
 		}
 		this.dvResetButton.classList.toggle("available", game.world.coreResetCost && game.resources.stardust >= game.world.coreResetCost)
 	},
@@ -710,17 +710,17 @@ const coreScreenHoverHandler = {
 		if (forced) {
 			if (this.cell.locked) {
 				const feat = FEATS[this.cell.feat]
-				this.dvDesc.innerText = (!feat || feat.minMap > game.realMap.level)?"Unknown":feat.desc
+				this.dvDesc.innerText = (!feat || feat.minMap > game.realMap.level)?"未知":feat.desc
 				this.dvIconFG.innerText = (!feat || feat.minMap > game.realMap.level)?"?":"🔒\uFE0E"
 			} else {
-				this.dvDesc.innerText = this.cell.desc
+				this.dvDesc.innerText = cnItem(this.cell.desc)
 				this.dvIconFG.innerText = this.cell.iconText || "?"
 			}
 			this.dvIconBG.style.backgroundColor = this.dvIconBG.style.borderColor = this.cell.locked?"var(--shade14)":this.cell.iconColor
 			while (this.dvCosts.firstChild) this.dvCosts.firstChild.remove()
 			if (this.cell.cost && !this.cell.locked)  {
 				this.dvCosts.classList.toggle("hidden", false)
-				this.dvCostsHeader = createElement("div", "cell-hover-costs-header", this.dvCosts, "Costs:")
+				this.dvCostsHeader = createElement("div", "cell-hover-costs-header", this.dvCosts, "成本:")
 				this.costs = Object.keys(this.cell.cost).map(x => {
 					const display = {
 						id : x,
@@ -744,7 +744,7 @@ const coreScreenHoverHandler = {
 			while (this.dvEnablers.firstChild) this.dvEnablers.firstChild.remove()
 			if (this.cell.enablers && !this.cell.locked)  {
 				this.dvEnablers.classList.toggle("hidden", false)
-				this.dvEnablersHeader = createElement("div", "cell-hover-enablers-header", this.dvEnablers, "Requirements:")
+				this.dvEnablersHeader = createElement("div", "cell-hover-enablers-header", this.dvEnablers, "要求:")
 				this.enablers = Object.keys(this.cell.enablers).map(x => {
 					const display = {
 						id : x,

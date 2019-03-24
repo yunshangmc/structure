@@ -337,7 +337,23 @@ var cnItems = {
     'To be active, node should be connected to a core either directly or through other cores. Node depth is the shortest route to the core. Node wont be active if your worker number is less than node\'s depth.': '要激活，节点应直接或通过其他核心连接到核心。 节点深度是到核心的最短路径。 如果您的工作人员编号小于节点的深度，则节点不会处于活动状态。',
     'upon completion. Some feats have map level requirements. They can be done on a virtual map of corresponding level. If a feat is grayed out, it can\'t be completed or has been failed at current map. You may unlock new feats as you ascend.': '完成后。 一些专长有地图级别要求。 它们可以在相应级别的虚拟地图上完成。 如果专长灰色显示，则无法在当前地图上完成或失败。 你可以在提升时解锁新的专长。',
     'Building of a world consists of two phases: planning and buying. ': '建设世界包括两个阶段：规划和购买。',
-    '': '',
+    //核心
+    'Boosting growth cost 25% cheaper (Additive)': '促进增长的成本降低25%(附加)',
+    'Channelling is 50% more effective (Multiplicative)': '通道效率提高50％（乘法）',
+    'Completed focused virtual maps charge to provide extra growth in focused attribute (Additive: speed)': '完成的聚焦虚拟地图充电，以提供聚焦属性的额外增长（附加：速度）',
+    'Each real slider gains total fire growth of every slider': '每个真实滑块都会获得每个滑块的总火焰增长',
+    'Each real slider gains total ice growth of every slider': '每个真实滑块都可以获得每个滑块的总冰量增长',
+    'Fully evolved maps produce more stardust': '完全演化的地图产生更多的星尘',
+    'Increases growth boost multiplier by 1 (Additive)': '将增长提升乘数增加1（附加）',
+    'Last active depth nodes are treated as depth-1': '最后一个活动深度节点被视为深度-1',
+    'Spirit x Clouds bonus is added to each element': '精神x云奖励附加到每个元素',
+    'Summons grow much stronger on levelup': '召唤在升级后会变得更加强大',
+    'Summons produce clouds while fighting (Additive: cap)': '战斗时召唤产生云(附加:帽子)',
+    'Summons produce mana while fighting (Additive: cap)': '战斗时召唤产生法力(附加:帽子)',
+    'Summons produce science while fighting (Additive: cap)': '战斗时召唤产生科学(附加:帽子)',
+    'Summons produce thunderstone while fighting (Additive: cap)': '战斗时召唤产生雷石(附加:帽子)',
+    'The world core': '世界核心',
+    'Virtual map evolutions reach farther': '虚拟地图的发展将会走得更远',
     '': '',
     '': '',
     '': '',
@@ -357,62 +373,60 @@ var cnItems = {
 //2.采集新词
 //20190320@JAR
 
-var cnItem = function() {
+var cnItem = function () {
 
     //传参是否非空字串
     if (!arguments[0]) return;
 
     //检验传参是否对象
-    let text = arguments[0], s = '';
-    if (typeof(text) != "string")
+    let text = arguments[0],
+        s = '';
+    if (typeof (text) != "string")
         return text;
     else
-        s = arguments[0].charCodeAt()
-    ;
+        s = arguments[0].charCodeAt();
 
     //检验传参是否英文
-    if(
-        s < 65 || (s > 90 && s <97) || (s > 122)
-        
+    if (
+        s < 65 || (s > 90 && s < 97) || (s > 122)
+
     ) return text;
     //检验字典是否可存
-    if(!cnItems._OTHER_) cnItems._OTHER_=[];
+    if (!cnItems._OTHER_) cnItems._OTHER_ = [];
 
     //遍历尝试匹配
-    for ( let i in cnItems ) {
+    for (let i in cnItems) {
         //字典已有词汇或译文、且译文不为空，则返回译文
-        if(
-            text == i || text == cnItems[i]
-            && cnItems[i] != ''
+        if (
+            text == i || text == cnItems[i] &&
+            cnItems[i] != ''
         )
-        return cnItems[i];
+            return cnItems[i];
     }
 
     //遍历生词表是否收录
     for (
-        let i = 0;
-        i < cnItems._OTHER_.length;
-        i++
+        let i = 0; i < cnItems._OTHER_.length; i++
     ) {
         //已收录则直接返回
         if (text == cnItems._OTHER_[i])
-        return text;
+            return text;
     }
 
     //未收录则保存
     cnItems._OTHER_.push(text);
     cnItems._OTHER_.sort(
-      function(a,b){
-        return a.localeCompare(b)
-      }
+        function (a, b) {
+            return a.localeCompare(b)
+        }
     );
-        
-/*
-    //开启生词打印
-    //console.log(
-        '有需要汉化的英文：', text
-    );
-*/
+
+    /*
+        //开启生词打印
+        //console.log(
+            '有需要汉化的英文：', text
+        );
+    */
 
     //返回生词字串
     return text;
