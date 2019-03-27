@@ -307,7 +307,7 @@ const ARTIFACTS = {
 	},
 	nullRod: {
 		name : "镇压人员",
-		desc : "攻击时目标节点的滑块属性归零",
+		desc : "攻击元素节点时滑块的对应属性归零",
 		codeLength : 20,
 		codeCost : 1e11,
 		depth : 1.51e27,
