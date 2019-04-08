@@ -321,9 +321,9 @@ const sliderLevelUpHandler = {
 				x.dvTotalMult.innerText = "x" + displayNumber(this.slider.levelMulti[x.id] * this.slider.multi[x.id],1)
 				x.dvNextLevelMult.innerText = "x" + displayNumber(next[x.id], 1) + " => x" + displayNumber(this.slider.levelMulti[x.id] * this.slider.multi[x.id] * next[x.id],1)
 			})
-			this.dvTitle.innerText = "Level " + (this.slider.level || 0) + " slider"
+			this.dvTitle.innerText = "等级 " + (this.slider.level || 0) + " 滑块"
 		}
-		this.dvLevelUpCost.innerText = "Level up cost : " + displayNumber(this.slider.levelUpCost) + " exp" + ETAString(this.slider.levelUpCost, "exp", true) + "\nNote: levelling up resets slider's stats to zero"
+		this.dvLevelUpCost.innerText = "升级成本 : " + displayNumber(this.slider.levelUpCost) + " 经验" + ETAString(this.slider.levelUpCost, "exp", true) + "\nNote: levelling up resets slider's stats to zero"
 		this.dvMultiCost.innerText = this.slider.level?"Increase multiplier cost : " + displayNumber(this.slider.multiCost) + " exp" + ETAString(this.slider.multiCost, "exp", true):""
 		this.multi.map(x => {
 			x.dvRaise.classList.toggle("available", this.slider.canLevel(x.id))
