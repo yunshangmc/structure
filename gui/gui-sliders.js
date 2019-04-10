@@ -264,24 +264,24 @@ const sliderLevelUpHandler = {
 		this.dvTitle = createElement("div", "dialog-title", this.dvDisplay)
 		this.dvLevelUp = createElement("div", "sliderlv-line", this.dvDisplay)
 		this.dvLevelUpCost = createElement("div", "sliderlv-info", this.dvLevelUp)
-		this.dvLevelUpButton = createElement("div", "button line-end", this.dvLevelUp, "Level up")
+		this.dvLevelUpButton = createElement("div", "button line-end", this.dvLevelUp, "升级")
 		this.dvLevelUpButton.onclick = (event) => {
 			if (this.slider.canLevelUp() && confirm("升级将重置此滑块在所有地图上的状态为零。你想继续吗?"))
 				this.slider.levelUp()
 		}
 		this.dvMultiCost = createElement("div", "sliderlv-info", this.dvDisplay)
 		this.dvMultiHead = createElement("div", "sliderlv-line heavy", this.dvDisplay)
-		this.dvMultiHintName = createElement("div", "sliderlv-mult-name", this.dvMultiHead, "Growth multiplier")
-		this.dvMultiHintMult = createElement("div", "sliderlv-mult", this.dvMultiHead, "Accumulated")
-		this.dvMultiHintLevelMult = createElement("div", "sliderlv-mult-double", this.dvMultiHead, "Current level")
-		this.dvMultiHintTotalMult = createElement("div", "sliderlv-mult", this.dvMultiHead, "Total")
-		this.dvMultiHintNextLevelMult = createElement("div", "sliderlv-mult", this.dvMultiHead, "Next level")
+		this.dvMultiHintName = createElement("div", "sliderlv-mult-name", this.dvMultiHead, "成长加成")
+		this.dvMultiHintMult = createElement("div", "sliderlv-mult", this.dvMultiHead, "积累")
+		this.dvMultiHintLevelMult = createElement("div", "sliderlv-mult-double", this.dvMultiHead, "当前等级")
+		this.dvMultiHintTotalMult = createElement("div", "sliderlv-mult", this.dvMultiHead, "总计")
+		this.dvMultiHintNextLevelMult = createElement("div", "sliderlv-mult", this.dvMultiHead, "下一级")
 		this.multi = POINT_TYPES.slice(1).map(x => {
 			const display = {
 				id : x,
 			}
 			display.dvDisplay = createElement("div", "sliderlv-line", this.dvDisplay)
-			display.dvName = createElement("div", "sliderlv-mult-name", display.dvDisplay, x.capitalizeFirst())
+			display.dvName = createElement("div", "sliderlv-mult-name", display.dvDisplay, cnItem(x.capitalizeFirst()))
 			display.dvMult = createElement("div", "sliderlv-mult", display.dvDisplay)
 			display.dvRaiseHolder = createElement("div", "sliderlv-mult-double", display.dvDisplay)
 			display.dvLevelMult = createElement("div", "sliderlv-mult", display.dvRaiseHolder)
