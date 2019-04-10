@@ -323,8 +323,8 @@ const sliderLevelUpHandler = {
 			})
 			this.dvTitle.innerText = "等级 " + (this.slider.level || 0) + " 滑块"
 		}
-		this.dvLevelUpCost.innerText = "升级成本 : " + displayNumber(this.slider.levelUpCost) + " 经验" + ETAString(this.slider.levelUpCost, "exp", true) + "\nNote: levelling up resets slider's stats to zero"
-		this.dvMultiCost.innerText = this.slider.level?"Increase multiplier cost : " + displayNumber(this.slider.multiCost) + " exp" + ETAString(this.slider.multiCost, "exp", true):""
+		this.dvLevelUpCost.innerText = "升级成本 : " + displayNumber(this.slider.levelUpCost) + " 经验" + ETAString(this.slider.levelUpCost, "exp", true) + "\n注意：升级会将滑块的统计信息重置为零"
+		this.dvMultiCost.innerText = this.slider.level?"增加倍数成本 : " + displayNumber(this.slider.multiCost) + " 经验" + ETAString(this.slider.multiCost, "exp", true):""
 		this.multi.map(x => {
 			x.dvRaise.classList.toggle("available", this.slider.canLevel(x.id))
 			x.dvRaise.classList.toggle("transparent", !this.slider.level)
