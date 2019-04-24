@@ -1,0 +1,643 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>构造-工艺品编码计算工具</title>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.notice {
+	width: 877px;
+	height: 650px;
+	margin: 10px;
+	border: 1px solid #7c7c7c;
+	overflow: hidden;
+}
+
+.notice-tit {
+	height: 27px;
+	background-color: #eaeaea;
+	position: relative;
+}
+
+.notice-tit ul {
+	position: absolute;
+	width: 300px;
+	left: -1px;
+}
+
+.notice-tit ul li {
+	float: left;
+	width: 58px;
+	height: 26px;
+	line-height: 26px;
+	text-align: center;
+	border-bottom: 1px solid #7c7c7c;
+	padding: 0 1px;
+}
+
+.notice-tit ul a {
+	text-decoration: none;
+	display: block;
+}
+
+.notice-tit ul .select {
+	background-color: white;
+	border-right: 1px solid #7c7c7c;
+	border-left: 1px solid #7c7c7c;
+	border-bottom: 1px solid white;
+	padding: 0;
+}
+
+
+
+.dataLength {
+	width: 210px;
+	height: 50px;
+	font-size: 32px;
+	float: left;
+	margin-left: 2px;
+}
+
+#guide {
+	width: 460px;
+	height: 52px;
+	border: 1px solid #A9A9A9;
+	float: left;
+	margin-left: 2px;
+}
+#guideⅡ {
+	width: 400px;
+	height: 52px;
+	border: 1px solid #A9A9A9;
+	float: left;
+	margin-left: 2px;
+	font-size: 12px;
+}
+
+.td {
+	width: 24px;
+	height: 19px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 10px;
+	vertical-align: middle;
+}
+
+td:hover, .clickTd, .result  {
+	box-shadow: 0 0 1px 1px #313463, inset 0 0 10px 5px
+		rgba(49, 52, 99, 0.20);
+}
+
+.left {
+	width: 682px;
+	height: 620px;
+	float: left;
+}
+
+.resultDiv {
+	width: 192px;
+	height: 620px;
+	float: left;
+	border: 1px solid #A9A9A9;
+}
+
+.result {
+	height: 32px;
+	text-align: center;
+	vertical-align: middle;
+	float: left;
+	font-size: 24px;
+	vertical-align: middle;
+	padding: 4px;
+}
+
+.red {
+	color: red;
+	font-weight: bold;
+}
+
+.tdⅡ {
+	width: 290px;
+    height: 40px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 10px;
+	vertical-align: middle;
+}
+.span {
+	width: 36px;
+    height: 40px;
+    display: block;
+    float: left;
+    vertical-align: middle;
+    font-size: 36px;
+}
+.span2 {
+	width: 40px;
+    height: 40px;
+    display: block;
+    float: left;
+    vertical-align: middle;
+    font-size: 14px;
+}
+.inputⅡ {
+	width: 150px;
+    height: 40px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 10px;
+	vertical-align: middle;
+	font-size: 55px;
+}
+#calculateⅡ{
+	width: 60px;
+    height: 54px;
+    margin-left: 1px;
+    font-size: 22px;
+    background-color: white;
+}
+</style>
+</kh:head>
+<script type="text/javascript">
+// 非常烂的js水平，轻喷----怀秋
+
+
+//加载字母按钮
+var b = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+var data = new Array();
+var lengthInput = null;
+
+function load() 
+{
+	// 加载编码长度输入框
+	lengthInput = document.getElementById("dataLength");
+	
+	var mainTable = document.getElementById("main");
+	
+	var innerHTMLStr = "";
+	for(var i=0; i<b.length; i++)
+	{
+		var tr = "<tr id='tr_" + i + "'>";
+		data[i] = new Array();
+		
+		for(var j=0; j<b.length; j++)
+		{
+			var text = b[i] + b[j];
+			var td = "<td onclick='changeTd(this)' id='td_" + i + "_" + j + "' class='td'>";
+			td += text;
+			td += "</td>";
+			
+			tr += td;
+			
+			data[i][j] = {flag: false, value: text};
+		}
+		
+		tr += "</tr>";
+		innerHTMLStr += tr;
+	}
+	
+	mainTable.innerHTML = innerHTMLStr;
+}
+
+// 更改答案范围 并计算
+function changeTd(e) 
+{
+	var value = lengthInput.value;
+　　if (value=="")
+	{ 
+　　		alert("请首先输入编码长度，正整数"); 
+　　		return ; 
+　　}
+	else
+	{ 
+		//重置答案
+		resultArr = [];
+		var resultDiv = document.getElementById("resultDiv");
+		resultDiv.innerHTML = "暂时无法计算出答案";
+		
+		var index = e.id.split("_");
+		var rowIndex = index[1];
+		var colIndex = index[2];
+		
+		data[rowIndex][colIndex].flag = !data[rowIndex][colIndex].flag;
+		if(data[rowIndex][colIndex].flag)
+		{
+			e.classList.add("clickTd");
+		}else
+		{
+			e.classList.remove("clickTd");
+		}
+		collect();
+	} 
+}
+
+// 收集答案范围编码
+function collect()
+{
+	var collectArr = new Array();
+	for(var i=0; i<data.length; i++)
+	{		
+		for(var j=0; j<data[i].length; j++)
+		{
+			if(data[i][j].flag)
+			{
+				collectArr.push(data[i][j].value);
+			}
+		}
+	}
+
+	if(collectArr.length > 0)
+	{
+		for(var i=0; i<collectArr.length; i++)
+		{
+			calculate(collectArr[i], "resultDiv", document.getElementById("dataLength").value, collectArr);
+		}
+	}
+}
+
+//计算答案
+var resultArr = [];
+function calculate(str, id, length, collectArr)
+{
+	var dataLength = length;
+	if(str.length == parseInt(dataLength))
+	{
+		resultArr.push(str);
+		show(id);
+	}
+	else
+	{
+		for(var j=0; j<collectArr.length; j++)
+		{
+			var word2 = collectArr[j];
+			if(str != word2 && str.substr(-2, 2) != word2 && str.charAt(str.length-1) == word2[0])
+			{
+				// 限制出现"ABABAB"这样的答案
+				var temp = str + word2[1];
+				var flag = false;
+				for(var i=0; i<temp.length-2; i++)
+				{
+					var subTemp = temp.substr(i, 2);
+					if(countSubstr(temp, subTemp, false) > 1)
+					{
+						flag = true;
+					}
+				}
+				if(!flag)
+				{
+					calculate(str + word2[1], id, length, collectArr);
+				}
+			}
+		}
+	}
+}
+
+//判断substr字符串在str中出现的次数 isIgnore是否忽略大小写
+function countSubstr(str, substr, isIgnore)
+{
+    var count;
+    var reg = "";
+    if (isIgnore == true) {
+        reg = "/" + substr + "/gi";
+    } else {
+        reg = "/" + substr + "/g";
+    }
+    reg = eval(reg);
+    if (str.match(reg) == null) {
+        count = 0;
+    } else {
+        count = str.match(reg).length;
+    }
+    return count;
+}
+
+// 展示答案
+function show(id)
+{
+	if(resultArr.length > 0)
+	{
+		var innerHTMLStr = "";
+		for(var i=0; i<resultArr.length; i++)
+		{			
+			var div = "<div id='r_" + i + "' class='result' onmousemove='change(this);' onmouseout='clearClass();'>";
+			div += resultArr[i];
+			div += "</div>";
+			
+			innerHTMLStr += div;
+		}
+
+		// 加载答案div
+		var resultDiv = document.getElementById(id);
+		resultDiv.innerHTML = innerHTMLStr;
+	}
+}
+
+//更换答案样式
+function change(e)
+{
+	var answer = e.innerText;
+	for(var i=0; i<data.length; i++)
+	{		
+		for(var j=0; j<data[i].length; j++)
+		{
+			if(answer.indexOf(data[i][j].value) > -1)
+			{
+				var td = document.getElementById("td_" + i + "_" + j);
+				td.classList.add("red");
+			}
+		}
+	}
+}
+
+function clearClass()
+{
+	var tdArr = document.getElementsByTagName("td");
+	for(var i=0; i<tdArr.length; i++)
+	{	
+		tdArr[i].classList.remove("red");
+	}
+}
+</script>
+
+<script type="text/javascript">
+	function load2() 
+	{
+		var mainTable = document.getElementById("main_2");
+		
+		var innerHTMLStr = "";
+		for(var i=0; i<b.length; i++)
+		{
+			if(i % 3 == 0 || i == 0)
+			{
+				innerHTMLStr += "<tr id='trⅡ_" + i + "'>";
+			}
+			
+			innerHTMLStr += "<td id='tdⅡ_" + i + "' class='tdⅡ'>";
+
+			innerHTMLStr += "<span class='span'>" + b[i] + "</span>";
+			innerHTMLStr += "<input class='inputⅡ' id='input" + i + "' title='请输入" + b[i] + "对应编码' type='number' min='10' max='9999' step='10' />";
+			innerHTMLStr += "</td>";
+			
+			if((i + 1) % 3 == 0)
+			{
+				innerHTMLStr += "</tr>";
+			}
+		}
+		
+		mainTable.innerHTML = innerHTMLStr;
+	}
+	
+	// 第二种石碑更改长度之后
+	var lengthⅡ = 0;
+	function changeLengthⅡ(value)
+	{
+		var mainTable = document.getElementById("main_3");
+		
+		value = parseInt(value);
+		if(value > 0)
+		{
+			lengthⅡ = value - 1;
+			var innerHTMLStr = "";
+			for(var i=0; i< value - 1; i++)
+			{
+				if(i % 3 == 0 || i == 0)
+				{
+					innerHTMLStr += "<tr id='trⅡ'>";
+				}
+				
+				innerHTMLStr += "<td id='tdⅡ' class='tdⅡ'>";
+
+				innerHTMLStr += "<span class='span2'>第" + (i+1) + "个编码</span>";
+				innerHTMLStr += "<input class='inputⅡ' style='font-size:22px;' id='inputNumber" + i + "' title='请输入第" + (i+1) + "个编码对应数字' type='number' min='1' step='10' />";
+				innerHTMLStr += "</td>";
+				
+				if((i + 1) % 3 == 0)
+				{
+					innerHTMLStr += "</tr>";
+				}
+			}
+
+			mainTable.innerHTML = innerHTMLStr;
+		}
+	}
+
+	// 计算第二种石碑
+	function calculateⅡ()
+	{
+		resultArr = [];
+		var resultDiv = document.getElementById("resultDivⅡ");
+		resultDiv.innerHTML = "暂时无法计算出答案";
+		
+		// 收集每个字母对应的数字
+		var calculateLetter = [];
+		for(var i=0; i<b.length; i++)
+		{
+			var inputValue = document.getElementById("input" + i).value;
+			if(inputValue != "")
+			{
+				calculateLetter.push({letter: b[i], value: inputValue});
+			}
+			else
+			{
+				alert("有部分字母没有输入数字");
+				return;
+			}
+		}
+		
+		// 收集每一位编码对应的数字
+		var calculateProduct = [];
+		for(var i=0; i<lengthⅡ; i++)
+		{
+			var inputNumberValue = document.getElementById("inputNumber" + i).value;
+			if(inputNumberValue != "")
+			{
+				calculateProduct.push({index: i, value: inputNumberValue});
+// 				calculateProduct.push(inputNumberValue);
+			}
+			else
+			{
+				alert("有部分编码没有输入数字");
+				return;
+			}
+		}
+
+		// 计算每一位编码对应的字母 即答案范围编码
+		var collectArrⅡ = [];
+		for(var i=0; i<calculateProduct.length; i++)
+		{
+			// 目标结果
+			var target = calculateProduct[i].value;
+			var index = calculateProduct[i].index;
+			
+			var tempArr = [];
+			for(var j=0; j<calculateLetter.length; j++)
+			{
+				// 第一个字母
+				var firstLetter = calculateLetter[j];
+				for(var k=0; k<calculateLetter.length; k++)					//此处k=0表示容许AB BA 这种情况
+				{
+					// 第二个字母
+					var lastLetter = calculateLetter[k]
+					
+					if(firstLetter.value * lastLetter.value == target)
+					{
+						tempArr.push(firstLetter.letter + lastLetter.letter);
+					}
+				}
+			}
+			
+			collectArrⅡ.push({index: index, value: tempArr});
+		}
+
+		//计算答案
+		if(collectArrⅡ.length > 0)
+		{
+			collectArrⅡ = collectArrⅡ.sort(compare('index'));
+			
+			var tempArr = collectArrⅡ[0].value;
+			for(var i=0; i<tempArr.length; i++)
+			{
+				combination(tempArr[i], "resultDivⅡ", document.getElementById("dataLengthⅡ").value, collectArrⅡ, 1);
+			}
+		}
+	}
+	
+	// 组合石碑2的答案
+	function combination(str, id, length, collectArr, index)
+	{
+		var dataLength = length;
+		if(str.length == parseInt(dataLength))
+		{
+			resultArr.push(str);
+			show(id);
+		}
+		else
+		{
+			for(var j=0; j<collectArr.length; j++)
+			{
+				if(collectArr[j].index == index)
+				{
+					var word2Arr = collectArr[j].value;
+					for(var k=0; k<word2Arr.length; k++)
+					{
+						var word2 = word2Arr[k];
+						if(str != word2 && str.substr(-2, 2) != word2 && str.charAt(str.length-1) == word2[0])
+						{
+							// 限制出现"ABABAB"这样的答案
+							var temp = str + word2[1];
+							var flag = false;
+							for(var i=0; i<temp.length-2; i++)
+							{
+								var subTemp = temp.substr(i, 2);
+								if(countSubstr(temp, subTemp, false) > 1)
+								{
+									flag = true;
+								}
+							}
+							if(!flag)
+							{
+								var nextIndex = 1 + index;
+								combination(str + word2[1], id, length, collectArr, nextIndex);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	function compare(property){
+	    return function(a,b){
+	        var value1 = a[property];
+	        var value2 = b[property];
+	        return value1 - value2;
+	    }
+	}
+</script>
+<body >
+
+	<div class="notice">
+		<div class="notice-tit" id="notice-tit">
+			<ul>
+				<li class="select"><a href="#">石碑Ⅰ</a></li>
+				<li><a href="#">石碑Ⅱ</a></li>
+			</ul>
+		</div>
+		<div class="notice-con" id="notice-con">
+			<div style="display: block" title="石碑Ⅰ">
+				<div id="left" class="left">
+					<input id="dataLength" class="dataLength" title="请首先输入编码长度" placeholder="输入编码长度" type="number" min="1" max="20" step="1" />
+					<div id="guide" title="帮助">请首先输入编码长度，然后点击可能组成答案编码的字母，系统会自动将可能的组合展示在右边</div>
+					<table id="main" title="请点击在答案范围内的编码">
+					</table>
+				</div>
+				<div id="resultDiv" class="resultDiv" onmouseout="" title="所有可能的答案"></div>
+			</div>
+			
+			
+			<div style="display: none" title="石碑Ⅱ">
+				<div id="leftⅡ" class="left">
+					<input id="dataLengthⅡ" onchange="changeLengthⅡ(this.value);" class="dataLength" title="请首先输入编码长度" placeholder="输入编码长度" type="number" min="1" max="9" step="1" />
+					<div id="guideⅡ" title="帮助">请首先输入编码长度，然后【按顺序】输入各编码对应的数字（顺序是从上至下从左往右 1234），然后输入各字母对应的数字，系统会自动将可能的组合展示在右边</div>
+					<button type="button" id="calculateⅡ" onclick="calculateⅡ();">计算</button>
+					
+					<table id="main_2" title="请输入各字母对应的数字">
+					</table>
+					<table id="main_3" title="请输入各字母对应的数字">
+					</table>
+				</div>
+				<div id="resultDivⅡ" class="resultDiv" onmouseout="" title="所有可能的答案"></div>
+				
+			</div>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+    //获取id封装成一个函数$()方便调用
+    function $(id)
+    {
+    	//如果传入的参数类型为字符串则获取当前ID元素，否则返回id
+        return typeof id==="string"?document.getElementById(id):id;
+    }
+    //window.onload表示当文档加载完毕时执行函数
+    window.onload=function()
+    {
+        //获取#notice-tit下面的全部li元素
+        var titles = $('notice-tit').getElementsByTagName('li');
+        //获取#notice-con下面的全部div元素
+        var childNodes = $('notice-con').childNodes;
+		var divs = [];
+        for(var i=0; i<childNodes.length; i++)
+        {
+        	if(childNodes[i].tagName == "DIV"){
+        		divs.push(childNodes[i]);
+        	}
+        }
+        
+        //遍历所有li标签，给每个li加上id和值，并且绑定事件
+        for(var i=0; i<titles.length; i++){
+            //给每个li加上id和值
+            titles[i].id = i;
+            //给每个li绑定事件
+            titles[i].onmouseover = function(){
+            	//悬浮后首先应该初始化每个li和div上的类和display
+                for(var j=0;j<titles.length;j++){
+                    titles[j].className = "";
+                    divs[j].style.display = "none";
+                }
+            	//给当前悬浮元素添加属性
+                titles[this.id].className = "select";
+                divs[this.id].style.display = "block";
+            }
+        }
+        
+        load();		// 加载石碑1
+        load2();	// 加载石碑2
+        
+        console.log("轻喷哈");
+    }
+</script>

@@ -15,7 +15,7 @@ const AboutTab = Template({
 		this.dvReddit = createElement("div", "link", this.dvLinks, "TBA: Subreddit link")
 		this.dvReddit.innerHTML = "<a target='_blank' rel='noopener' href='https://www.reddit.com/r/structure_idle/'>Reddit</a>"
 		this.dvWiki = createElement("div", "link", this.dvLinks, "TBA: Wiki link")
-		this.dvWiki.innerHTML = "<a target='_blank' rel='noopener' href='https://www.reddit.com/r/structure_idle/wiki/'>Wiki</a>"
+		this.dvWiki.innerHTML = "<a target='_blank' rel='noopener' href='https://www.reddit.com/r/structure_idle/wiki/'>Wiki</a><a target='_blank' rel='noopener' href='http://likexia.gitee.io/structure/calculate.html' style='margin-left:20px;'>石碑解密计算器</a>"
 		this.dvDev = createElement("div", "credits", this.dvContent, "Idea and development: seihoukei")
 		this.dvArt1 = createElement("div", "credits", this.dvContent, "Artifact icons: ykoc and seihoukei")
 		this.dvArt2 = createElement("div", "credits", this.dvContent, "Structure font and flat icons: Dandelion")
