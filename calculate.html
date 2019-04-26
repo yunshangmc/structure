@@ -1,4 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-cn">
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>构造-工艺品编码计算工具</title>
 <style>
@@ -51,9 +53,7 @@
 	padding: 0;
 }
 
-
-
-.dataLength {
+.data-length {
 	width: 210px;
 	height: 50px;
 	font-size: 32px;
@@ -68,6 +68,7 @@
 	float: left;
 	margin-left: 2px;
 }
+
 #guideⅡ {
 	width: 400px;
 	height: 52px;
@@ -86,7 +87,7 @@
 	vertical-align: middle;
 }
 
-td:hover, .clickTd, .result  {
+td:hover, .click-td, .result {
 	box-shadow: 0 0 1px 1px #313463, inset 0 0 10px 5px
 		rgba(49, 52, 99, 0.20);
 }
@@ -97,7 +98,7 @@ td:hover, .clickTd, .result  {
 	float: left;
 }
 
-.resultDiv {
+.result-div {
 	width: 192px;
 	height: 620px;
 	float: left;
@@ -121,49 +122,51 @@ td:hover, .clickTd, .result  {
 
 .tdⅡ {
 	width: 290px;
-    height: 40px;
+	height: 40px;
 	text-align: center;
 	vertical-align: middle;
 	font-size: 10px;
 	vertical-align: middle;
 }
+
 .span {
 	width: 36px;
-    height: 40px;
-    display: block;
-    float: left;
-    vertical-align: middle;
-    font-size: 36px;
+	height: 40px;
+	display: block;
+	float: left;
+	vertical-align: middle;
+	font-size: 36px;
 }
+
 .span2 {
 	width: 40px;
-    height: 40px;
-    display: block;
-    float: left;
-    vertical-align: middle;
-    font-size: 14px;
+	height: 40px;
+	display: block;
+	float: left;
+	vertical-align: middle;
+	font-size: 14px;
 }
+
 .inputⅡ {
 	width: 150px;
-    height: 40px;
+	height: 40px;
 	text-align: center;
 	vertical-align: middle;
 	font-size: 10px;
 	vertical-align: middle;
 	font-size: 55px;
 }
-#calculateⅡ{
+
+#calculateⅡ {
 	width: 60px;
-    height: 54px;
-    margin-left: 1px;
-    font-size: 22px;
-    background-color: white;
+	height: 54px;
+	margin-left: 1px;
+	font-size: 22px;
+	background-color: white;
 }
 </style>
-</kh:head>
 <script type="text/javascript">
 // 非常烂的js水平，轻喷----怀秋
-
 
 //加载字母按钮
 var b = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
@@ -173,7 +176,7 @@ var lengthInput = null;
 function load() 
 {
 	// 加载编码长度输入框
-	lengthInput = document.getElementById("dataLength");
+	lengthInput = document.getElementById("data-length");
 	
 	var mainTable = document.getElementById("main");
 	
@@ -186,7 +189,7 @@ function load()
 		for(var j=0; j<b.length; j++)
 		{
 			var text = b[i] + b[j];
-			var td = "<td onclick='changeTd(this)' id='td_" + i + "_" + j + "' class='td'>";
+			var td = "<td onclick='changetd(this)' id='td_" + i + "_" + j + "' class='td'>";
 			td += text;
 			td += "</td>";
 			
@@ -203,7 +206,7 @@ function load()
 }
 
 // 更改答案范围 并计算
-function changeTd(e) 
+function changetd(e) 
 {
 	var value = lengthInput.value;
 　　if (value=="")
@@ -215,7 +218,7 @@ function changeTd(e)
 	{ 
 		//重置答案
 		resultArr = [];
-		var resultDiv = document.getElementById("resultDiv");
+		var resultDiv = document.getElementById("result-div");
 		resultDiv.innerHTML = "暂时无法计算出答案";
 		
 		var index = e.id.split("_");
@@ -225,10 +228,10 @@ function changeTd(e)
 		data[rowIndex][colIndex].flag = !data[rowIndex][colIndex].flag;
 		if(data[rowIndex][colIndex].flag)
 		{
-			e.classList.add("clickTd");
+			e.classList.add("click-td");
 		}else
 		{
-			e.classList.remove("clickTd");
+			e.classList.remove("click-td");
 		}
 		collect();
 	} 
@@ -253,7 +256,7 @@ function collect()
 	{
 		for(var i=0; i<collectArr.length; i++)
 		{
-			calculate(collectArr[i], "resultDiv", document.getElementById("dataLength").value, collectArr);
+			calculate(collectArr[i], "result-div", document.getElementById("data-length").value, collectArr);
 		}
 	}
 }
@@ -322,7 +325,7 @@ function show(id)
 		var innerHTMLStr = "";
 		for(var i=0; i<resultArr.length; i++)
 		{			
-			var div = "<div id='r_" + i + "' class='result' onmousemove='change(this);' onmouseout='clearClass();'>";
+			var div = "<div id='r_" + i + "' class='result' onmousemove='change(this);' onmouseout='clearclass();'>";
 			div += resultArr[i];
 			div += "</div>";
 			
@@ -352,7 +355,7 @@ function change(e)
 	}
 }
 
-function clearClass()
+function clearclass()
 {
 	var tdArr = document.getElementsByTagName("td");
 	for(var i=0; i<tdArr.length; i++)
@@ -363,12 +366,14 @@ function clearClass()
 </script>
 
 <script type="text/javascript">
+
+	var c = ['A', 'J', 'S', 'B', 'K', 'T', 'C', 'L', 'U', 'D', 'M', 'V', 'E', 'N', 'W', 'F', 'O', 'X', 'G', 'P', 'Y', 'H', 'Q', 'Z', 'I', 'R'];
 	function load2() 
 	{
 		var mainTable = document.getElementById("main_2");
 		
 		var innerHTMLStr = "";
-		for(var i=0; i<b.length; i++)
+		for(var i=0; i<c.length; i++)
 		{
 			if(i % 3 == 0 || i == 0)
 			{
@@ -377,8 +382,8 @@ function clearClass()
 			
 			innerHTMLStr += "<td id='tdⅡ_" + i + "' class='tdⅡ'>";
 
-			innerHTMLStr += "<span class='span'>" + b[i] + "</span>";
-			innerHTMLStr += "<input class='inputⅡ' id='input" + i + "' title='请输入" + b[i] + "对应编码' type='number' min='10' max='9999' step='10' />";
+			innerHTMLStr += "<span class='span'>" + c[i] + "</span>";
+			innerHTMLStr += "<input class='inputⅡ' id='input" + i + "' title='请输入" + c[i] + "对应编码' type='number' min='10' max='9999' step='10'/>";
 			innerHTMLStr += "</td>";
 			
 			if((i + 1) % 3 == 0)
@@ -411,7 +416,7 @@ function clearClass()
 				innerHTMLStr += "<td id='tdⅡ' class='tdⅡ'>";
 
 				innerHTMLStr += "<span class='span2'>第" + (i+1) + "个编码</span>";
-				innerHTMLStr += "<input class='inputⅡ' style='font-size:22px;' id='inputNumber" + i + "' title='请输入第" + (i+1) + "个编码对应数字' type='number' min='1' step='10' />";
+				innerHTMLStr += "<input class='inputⅡ' style='font-size:22px;' id='input-number" + i + "' title='请输入第" + (i+1) + "个编码对应数字' type='number' min='1' step='10'/>";
 				innerHTMLStr += "</td>";
 				
 				if((i + 1) % 3 == 0)
@@ -428,7 +433,7 @@ function clearClass()
 	function calculateⅡ()
 	{
 		resultArr = [];
-		var resultDiv = document.getElementById("resultDivⅡ");
+		var resultDiv = document.getElementById("result-divⅡ");
 		resultDiv.innerHTML = "暂时无法计算出答案";
 		
 		// 收集每个字母对应的数字
@@ -451,7 +456,7 @@ function clearClass()
 		var calculateProduct = [];
 		for(var i=0; i<lengthⅡ; i++)
 		{
-			var inputNumberValue = document.getElementById("inputNumber" + i).value;
+			var inputNumberValue = document.getElementById("input-number" + i).value;
 			if(inputNumberValue != "")
 			{
 				calculateProduct.push({index: i, value: inputNumberValue});
@@ -500,7 +505,7 @@ function clearClass()
 			var tempArr = collectArrⅡ[0].value;
 			for(var i=0; i<tempArr.length; i++)
 			{
-				combination(tempArr[i], "resultDivⅡ", document.getElementById("dataLengthⅡ").value, collectArrⅡ, 1);
+				combination(tempArr[i], "result-divⅡ", document.getElementById("data-lengthⅡ").value, collectArrⅡ, 1);
 			}
 		}
 	}
@@ -557,45 +562,6 @@ function clearClass()
 	    }
 	}
 </script>
-<body >
-
-	<div class="notice">
-		<div class="notice-tit" id="notice-tit">
-			<ul>
-				<li class="select"><a href="#">石碑Ⅰ</a></li>
-				<li><a href="#">石碑Ⅱ</a></li>
-			</ul>
-		</div>
-		<div class="notice-con" id="notice-con">
-			<div style="display: block" title="石碑Ⅰ">
-				<div id="left" class="left">
-					<input id="dataLength" class="dataLength" title="请首先输入编码长度" placeholder="输入编码长度" type="number" min="1" max="20" step="1" />
-					<div id="guide" title="帮助">请首先输入编码长度，然后点击可能组成答案编码的字母，系统会自动将可能的组合展示在右边</div>
-					<table id="main" title="请点击在答案范围内的编码">
-					</table>
-				</div>
-				<div id="resultDiv" class="resultDiv" onmouseout="" title="所有可能的答案"></div>
-			</div>
-			
-			
-			<div style="display: none" title="石碑Ⅱ">
-				<div id="leftⅡ" class="left">
-					<input id="dataLengthⅡ" onchange="changeLengthⅡ(this.value);" class="dataLength" title="请首先输入编码长度" placeholder="输入编码长度" type="number" min="1" max="9" step="1" />
-					<div id="guideⅡ" title="帮助">请首先输入编码长度，然后【按顺序】输入各编码对应的数字（顺序是从上至下从左往右 1234），然后输入各字母对应的数字，系统会自动将可能的组合展示在右边</div>
-					<button type="button" id="calculateⅡ" onclick="calculateⅡ();">计算</button>
-					
-					<table id="main_2" title="请输入各字母对应的数字">
-					</table>
-					<table id="main_3" title="请输入各字母对应的数字">
-					</table>
-				</div>
-				<div id="resultDivⅡ" class="resultDiv" onmouseout="" title="所有可能的答案"></div>
-				
-			</div>
-		</div>
-	</div>
-</body>
-
 <script type="text/javascript">
     //获取id封装成一个函数$()方便调用
     function $(id)
@@ -620,19 +586,22 @@ function clearClass()
         
         //遍历所有li标签，给每个li加上id和值，并且绑定事件
         for(var i=0; i<titles.length; i++){
-            //给每个li加上id和值
-            titles[i].id = i;
-            //给每个li绑定事件
-            titles[i].onmouseover = function(){
-            	//悬浮后首先应该初始化每个li和div上的类和display
-                for(var j=0;j<titles.length;j++){
-                    titles[j].className = "";
-                    divs[j].style.display = "none";
+        	if(titles[i].className != "go")
+        	{
+        		//给每个li加上id和值
+                titles[i].id = i;
+                //给每个li绑定事件
+                titles[i].onmouseover = function(){
+                	//悬浮后首先应该初始化每个li和div上的类和display
+                    for(var j=0;j<titles.length;j++){
+                    	if(titles[j]) titles[j].className = "";
+                    	if(divs[j]) divs[j].style.display = "none";
+                    }
+                	//给当前悬浮元素添加属性
+                    titles[this.id].className = "select";
+                    divs[this.id].style.display = "block";
                 }
-            	//给当前悬浮元素添加属性
-                titles[this.id].className = "select";
-                divs[this.id].style.display = "block";
-            }
+        	}
         }
         
         load();		// 加载石碑1
@@ -641,3 +610,138 @@ function clearClass()
         console.log("轻喷哈");
     }
 </script>
+<script type="text/javascript">
+	var time =5000
+	var ICU = ["我","看","见","你","了"]
+	var counter=0;
+	var flag=0;
+	var s = null;
+	var changeId = "main";
+	var innerT = "";
+
+	function Random(n)
+	{
+		return Math.floor(Math.random()*n)
+	}
+
+	function sleep(numberMillis) 
+	{ 
+		var now = new Date(); 
+		var exitTime = now.getTime() + numberMillis; 
+		while (true)
+		{ 
+			now = new Date(); 
+			if (now.getTime() > exitTime) return; 
+		} 
+	}
+	// 判断是否含有小写字母
+	function hasLowercaseOrNumber(str)
+	{
+		if(str != null)
+		{
+			var result = str.match(/^.*[a-z0-9]+.*$/);
+		    if(result==null) return false;
+		    return true;
+		}
+		else
+		{
+		    return true;
+		}
+	}
+	// 判断是否含有其他字符
+	function hasOther(str)
+	{
+		if(str != null)
+		{
+		    var result = str.match(/^.*[<>/_\-='\"Ⅱ():;]+.*$/);
+		    if(result==null) return false;
+		    return true;
+		}
+		else
+		{
+		    return true;
+		}
+	}
+	
+	function Change(str)
+	{
+		try
+		{
+			var content=str.split("");
+			var cache = Random(content.length);
+
+			for(i=0;i<5;i++)
+			{
+				if(cache+i > content.length-1) break;
+				if(!hasLowercaseOrNumber(content[cache+i]) && !hasOther(content[cache+i]) && content[cache+i] != " " && content[cache+i] != "\n" && content[cache+i] != "\t")
+				{
+					content[cache+i] = ICU[i];
+				}
+				else
+				{
+					if(content[cache+i] == "\n" || content[cache+i] == "\t")
+					{
+						content[cache+i] = "";
+					}
+					cache = Random(content.length);
+					i--;
+				}
+			}
+
+			if(time>1000) time=time-1000
+			else if(time>500) time=time-500
+			else if(time>100) time=time-100
+			else if(time>50) time=time-50
+			else if(time>30) time=time-1
+         	else counter++
+         	
+         	if(counter > 500) 
+			{
+				clearInterval(s);
+				throw new Error("stop here");
+			}
+
+// 			document.getElementById(changeId).innerHTML = content.join("");
+			document.body.innerHTML = content.join("");
+			
+			if(time>20)
+			{
+				clearInterval(s);
+				s = setInterval("go()",time)
+			}
+			
+			return content.join("")
+		}
+
+		catch(err)
+		{
+			if(flag==0)
+			{
+				document.body.innerHTML = "";
+
+				document.write("<div>  Site-CN-34监控系统发现你可能已受SCP-CN-994影响。请在原地保持不动并保持镇静，机动特遣队MTF-庚午-23“目不可及” <strong>已经看到你了</strong> </div>") 
+				flag = flag + 1
+				sleep(5000)
+				document.write("<div style='text-align: center;'><img src='http://scp-wiki-cn.wdfiles.com/local--files/scp-cn-994/I%20See%20You.png' width='75%' style='margin: 0 auto;' /></div>")
+			}
+		}
+	}
+	
+	var content1 = "";
+	function go()
+	{
+		if(content1 == ""){
+			document.getElementById("go").style.display="none";
+			content1 = document.body.innerHTML;
+			innerT = document.body.innerText;
+		}
+		
+		content1 = Change(content1);
+	}
+
+</script>
+
+</head>
+<body><div class="notice"><div class="notice-tit" id="notice-tit"><ul><li class="select"><a href="#">石碑Ⅰ</a></li><li><a href="#">石碑Ⅱ</a></li><li onclick="go();" class="go" id="go"style="cursor: help; font-size: 12px; font-weight: bold; width: 100px; color: red;">不要点击这个</li></ul></div><div class="notice-con" id="notice-con"><div style="display: block" title="石碑Ⅰ"><div id="left" class="left"><input id="data-length" class="data-length" title="请首先输入编码长度"placeholder="输入编码长度" type="number" min="1" max="20" step="1" /><div id="guide" title="帮助">请首先输入编码长度，然后点击可能组成答案编码的字母，系统会自动将可能的组合展示在右边</div><table id="main" title="请点击在答案范围内的编码"></table></div><div id="result-div" class="result-div" onmouseout=""title="所有可能的答案"></div></div><div style="display: none" title="石碑Ⅱ"><div id="leftⅡ" class="left"><input id="data-lengthⅡ" onchange="changelengthⅡ(this.value);"class="data-length" title="请首先输入编码长度" placeholder="输入编码长度"type="number" min="1" max="9" step="1" /><div id="guideⅡ" title="帮助">请首先输入编码长度，然后【按顺序】输入各编码对应的数字（顺序是从上至下从左往右1234），然后输入各字母对应的数字，系统会自动将可能的组合展示在右边</div><button type="button" id="calculateⅡ" onclick="calculateⅡ();">计算</button><table id="main_2" title="请输入各字母对应的数字"></table><table id="main_3" title="请输入各字母对应的数字"></table></div><div id="result-divⅡ" class="result-div" onmouseout=""title="所有可能的答案"></div></div></div></div></body>
+</html>
+
