@@ -89,6 +89,7 @@ const FEATS = {
 	},
 	memories1 : {
 		desc : "每种内存至少有 1000 ",
+		minMap : 39,
 		map : 39,
 	},
 	speedrun1 : {

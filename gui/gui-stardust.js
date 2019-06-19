@@ -401,11 +401,11 @@ const mapDisplayHandler = {
 			this.dvDelete.onclick = (event) => {
 				let ask = !game.skills.retainVirtualBonus?"你将失去这个虚拟地图的所有奖励\n":""
 				ask += game.maps[this.name].points.some(x => x.exit && !x.owned)?"你还没有收集到虚拟地图上所有的星尘\n":""
-				if (game.skills.retainVirtualBonus && game.skills.book_enchantments1 && game.maps[this.name].points.some(x => !x.enchanted && (x.manaCosts.enchantDoom != -1 || x.manaCosts.enchantGold != -1 || x.manaCosts.enchantMana != -1 || x.manaCosts.enchantGrowth != -1))) ask += "有些节点你可以使其附魔。\n"
-				if (game.skills.virtualImprint && game.maps[this.name].points.some(x => x.canImprint && !x.harvested && !x.harvestTime)) ask += "有些节点是可以标记的。\n"
-				if (game.maps[this.name].points.some(x => x.harvesting)) ask += "有些未完成的印记将会丢失。\n"
+				if (game.skills.retainVirtualBonus && game.skills.book_enchantments1 && game.maps[this.name].points.some(x => !x.enchanted && (x.manaCosts.enchantDoom != -1 || x.manaCosts.enchantGold != -1 || x.manaCosts.enchantMana != -1 || x.manaCosts.enchantGrowth != -1))) ask += "有些节点你可以使其附魔.\n"
+				if (game.skills.virtualImprint && game.maps[this.name].points.some(x => x.canImprint && !x.harvested && !x.harvestTime)) ask += "有些节点是可以标记的.\n"
+				if (game.maps[this.name].points.some(x => x.harvesting)) ask += "有些未完成的印记将会丢失.\n"
 				if (game.maps[this.name].focus && game.maps[this.name].complete && game.world.coreStats.mapChargeSpeed) ask += "地图将停止充电生产 " + POINT_TYPES[game.maps[this.name].focus] + " 成长.\n"
-				if (game.skills.starfall && game.maps[this.name].complete && game.maps[this.name].evolved) ask += "地图将停止产生星尘。\n"
+				if (game.skills.starfall && game.maps[this.name].complete && game.maps[this.name].evolved && game.maps[this.name].level == game.realMap.level) ask += "地图将停止产生星尘。\n"
 
 				if (ask && !confirm(ask+"\n您确定要删除此地图吗?")) return
 				game.deleteMap(this.name, game.skills.retainVirtualBonus)
