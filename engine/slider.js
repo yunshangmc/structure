@@ -881,9 +881,9 @@ const sliderHandler = {
 			
 			if (n > 1) {
 				if (this.artifacts.targetOrb && this.target && (this.target.type == n + 1)) this.real.multi[x] *= 5
-				if (this.artifacts.masterOrb && this.target && (this.target.type == (n + 1) % 4 + 3)) this.real.multi[x] *= 3
+				if (this.artifacts.masterOrb && this.target && (this.target.type == (n + 3) % 4 + 3)) this.real.multi[x] *= 3
 				if (ARTIFACTS.superTargetOrb.equipped && ARTIFACTS.superTargetOrb.equipped.target && (ARTIFACTS.superTargetOrb.equipped.target.type == n + 1)) this.real.multi[x] *= 3
-				if (ARTIFACTS.superMasterOrb.equipped && ARTIFACTS.superMasterOrb.equipped.target && (ARTIFACTS.superMasterOrb.equipped.target.type == (n + 1) % 4 + 3)) this.real.multi[x] *= 2
+				if (ARTIFACTS.superMasterOrb.equipped && ARTIFACTS.superMasterOrb.equipped.target && (ARTIFACTS.superMasterOrb.equipped.target.type == (n + 3) % 4 + 3)) this.real.multi[x] *= 2
 			}
 			
 			if (target && target.index == 0 && game.world.stats[x+"Boost"]) real.multi[x] *= (game.world.stats[x+"Boost"])
