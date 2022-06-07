@@ -1,0 +1,124 @@
+Important v0.0.6:
+*关于重要问题-版本号0.0.6
+Map 
+  *地图
+- Attribute-negating shields
+    *属性屏蔽盾
+- Artifact-disabling shield
+    *神器解除盾
+World
+  *世界
+- no connected same-type allowed
+    *同型连接不可
+- no too close allowed
+    *距离太近不可
+- no disconnected allowed
+    *断开连接不可
+- power proportional to depth
+    *能力须受深度影响
+- active when depth+ sliders mining
+    *深度增长时应激活
+bonuses:
+  *奖励
+- Production boosts
+    *生产奖励*
+- Growth boosts
+    *成长速率*
+- Power multiplier cap boost
+    *上限提升*
+- Multipliers to connected
+    *连接加成
+
+Balancing :
+*关于平衡
+
+Summonner:
+  *召唤者
++ minus summon cost (world || artifacts)
+    *减少成本（世界或工具）
++ summon upon capture (artifacts)
+    *捕获时召唤（工具）
++ summon level up upon capture
+    *捕获时升级
+Elementalist:
+  *元素
++ better orbs (artifacts)
+    *更好的球体（工具）
++ countershield (artifacts)
+    *对抗盾（工具）
+Artificier:
+  *工匠
++ Better mean machine (artifacts)
+    *更好的机件（工具）
++ Other kinds of "splash" damage (artifacts)
+    *其他类型的“溅射”伤害（工具）
+
+- Artifact : Bonus if rogue decimals / 0 net exp gain
+  *工具：小数奖励/无经验收益
+- Artifact : Lose damage / ignore 25% barrier
+  *工具：减伤/忽略25%屏障
+- Artifact : Greater orbs
+  *工具：更大球体
+- Artifact : Lose damage / add to Mean Machine above (all directions)
+  *工具：减伤/加成至上述工件（所有方向）
+- Artifact : Grow through channelling to summons only
+  *工具：召唤师仅由通灵成长
+- Artifact : Unlimited (still capped) strong element clones
+  *工具：终极克隆元素
+- Artifact : ReLoad charges and lasts longer, bonus boosted
+  *工具：重载及加持费用增加
+- Artifact : Doom target node
+  *工具：毁灭目标节点
+- Artifact : Accompanying summons deal unblockable damage
+  *工具：召唤伴随不可阻挡的伤害
+- Artifact : Create summons on capture
+  *工具：捕获时创建召唤者
+...
+- Artifact : damage bonus based on how long was attacking last target 
+  *工具：伤害加成取决于最近攻击时间
+...
+
+- Skill : Virtual harvesting ? (31+)
+  *技能：虚拟收割？（31级以上）
+- Skill : Autoharvesting ? (Science) (31+)
+  *技能：自动收割？（科学）（31级以上）
+- Skill : Autocast ?(Science)
+  *技能：自动播放？（科学）
+- Skill : QoL - virtual map looping (31+)
+  *技能：虚拟地图循环（31级以上）
+- Skill : Stardust investition (resources) ?
+  *技能：星尘投资？（资源）
+
+- Notifications (ran out of exp / mana, achievement, offline progress)
+  *通知（输出经验/精神、成就、离线进度）
+- Story
+  *故事剧情
+- Wiki
+  *维基资料
+
+...
+- GameMap : Better resources display
+  *地图：更好的资源显示模式
+
+- Achievements
+  *成就
+
+- GameMap : Backgrounds (voronoi?)
+  *地图：背景（voronoi?）
+
+- Keyboard : ESC - reset target window
+  *键盘：使用ESC重置窗口
+- Keyboard : Spells on keys
+  *键盘：按键拼写
+- Keyboard : Targetting on keys
+  *键盘：按键响应
+
+- Mobile : Pinch zoom / Touch scroll
+  *移动端：触摸缩放/滚动
+- Mobile : Ascend button workaround
+  *移动端：优化按钮功能
+- Statistics : Finish
+  *统计：完成
+...
+- Endless hexagonal maps?
+  *无尽的六边形地图？
