@@ -1,3 +1,2 @@
 # 构造（Structure）
-
-汉化版：http://likexia.gitee.io/structure
+来自于：[g1tyx](https://github.com/g1tyx/structure)
